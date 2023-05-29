@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWLNReciclado", "SWLNReciclado\", "{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2723B515-191A-4FC4-BD54-27973E67190E} = {2723B515-191A-4FC4-BD54-27973E67190E}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61259"
+		Debug.AspNetCompiler.PhysicalPath = "SWLNReciclado\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61259\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61259"
+		Release.AspNetCompiler.PhysicalPath = "SWLNReciclado\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61259\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61259"
+		SlnRelativePath = "SWLNReciclado\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWADNETReciclado", "SWADNETReciclado\", "{2723B515-191A-4FC4-BD54-27973E67190E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61264"
+		Debug.AspNetCompiler.PhysicalPath = "SWADNETReciclado\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61264\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61264"
+		Release.AspNetCompiler.PhysicalPath = "SWADNETReciclado\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61264\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61264"
+		SlnRelativePath = "SWADNETReciclado\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WAReciclado", "WAReciclado\", "{8A38BFD6-61D0-493D-8598-EC93EB69132E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C} = {B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53989"
+		Debug.AspNetCompiler.PhysicalPath = "WAReciclado\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53989\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53989"
+		Release.AspNetCompiler.PhysicalPath = "WAReciclado\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53989\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53989"
+		SlnRelativePath = "WAReciclado\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84FFDCF-7D8C-4905-B4C0-6672CD150C0C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2723B515-191A-4FC4-BD54-27973E67190E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2723B515-191A-4FC4-BD54-27973E67190E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2723B515-191A-4FC4-BD54-27973E67190E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2723B515-191A-4FC4-BD54-27973E67190E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8A38BFD6-61D0-493D-8598-EC93EB69132E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A38BFD6-61D0-493D-8598-EC93EB69132E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A38BFD6-61D0-493D-8598-EC93EB69132E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A38BFD6-61D0-493D-8598-EC93EB69132E}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E1A225D-21F5-445F-8655-97595C895CD1}
+	EndGlobalSection
+EndGlobal
