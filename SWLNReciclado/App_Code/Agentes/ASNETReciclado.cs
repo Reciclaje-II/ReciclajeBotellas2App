@@ -35,12 +35,12 @@ public class ASNETReciclado
     #endregion
     #region Metodos publicos
     #region RCampania
-    public ERCampania Obtener_RCampania_O_Sede(string Sede)
+    public ERCampania Obtener_RCampania_O_Sede(string SedeCampania)
     {
         ERCampania erCampania = new ERCampania();
         try
         {
-            erCampania = swADNETReciclado.Obtener_RCampania_O_Sede(Sede);
+            erCampania = swADNETReciclado.Obtener_RCampania_O_Sede(SedeCampania);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -52,7 +52,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erCampania = swADNETReciclado.Obtener_RCampania_O_Sede(Sede);
+                erCampania = swADNETReciclado.Obtener_RCampania_O_Sede(SedeCampania);
             }
             else
             {
@@ -148,11 +148,11 @@ public class ASNETReciclado
         }
     }
 
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string NombreCampania)
     {
         try
         {
-            swADNETReciclado.Actualizar_RCampania_A_Estado(Nombre);
+            swADNETReciclado.Actualizar_RCampania_A_Estado(NombreCampania);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -164,7 +164,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                swADNETReciclado.Actualizar_RCampania_A_Estado(Nombre);
+                swADNETReciclado.Actualizar_RCampania_A_Estado(NombreCampania);
             }
             else
             {
@@ -175,11 +175,11 @@ public class ASNETReciclado
         }
     }
 
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    public void Actualizar_RCampania_A_Estado_Cancelado(string NombreCampania)
     {
         try
         {
-            swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+            swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -191,7 +191,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+                swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
             }
             else
             {
@@ -203,12 +203,12 @@ public class ASNETReciclado
     }
     #endregion
     #region RCampaniaOrganizacion
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion)
     {
         List<ERCampaniaOrganizacion> lstErCampania = new List<ERCampaniaOrganizacion>();
         try
         {
-            lstErCampania = swADNETReciclado.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+            lstErCampania = swADNETReciclado.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion).ToList();
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -221,7 +221,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                lstErCampania = swADNETReciclado.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+                lstErCampania = swADNETReciclado.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion).ToList();
             }
             else
             {

@@ -33,7 +33,7 @@ public partial class PAgregarCampania : System.Web.UI.Page
         txbNombreCmpania.Enabled = false;
         btnGuardarCampania.Text = "Guardar";
         txbNombreCmpania.Text = (Session["EditarCampania"].ToString().Split('-'))[1];
-        txbDescripcion.Text = eCampaniaEdit.Descripcion;
+        txbDescripcion.Text = eCampaniaEdit.DescripcionCampania;
     }
     public void CleanPage()
     {
@@ -109,7 +109,7 @@ public partial class PAgregarCampania : System.Web.UI.Page
             List<ECampaniaAux> lstOrganizaciones = new List<ECampaniaAux>(); ;
             for (int i = 0; i < eCampaniaOrganizacion.Count(); i++)
             {
-                lstOrganizaciones.Add(new ECampaniaAux(eCampaniaOrganizacion[i].Organizacion));
+                lstOrganizaciones.Add(new ECampaniaAux(eCampaniaOrganizacion[i].OrganizacionCampaniaOrganizacion));
             }
             GridViewListaOrganizaciones.DataSource = null;
             GridViewListaOrganizaciones.DataSource = lstOrganizaciones;
@@ -119,9 +119,9 @@ public partial class PAgregarCampania : System.Web.UI.Page
 
 
 
-            string mesInicio = eCampaniaEdit.FechaInicio.Month.ToString(), diaInicio = eCampaniaEdit.FechaInicio.Day.ToString(), mesFin = eCampaniaEdit.FechaFin.Month.ToString(), diaFin = eCampaniaEdit.FechaFin.Day.ToString();
-            string fechaInicio = eCampaniaEdit.FechaInicio.Year + "-" + SUtil.ConvertirFechas(mesInicio) + "-" + SUtil.ConvertirFechas(diaInicio);
-            string fechaFin = eCampaniaEdit.FechaFin.Year + "-" + SUtil.ConvertirFechas(mesFin) + "-" + SUtil.ConvertirFechas(diaFin);
+            string mesInicio = eCampaniaEdit.FechaInicioCampania.Month.ToString(), diaInicio = eCampaniaEdit.FechaInicioCampania.Day.ToString(), mesFin = eCampaniaEdit.FechaFinCampania.Month.ToString(), diaFin = eCampaniaEdit.FechaFinCampania.Day.ToString();
+            string fechaInicio = eCampaniaEdit.FechaInicioCampania.Year + "-" + SUtil.ConvertirFechas(mesInicio) + "-" + SUtil.ConvertirFechas(diaInicio);
+            string fechaFin = eCampaniaEdit.FechaFinCampania.Year + "-" + SUtil.ConvertirFechas(mesFin) + "-" + SUtil.ConvertirFechas(diaFin);
             txbFechaInicio.Text = fechaInicio;
             txbFechaFin.Text = fechaFin;
         }

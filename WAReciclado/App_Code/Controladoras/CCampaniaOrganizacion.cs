@@ -66,7 +66,7 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
             lstERCampania = lnServicio.Obtener_RCampania_O(Session["Sede"].ToString()).ToList();
             foreach (var item in lstERCampania)
             {
-                if (item.Nombre == nombreCampania)
+                if (item.NombreCampania == nombreCampania)
                 {
                     if (nombreCampania.Split('|').Count() == 2)
                     {

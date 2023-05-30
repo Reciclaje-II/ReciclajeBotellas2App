@@ -11,18 +11,18 @@ using System.Web;
 public class ECampaniaFinalizadaCompleja
 {
     [DataMember]
-    public string Organizacion { get; set; }
+    public string OrganizacionCampania { get; set; }
     [DataMember]
-    public int Recaudacion { get; set; }
+    public int RecaudacionCampania { get; set; }
     [DataMember]
-    public string MejorDonador { get; set; }
+    public string MejorDonadorCampania { get; set; }
     [DataMember]
-    public int Donacion { get; set; }
+    public int DonacionCampania { get; set; }
     public ECampaniaFinalizadaCompleja()
     {
-        Organizacion = string.Empty;
-        Recaudacion = 0;
-        MejorDonador = string.Empty;
-        Donacion = 0;
+        OrganizacionCampania = string.Empty;
+        RecaudacionCampania = 0;
+        MejorDonadorCampania = string.Empty;
+        DonacionCampania = 0;
     }
 }

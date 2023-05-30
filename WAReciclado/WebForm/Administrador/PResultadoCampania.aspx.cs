@@ -33,12 +33,12 @@ public partial class PResultadoCampania : System.Web.UI.Page
         votosOrganizacion = cCampaniaOrganizacion.Obtener_RVotos_O_Campania_Organizacion_CCO(nombreCampania, nombreOrganizacion);
         votosCampania = cCampania.Obtener_RVotos_O_Campania_CC(nombreCampania);
         lblVotos.Text = votosOrganizacion + "/" + votosCampania;
-        lblMejorDonador.Text = eCampaniaFinalizadaCompleja.MejorDonador;
-        lblMonto.Text = eCampaniaFinalizadaCompleja.Recaudacion + " créditos";
-        lblNombreCampania.Text = eCampaniaFinalizadaCompleja.Organizacion;
-        lblCantidadDonada.Text = eCampaniaFinalizadaCompleja.Donacion.ToString();
+        lblMejorDonador.Text = eCampaniaFinalizadaCompleja.MejorDonadorCampania;
+        lblMonto.Text = eCampaniaFinalizadaCompleja.RecaudacionCampania + " créditos";
+        lblNombreCampania.Text = eCampaniaFinalizadaCompleja.OrganizacionCampania;
+        lblCantidadDonada.Text = eCampaniaFinalizadaCompleja.DonacionCampania.ToString();
 
-        string pathResultado = eCampaniaFinalizadaCompleja.Organizacion;
+        string pathResultado = eCampaniaFinalizadaCompleja.OrganizacionCampania;
         pathResultado = pathResultado.ToLower();
         pathResultado = Regex.Replace(pathResultado, @"\s", "");
         string pathImage = @"/Imagenes/Logo/" + pathResultado + ".png";

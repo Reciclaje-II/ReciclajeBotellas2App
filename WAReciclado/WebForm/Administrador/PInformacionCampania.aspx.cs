@@ -41,10 +41,10 @@ public partial class PInformacionCampania : System.Web.UI.Page
         {
             foreach (var item in eCampaniaOrganizacion)
             {
-                string pathOrganizacion = Regex.Replace(item.Organizacion.ToLower(), @"\s", "");
+                string pathOrganizacion = Regex.Replace(item.OrganizacionCampaniaOrganizacion.ToLower(), @"\s", "");
                 pathOrganizacion = @"/Imagenes/Logo/" + pathOrganizacion + ".png";
-                int votos = cCampaniaOrganizacion.Obtener_RVotos_O_Campania_Organizacion_CCO(item.Campania, item.Organizacion);
-                CargarOrganizaciones(votos, item.Organizacion, pathOrganizacion);
+                int votos = cCampaniaOrganizacion.Obtener_RVotos_O_Campania_Organizacion_CCO(item.CampaniaCampaniaOrganizacion, item.OrganizacionCampaniaOrganizacion);
+                CargarOrganizaciones(votos, item.OrganizacionCampaniaOrganizacion, pathOrganizacion);
                 votosList.Add(votos);
             }
         }
@@ -73,7 +73,7 @@ public partial class PInformacionCampania : System.Web.UI.Page
         //cCampania.Finalizar_Campania(fechaFin, sede, lblCampaniaFin.Text);
         eCampania = new ERCampania();
         eCampania = cCampania.Obtener_RCampania_O_Sede_CC(sede);
-        fechaFin = eCampania.FechaFin;
+        fechaFin = eCampania.FechaFinCampania;
         string verbo = string.Empty;
         if (fechaFin < DateTime.Now.Date)
             verbo = " venció ";
@@ -81,7 +81,7 @@ public partial class PInformacionCampania : System.Web.UI.Page
             verbo = " vencerá ";
         if (fechaFin == DateTime.Now.Date)
             verbo = " vence ";
-        lblCampaniaFin.Text = "La " + eCampania.Nombre + verbo + " el " + fechaFin.ToShortDateString();
+        lblCampaniaFin.Text = "La " + eCampania.NombreCampania + verbo + " el " + fechaFin.ToShortDateString();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Abrir()", true);
     }
 

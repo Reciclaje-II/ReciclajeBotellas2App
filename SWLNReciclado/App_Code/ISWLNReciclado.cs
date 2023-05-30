@@ -12,25 +12,25 @@ public interface ISWLNReciclado
 {
     #region RCampania
     [OperationContract]
-    ERCampania Obtener_RCampania_O_Sede(string Sede);
+    ERCampania Obtener_RCampania_O_Sede(string SedeCampania);
     [OperationContract]
-    List<ERCampania> Obtener_RCampania_O(string Sede);
+    List<ERCampania> Obtener_RCampania_O(string SedeCampania);
     [OperationContract]
-    ERCampania Obtener_RCampania_O_Sede_Campania(string Campania, string Sede);
+    ERCampania Obtener_RCampania_O_Sede_Campania(string nombreCampania, string SedeCampania);
     [OperationContract]
-    void Insertar_RCampania_I(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, string sede);
+    void Insertar_RCampania_I(string nombreCampania, string descripcionCampania, DateTime fechaInicioCampania, DateTime fechaFinCampania, string sedeCampania);
     [OperationContract]
-    void Actualizar_RCampania_A(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, string sede);
+    void Actualizar_RCampania_A(string nombreCampania, string descripcionCampania, DateTime fechaInicioCampania, DateTime fechaFinCampania, string sedeCampania);
     [OperationContract]
-    void Actualizar_RCampania_A_Estado(string Nombre);
+    void Actualizar_RCampania_A_Estado(string NombreCampania);
     [OperationContract]
-    void Actualizar_RCampania_A_Estado_Cancelado(string Nombre);
+    void Actualizar_RCampania_A_Estado_Cancelado(string NombreCampania);
     #endregion
     #region RCampaniaOrganizacion
     [OperationContract]
-    List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania);
+    List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion);
     [OperationContract]
-    void Insertar_RCampaniaOrganizacion_I(string Campania, string Organizacion);
+    void Insertar_RCampaniaOrganizacion_I(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion);
     #endregion
     #region ROrganizacion
     [OperationContract]

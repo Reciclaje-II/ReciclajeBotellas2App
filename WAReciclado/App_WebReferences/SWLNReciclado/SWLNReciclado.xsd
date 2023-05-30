@@ -5,7 +5,7 @@
   <xs:element name="Obtener_RCampania_O_Sede">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -19,7 +19,7 @@
   <xs:element name="Obtener_RCampania_O">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,8 +33,8 @@
   <xs:element name="Obtener_RCampania_O_Sede_Campania">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -48,11 +48,11 @@
   <xs:element name="Insertar_RCampania_I">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcionCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaInicioCampania" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaFinCampania" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -64,11 +64,11 @@
   <xs:element name="Actualizar_RCampania_A">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcionCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaInicioCampania" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaFinCampania" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -80,7 +80,7 @@
   <xs:element name="Actualizar_RCampania_A_Estado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -92,7 +92,7 @@
   <xs:element name="Actualizar_RCampania_A_Estado_Cancelado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -104,7 +104,7 @@
   <xs:element name="Obtener_RCampaniaOrganizacion_O_Campania">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -118,8 +118,8 @@
   <xs:element name="Insertar_RCampaniaOrganizacion_I">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OrganizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

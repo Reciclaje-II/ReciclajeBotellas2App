@@ -22,16 +22,20 @@ public class CRCampaniaOrganizacion
         adRCampaniaOrganizacion.Insertar_RCampaniaOrganizacion_I(eRCampaniaOrganizacion);
     }
 
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion) 
     {
         ERCampaniaOrganizacion eRCampaniaOrganizacion;
         List<ERCampaniaOrganizacion> lstERCampaniaOrganizacion = new List<ERCampaniaOrganizacion>();
-        DTORCampaniaOrganizacion dtoRCampaniaOrganizacion = adRCampaniaOrganizacion.Obtener_RCampaniaOrganizacion_O_Campania(Campania);
+        DTORCampaniaOrganizacion dtoRCampaniaOrganizacion = adRCampaniaOrganizacion.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion);
         foreach (DTORCampaniaOrganizacion.RCampaniaOrganizacionRow drRCampaniaOrganizacion in dtoRCampaniaOrganizacion.RCampaniaOrganizacion.Rows)
         {
             eRCampaniaOrganizacion = new ERCampaniaOrganizacion();
-            eRCampaniaOrganizacion.Campania = drRCampaniaOrganizacion.Campania.TrimEnd();
-            eRCampaniaOrganizacion.Organizacion = drRCampaniaOrganizacion.Organizacion.TrimEnd();
+            eRCampaniaOrganizacion.CampaniaCampaniaOrganizacion = drRCampaniaOrganizacion.CampaniaCampaniaOrganizacion.TrimEnd();
+            eRCampaniaOrganizacion.OrganizacionCampaniaOrganizacion = drRCampaniaOrganizacion.OrganizacionCampaniaOrganizacion.TrimEnd();
+            eRCampaniaOrganizacion.IdCampaniaOrganizacion = drRCampaniaOrganizacion.IdCampaniaOrganizacion;
+            eRCampaniaOrganizacion.FechaRegistroCampaniaOrganizacion = drRCampaniaOrganizacion.FechaRegistroCampaniaOrganizacion;
+            eRCampaniaOrganizacion.FechaModificacionCampaniaOrganizacion = drRCampaniaOrganizacion.FechaModificacionCampaniaOrganizacion;
+            eRCampaniaOrganizacion.EstadoCampaniaOrganizacion = drRCampaniaOrganizacion.EstadoCampaniaOrganizacion;
             lstERCampaniaOrganizacion.Add(eRCampaniaOrganizacion);
         }
         return lstERCampaniaOrganizacion;
