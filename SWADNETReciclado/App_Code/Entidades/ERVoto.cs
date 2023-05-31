@@ -12,28 +12,30 @@ public class ERVoto
 {
     #region Atributos
     [DataMember]
-    public string Codigo { get; set; }
+    public string CodigoUsuario { get; set; }
     [DataMember]
-    public string Campania { get; set; }
+    public string CampaniaVoto { get; set; }
     [DataMember]
-    public string Organizacion { get; set; }
+    public string OrganizacionVoto { get; set; }
     [DataMember]
-    public DateTime Fecha { get; set; }
+    public DateTime FechaRegistroVoto { get; set; }
     [DataMember]
-    public string Donacion { get; set; }
+    public string DonacionVoto { get; set; }
     [DataMember]
-    public string Estado { get; set; }
+    public string EstadoVoto { get; set; }
     [DataMember]
-    public DateTime FechaActualizacion { get; set; }
+    public DateTime FechaModificacionVoto { get; set; }
+    public string IdVoto { get; set; }
     #endregion
     public ERVoto()
     {
-        Codigo = string.Empty;
-        Campania = string.Empty;
-        Organizacion = string.Empty;
-        Fecha = DateTime.MinValue;
-        Donacion = string.Empty;
-        Estado = string.Empty;
-        FechaActualizacion = DateTime.MinValue;
+        CodigoUsuario = string.Empty;
+        CampaniaVoto = string.Empty;
+        OrganizacionVoto = string.Empty;
+        FechaRegistroVoto = DateTime.MinValue;
+        DonacionVoto = string.Empty;
+        EstadoVoto = string.Empty;
+        FechaModificacionVoto = DateTime.MinValue;
+        IdVoto= string.Empty;
     }
 }

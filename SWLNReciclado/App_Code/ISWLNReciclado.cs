@@ -46,25 +46,25 @@ public interface ISWLNReciclado
     #endregion
     #region RImagen
     [OperationContract]
-    List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo);
+    List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen);
     #endregion
     #region RVoto
     [OperationContract]
-    void Insertar_RVoto_I(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado);
+    void Insertar_RVoto_I(string CodigoUsuario, string NombreCampania, string NombreOrganizacion, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto);
     [OperationContract]
-    void Actualizar_RVoto_A(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado);
+    void Actualizar_RVoto_A(string CodigoUsuario, string NombreCampania, string NombreOrganizacion, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania);
+    ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania);
     [OperationContract]
-    int Obtener_RVotos_O_Campania(string Campania);
+    int Obtener_RVotos_O_Campania(string CampaniaVoto);
     [OperationContract]
-    int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion);
+    int Obtener_RVotos_O_Campania_Organizacion(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion);
     [OperationContract]
-    int Obtener_RVoto_O_Donacion_Total(string Campania);
+    int Obtener_RVoto_O_Donacion_Total(string CampaniaVoto);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania);
+    ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania);
     [OperationContract]
-    string Obtener_RVoto_O_Organizacion(string Campania);
+    string Obtener_RVoto_O_Organizacion(string NombreCampania);
     #endregion
     #region RUsuarioNetValle
     [OperationContract]

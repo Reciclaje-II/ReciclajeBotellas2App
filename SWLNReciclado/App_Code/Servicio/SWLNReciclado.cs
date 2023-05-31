@@ -100,69 +100,69 @@ public class SWLNReciclado : ISWLNReciclado
     }
     #endregion
     #region RImagen
-    public List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen)
     {
         CReciclado cReciclado = new CReciclado();
         List<ERImagen> lstErImagen = new List<ERImagen>();
-        lstErImagen = cReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo);
+        lstErImagen = cReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen);
         return lstErImagen;
     }   
     #endregion
     #region RVoto
-    public void Insertar_RVoto_I(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Insertar_RVoto_I(string CodigoUsaurio, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Insertar_RVoto_I(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+        cReciclado.Insertar_RVoto_I(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
     }
 
-    public void Actualizar_RVoto_A(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Actualizar_RVoto_A(string CodigoUsaurio, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Actualizar_RVoto_A(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+        cReciclado.Actualizar_RVoto_A(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
     }
-    public ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania)
     {
         CReciclado cReciclado = new CReciclado();
         ERVoto erVoto = new ERVoto();
-        erVoto = cReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+        erVoto = cReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
         return erVoto;
     }
 
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string CampaniaVoto)
     {
         CReciclado cReciclado = new CReciclado();
         int votos = 0;
-        votos = cReciclado.Obtener_RVotos_O_Campania(Campania);
+        votos = cReciclado.Obtener_RVotos_O_Campania(CampaniaVoto);
         return votos;
     }
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         CReciclado cReciclado = new CReciclado();
         int votos = 0;
-        votos = cReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+        votos = cReciclado.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
         return votos;
     }
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string CampaniaVoto)
     {
         CReciclado cReciclado = new CReciclado();
         int votos = 0;
-        votos = cReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+        votos = cReciclado.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
         return votos;
     }
 
-    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania)
     {
         CReciclado cReciclado = new CReciclado();
         ERVoto erVoto = new ERVoto();
-        erVoto = cReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+        erVoto = cReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
         return erVoto;
     }
 
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string NombreCampania)
     {
         CReciclado cReciclado = new CReciclado();
         string organizacion = string.Empty;
-        organizacion = cReciclado.Obtener_RVoto_O_Organizacion(Campania);
+        organizacion = cReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
         return organizacion;
     }
     #endregion

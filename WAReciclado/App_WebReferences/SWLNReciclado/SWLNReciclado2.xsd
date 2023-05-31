@@ -65,13 +65,13 @@
   <xs:element name="ERImagen" nillable="true" type="tns:ERImagen" />
   <xs:complexType name="ERVoto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Donacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaActualizacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaniaVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DonacionVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionVoto" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroVoto" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrganizacionVoto" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ERVoto" nillable="true" type="tns:ERVoto" />
@@ -130,10 +130,10 @@
   <xs:element name="EUsuarioCompleja" nillable="true" type="tns:EUsuarioCompleja" />
   <xs:complexType name="ECampaniaFinalizadaCompleja">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Donacion" type="xs:int" />
-      <xs:element minOccurs="0" name="MejorDonador" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Recaudacion" type="xs:int" />
+      <xs:element minOccurs="0" name="DonacionCampania" type="xs:int" />
+      <xs:element minOccurs="0" name="MejorDonadorCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizacionCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecaudacionCampania" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ECampaniaFinalizadaCompleja" nillable="true" type="tns:ECampaniaFinalizadaCompleja" />

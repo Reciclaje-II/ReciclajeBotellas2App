@@ -15,17 +15,17 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Actualizar_RVoto_A(ERVoto eRVoto);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania);
+    ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania);
     [OperationContract]
-    int Obtener_RVotos_O_Campania(string Campania);
+    int Obtener_RVotos_O_Campania(string NombreCampania);
     [OperationContract]
-    int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion);
+    int Obtener_RVotos_O_Campania_Organizacion(string NombreCampania, string Organizacion);
     [OperationContract]
-    int Obtener_RVoto_O_Donacion_Total(string Campania);
+    int Obtener_RVoto_O_Donacion_Total(string NombreCampania);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania);
+    ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania);
     [OperationContract]
-    string Obtener_RVoto_O_Organizacion(string Campania);
+    string Obtener_RVoto_O_Organizacion(string NombreCampania);
     #endregion
     #region Tabla : RUsuarioNetvalle
     [OperationContract]
@@ -71,7 +71,7 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Insertar_RImagen_I(ERImagen eRImagen);
     [OperationContract]
-    List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo);
+    List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen);
     #endregion
     #region Tabla: RUsuario
     [OperationContract]

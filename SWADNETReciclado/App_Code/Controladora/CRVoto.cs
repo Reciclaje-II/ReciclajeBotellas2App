@@ -27,54 +27,56 @@ public class CRVoto
         adRVoto.Actualizar_RVoto_A(eRVoto);
     }
 
-    public ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania)
     {
         ERVoto eRVoto = new ERVoto();
-        DTORVoto dtoRVoto = adRVoto.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+        DTORVoto dtoRVoto = adRVoto.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
         foreach (DTORVoto.RVotoRow drRVoto in dtoRVoto.RVoto.Rows)
         {
             eRVoto = new ERVoto();
-            eRVoto.Codigo = drRVoto.Codigo.TrimEnd();
-            eRVoto.Campania = drRVoto.Campania.TrimEnd();
-            eRVoto.Organizacion = drRVoto.Organizacion.TrimEnd();
-            eRVoto.Fecha = drRVoto.Fecha;
-            eRVoto.Donacion = drRVoto.Donacion.ToString().TrimEnd();
-            eRVoto.Estado = drRVoto.Estado.ToString().TrimEnd();
+            eRVoto.CodigoUsuario = drRVoto.CodigoUsuario.TrimEnd();
+            eRVoto.CampaniaVoto = drRVoto.CampaniaVoto.TrimEnd();
+            eRVoto.OrganizacionVoto = drRVoto.OrganizacionVoto.TrimEnd();
+            eRVoto.FechaRegistroVoto = drRVoto.FechaRegistroVoto;
+            eRVoto.DonacionVoto = drRVoto.DonacionVoto.ToString().TrimEnd();
+            eRVoto.EstadoVoto = drRVoto.EstadoVoto.ToString().TrimEnd();
+            eRVoto.IdVoto = drRVoto.IdVoto.ToString().TrimEnd();
+            
         }
         return eRVoto;
     }
 
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string NombreCampania)
     {
-        return adRVoto.Obtener_RVotos_O_Campania(Campania);
+        return adRVoto.Obtener_RVotos_O_Campania(NombreCampania);
     }
 
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
-        return adRVoto.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+        return adRVoto.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
     }
 
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string CampaniaVoto)
     {
-        return adRVoto.Obtener_RVoto_O_Donacion_Total(Campania);
+        return adRVoto.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
     }
 
-    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania)
     {
         ERVoto eRVoto = new ERVoto();
-        DTORVoto dtoRVoto = adRVoto.Obtener_RVoto_O_Donacion_Maxima(Campania);
+        DTORVoto dtoRVoto = adRVoto.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
         foreach (DTORVoto.RVotoRow drRVoto in dtoRVoto.RVoto.Rows)
         {
             eRVoto = new ERVoto();
-            eRVoto.Codigo = drRVoto.Codigo.TrimEnd();
-            eRVoto.Donacion = drRVoto.Donacion.ToString().TrimEnd();
+            eRVoto.CodigoUsuario = drRVoto.CodigoUsuario.TrimEnd();
+            eRVoto.DonacionVoto = drRVoto.DonacionVoto.ToString().TrimEnd();
         }
         return eRVoto;
     }
 
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string NombreCampania)
     {
-        return adRVoto.Obtener_RVoto_O_Organizacion(Campania);
+        return adRVoto.Obtener_RVoto_O_Organizacion(NombreCampania);
     }
     #endregion
 }

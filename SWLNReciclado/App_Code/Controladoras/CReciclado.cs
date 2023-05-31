@@ -444,12 +444,12 @@ public class CReciclado
     }
     #endregion
     #region RImagen
-    public List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen)
     {
         List<ERImagen> lstErImagen = new List<ERImagen>();
         try
         {
-            lstErImagen = asNetReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo);
+            lstErImagen = asNetReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen);
            
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -462,7 +462,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                lstErImagen = asNetReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo);
+                lstErImagen = asNetReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen);
             }
             else
             {
@@ -475,17 +475,18 @@ public class CReciclado
     }
     #endregion
     #region RVoto
-    public void Insertar_RVoto_I(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Insertar_RVoto_I(string CodigoUsuario, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         ERVoto eRVoto = new ERVoto();        
         try
         {
-            eRVoto.Codigo = Codigo;
-            eRVoto.Campania = Campania;
-            eRVoto.Organizacion = Organizacion;
-            eRVoto.Fecha = Fecha;
-            eRVoto.Donacion = Donacion;
-            eRVoto.Estado = Estado;
+            eRVoto.CodigoUsuario = CodigoUsuario;
+            eRVoto.CampaniaVoto = CampaniaVoto;
+            eRVoto.OrganizacionVoto = OrganizacionVoto;
+            eRVoto.FechaRegistroVoto = FechaRegistroVoto;
+            eRVoto.DonacionVoto = DonacionVoto;
+            eRVoto.EstadoVoto = EstadoVoto;
+            eRVoto.FechaModificacionVoto = FechaModificacionVoto;
             asNetReciclado.Insertar_RVoto_I(eRVoto);
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -508,17 +509,18 @@ public class CReciclado
 
         }
     }
-    public void Actualizar_RVoto_A(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Actualizar_RVoto_A(string CodigoUsuario, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         ERVoto eRVoto = new ERVoto();
         try
         {
-            eRVoto.Codigo = Codigo;
-            eRVoto.Campania = Campania;
-            eRVoto.Organizacion = Organizacion;
-            eRVoto.Fecha = Fecha;
-            eRVoto.Donacion = Donacion;
-            eRVoto.Estado = Estado;
+            eRVoto.CodigoUsuario = CodigoUsuario;
+            eRVoto.CampaniaVoto = CampaniaVoto;
+            eRVoto.OrganizacionVoto = OrganizacionVoto;
+            eRVoto.FechaRegistroVoto = FechaRegistroVoto;
+            eRVoto.DonacionVoto = DonacionVoto;
+            eRVoto.EstadoVoto = EstadoVoto;
+            eRVoto.FechaModificacionVoto = FechaModificacionVoto;
             asNetReciclado.Actualizar_RVoto_A(eRVoto);
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -541,12 +543,12 @@ public class CReciclado
 
         }
     }
-    public ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = asNetReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+            erVoto = asNetReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -559,7 +561,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erVoto = asNetReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+                erVoto = asNetReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
             }
             else
             {
@@ -570,12 +572,12 @@ public class CReciclado
         }
         return erVoto;
     }
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string CampaniaVoto)
     {
         int votos = 0;
         try
         {
-            votos = asNetReciclado.Obtener_RVotos_O_Campania(Campania);
+            votos = asNetReciclado.Obtener_RVotos_O_Campania(CampaniaVoto);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -588,7 +590,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                votos = asNetReciclado.Obtener_RVotos_O_Campania(Campania);
+                votos = asNetReciclado.Obtener_RVotos_O_Campania(CampaniaVoto);
             }
             else
             {
@@ -599,12 +601,12 @@ public class CReciclado
         }
         return votos;
     }
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = asNetReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = asNetReciclado.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
            
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -617,7 +619,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                votos = asNetReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+                votos = asNetReciclado.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
             }
             else
             {
@@ -628,12 +630,12 @@ public class CReciclado
         }
         return votos;
     }
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string CampaniaVoto)
     {
         int total = 0;
         try
         {
-            total = asNetReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+            total = asNetReciclado.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -646,7 +648,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                total = asNetReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+                total = asNetReciclado.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
             }
             else
             {
@@ -657,12 +659,12 @@ public class CReciclado
         }
         return total;
     }
-    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+            erVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -675,7 +677,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+                erVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
             }
             else
             {
@@ -686,12 +688,12 @@ public class CReciclado
         }
         return erVoto;
     }
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string NombreCampania)
     {
         string organizacion = string.Empty;
         try
         {
-            organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(Campania);
+            organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
            
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -704,7 +706,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(Campania);
+                organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
             }
             else
             {
@@ -1071,19 +1073,19 @@ public class CReciclado
     }
     #endregion
     #region ECampaniaFinalizadaCompleja
-    public ECampaniaFinalizadaCompleja Obtener_ECampaniaFinalizadaCompleja_O_Campania(string Campania, string Sede)
+    public ECampaniaFinalizadaCompleja Obtener_ECampaniaFinalizadaCompleja_O_Campania(string NombreCampania, string Sede)
     {
         ECampaniaFinalizadaCompleja eCampaniaFinalizadaCompleja = new ECampaniaFinalizadaCompleja();
         ERUsuarioNetvalle erUsuarioNetvalle;
         ERVoto eRVoto;
         try
         {
-            eRVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
-            erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(eRVoto.Codigo);
-            eCampaniaFinalizadaCompleja.MejorDonador = erUsuarioNetvalle.Nombres + " " + erUsuarioNetvalle.Apellidos;
-            eCampaniaFinalizadaCompleja.Donacion = int.Parse(eRVoto.Donacion);
-            eCampaniaFinalizadaCompleja.Organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(Campania);
-            eCampaniaFinalizadaCompleja.Recaudacion = asNetReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+            eRVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
+            erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(eRVoto.CodigoUsuario);
+            eCampaniaFinalizadaCompleja.MejorDonadorCampania = erUsuarioNetvalle.Nombres + " " + erUsuarioNetvalle.Apellidos;
+            eCampaniaFinalizadaCompleja.DonacionCampania = int.Parse(eRVoto.DonacionVoto);
+            eCampaniaFinalizadaCompleja.OrganizacionCampania = asNetReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
+            eCampaniaFinalizadaCompleja.RecaudacionCampania = asNetReciclado.Obtener_RVoto_O_Donacion_Total(NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -1096,12 +1098,12 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                eRVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
-                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(eRVoto.Codigo);
-                eCampaniaFinalizadaCompleja.MejorDonador = erUsuarioNetvalle.Nombres + " " + erUsuarioNetvalle.Apellidos;
-                eCampaniaFinalizadaCompleja.Donacion = int.Parse(eRVoto.Donacion);
-                eCampaniaFinalizadaCompleja.Organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(Campania);
-                eCampaniaFinalizadaCompleja.Recaudacion = asNetReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+                eRVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
+                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(eRVoto.CodigoUsuario);
+                eCampaniaFinalizadaCompleja.MejorDonadorCampania = erUsuarioNetvalle.Nombres + " " + erUsuarioNetvalle.Apellidos;
+                eCampaniaFinalizadaCompleja.DonacionCampania = int.Parse(eRVoto.DonacionVoto);
+                eCampaniaFinalizadaCompleja.OrganizacionCampania = asNetReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
+                eCampaniaFinalizadaCompleja.RecaudacionCampania = asNetReciclado.Obtener_RVoto_O_Donacion_Total(NombreCampania);
             }
             else
             {

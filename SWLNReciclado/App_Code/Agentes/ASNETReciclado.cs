@@ -397,12 +397,12 @@ public class ASNETReciclado
     }
     #endregion
     #region RImagen
-    public List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen)
     {
         List<ERImagen> lstErImagen = new List<ERImagen>();
         try
         {
-            lstErImagen = swADNETReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo).ToList();
+            lstErImagen = swADNETReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen).ToList();
            
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -415,7 +415,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                lstErImagen = swADNETReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo).ToList();
+                lstErImagen = swADNETReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen).ToList();
             }
             else
             {
@@ -480,12 +480,12 @@ public class ASNETReciclado
 
         }
     }
-    public ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = swADNETReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+            erVoto = swADNETReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -498,7 +498,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erVoto = swADNETReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+                erVoto = swADNETReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
             }
             else
             {
@@ -509,12 +509,12 @@ public class ASNETReciclado
         }
         return erVoto;
     }
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string NombreCampania)
     {
         int votos = 0;
         try
         {
-            votos = swADNETReciclado.Obtener_RVotos_O_Campania(Campania);
+            votos = swADNETReciclado.Obtener_RVotos_O_Campania(NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -527,7 +527,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                votos = swADNETReciclado.Obtener_RVotos_O_Campania(Campania);
+                votos = swADNETReciclado.Obtener_RVotos_O_Campania(NombreCampania);
             }
             else
             {
@@ -538,12 +538,12 @@ public class ASNETReciclado
         }
         return votos;
     }
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string OrganizacionCampaniaOrganizacion, string NombreOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = swADNETReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = swADNETReciclado.Obtener_RVotos_O_Campania_Organizacion(OrganizacionCampaniaOrganizacion, NombreOrganizacion);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -556,7 +556,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                votos = swADNETReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+                votos = swADNETReciclado.Obtener_RVotos_O_Campania_Organizacion(OrganizacionCampaniaOrganizacion, NombreOrganizacion);
             }
             else
             {
@@ -567,12 +567,12 @@ public class ASNETReciclado
         }
         return votos;
     }
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string NombreCampania)
     {
         int total = 0;
         try
         {
-            total = swADNETReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+            total = swADNETReciclado.Obtener_RVoto_O_Donacion_Total(NombreCampania);
         }
 
         catch (EndpointNotFoundException EndPointEx)
@@ -585,7 +585,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                total = swADNETReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+                total = swADNETReciclado.Obtener_RVoto_O_Donacion_Total(NombreCampania);
             }
             else
             {
@@ -596,12 +596,12 @@ public class ASNETReciclado
         }
         return total;
     }
-    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = swADNETReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+            erVoto = swADNETReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
            
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -614,7 +614,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erVoto = swADNETReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+                erVoto = swADNETReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
             }
             else
             {
@@ -625,12 +625,12 @@ public class ASNETReciclado
         }
         return erVoto;
     }
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string NombreCampania)
     {
         string organizacion = string.Empty;
         try
         {
-            organizacion = swADNETReciclado.Obtener_RVoto_O_Organizacion(Campania);
+            organizacion = swADNETReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
             
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -643,7 +643,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                organizacion = swADNETReciclado.Obtener_RVoto_O_Organizacion(Campania);
+                organizacion = swADNETReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
             }
             else
             {

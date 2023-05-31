@@ -711,12 +711,12 @@ public class LNServicio
     #endregion
 
     #region ERImagen
-    public List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public List<ERImagen> Obtener_RImagen_O_Organizacion(string OrganizacionImagen, byte TipoImagen)
     {
         List<ERImagen> lstErImagen = new List<ERImagen>();
         try
         {
-            lstErImagen = swlnReciclado.Obtener_RImagen_O_Organizacion(Organizacion, Tipo).ToList();
+            lstErImagen = swlnReciclado.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -735,7 +735,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    lstErImagen = sWLNServicioClient.Obtener_RImagen_O_Organizacion(Organizacion, Tipo).ToList();
+                    lstErImagen = sWLNServicioClient.Obtener_RImagen_O_Organizacion(OrganizacionImagen, TipoImagen).ToList();
                 }
             }
             else
@@ -760,11 +760,11 @@ public class LNServicio
     #endregion
 
     #region ERVoto
-    public void Insertar_RVoto_I(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Insertar_RVoto_I(string CodigoUsaurio, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         try
         {
-            swlnReciclado.Insertar_RVoto_I(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+            swlnReciclado.Insertar_RVoto_I(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -783,7 +783,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Insertar_RVoto_I(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+                    sWLNServicioClient.Insertar_RVoto_I(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
                 }
             }
             else
@@ -803,11 +803,11 @@ public class LNServicio
             throw new FaultException<EDefecto>(eDefecto);
         }
     }
-    public void Actualizar_RVoto_A(string Codigo, string Campania, string Organizacion, DateTime Fecha, string Donacion, string Estado)
+    public void Actualizar_RVoto_A(string CodigoUsaurio, string CampaniaVoto, string OrganizacionVoto, DateTime FechaRegistroVoto, string DonacionVoto, string EstadoVoto, DateTime FechaModificacionVoto)
     {
         try
         {
-            swlnReciclado.Actualizar_RVoto_A(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+            swlnReciclado.Actualizar_RVoto_A(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -826,7 +826,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Actualizar_RVoto_A(Codigo, Campania, Organizacion, Fecha, Donacion, Estado);
+                    sWLNServicioClient.Actualizar_RVoto_A(CodigoUsaurio, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto);
                 }
             }
             else
@@ -846,12 +846,12 @@ public class LNServicio
             throw new FaultException<EDefecto>(eDefecto);
         }
     }
-    public ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public ERVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = swlnReciclado.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+            erVoto = swlnReciclado.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -870,7 +870,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erVoto = sWLNServicioClient.Obtener_RVoto_O_Codigo_Campania(Codigo, Campania);
+                    erVoto = sWLNServicioClient.Obtener_RVoto_O_Codigo_Campania(CodigoUsuario, NombreCampania);
                 }
             }
             else
@@ -892,12 +892,12 @@ public class LNServicio
 
         return erVoto;
     }
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string CampaniaVoto)
     {
         int votos = 0;
         try
         {
-            votos = swlnReciclado.Obtener_RVotos_O_Campania(Campania);
+            votos = swlnReciclado.Obtener_RVotos_O_Campania(CampaniaVoto);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -916,7 +916,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    votos = sWLNServicioClient.Obtener_RVotos_O_Campania(Campania);
+                    votos = sWLNServicioClient.Obtener_RVotos_O_Campania(CampaniaVoto);
                 }
             }
             else
@@ -938,12 +938,12 @@ public class LNServicio
 
         return votos;
     }
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = swlnReciclado.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = swlnReciclado.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -962,7 +962,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    votos = sWLNServicioClient.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+                    votos = sWLNServicioClient.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
                 }
             }
             else
@@ -984,12 +984,12 @@ public class LNServicio
 
         return votos;
     }
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string CampaniaVoto)
     {
         int total = 0;
         try
         {
-            total = swlnReciclado.Obtener_RVoto_O_Donacion_Total(Campania);
+            total = swlnReciclado.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1008,7 +1008,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    total = sWLNServicioClient.Obtener_RVoto_O_Donacion_Total(Campania);
+                    total = sWLNServicioClient.Obtener_RVoto_O_Donacion_Total(CampaniaVoto);
                 }
             }
             else
@@ -1030,12 +1030,12 @@ public class LNServicio
 
         return total;
     }
-    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public ERVoto Obtener_RVoto_O_Donacion_Maxima(string NombreCampania)
     {
         ERVoto erVoto = new ERVoto();
         try
         {
-            erVoto = swlnReciclado.Obtener_RVoto_O_Donacion_Maxima(Campania);
+            erVoto = swlnReciclado.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1054,7 +1054,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erVoto = sWLNServicioClient.Obtener_RVoto_O_Donacion_Maxima(Campania);
+                    erVoto = sWLNServicioClient.Obtener_RVoto_O_Donacion_Maxima(NombreCampania);
                 }
             }
             else
@@ -1076,12 +1076,12 @@ public class LNServicio
         
         return erVoto;
     }
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string NombreCampania)
     {
         string organizacion = string.Empty;
         try
         {
-            organizacion = swlnReciclado.Obtener_RVoto_O_Organizacion(Campania);
+            organizacion = swlnReciclado.Obtener_RVoto_O_Organizacion(NombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1100,7 +1100,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    organizacion = sWLNServicioClient.Obtener_RVoto_O_Organizacion(Campania);
+                    organizacion = sWLNServicioClient.Obtener_RVoto_O_Organizacion(NombreCampania);
                 }
             }
             else

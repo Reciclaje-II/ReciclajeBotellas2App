@@ -29,7 +29,7 @@ public partial class CUOrganizacionUsuario : System.Web.UI.UserControl
         lblOrganizacion.Text = "¿ESTA SEGURO/A QUE QUIERE VOTAR A " + organizacionNombre + "?&nbsp";
         //Session.CodigoUser
         voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(Session["Codigo"].ToString().ToUpper(), campaniaNombre);
-        if (voto.Estado.Trim() != "")
+        if (voto.EstadoVoto.Trim() != "")
         {
             btnVotar.Visible = false;
         }
@@ -43,7 +43,7 @@ public partial class CUOrganizacionUsuario : System.Web.UI.UserControl
 
     protected void imbOrganizacion_Click(object sender, ImageClickEventArgs e)
     {
-        Session["Organizacion"] = organizacionNombre;
+        Session["NombreOrganizacion"] = organizacionNombre;
         Response.Redirect("PVerDescripcion.aspx");
     }
 
@@ -52,11 +52,11 @@ public partial class CUOrganizacionUsuario : System.Web.UI.UserControl
         swlnReciclado = new SWLNRecicladoClient();
         voto = new ERVoto();
         //Session.UserCode
-        voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(Session["Codigo"].ToString(), campaniaNombre);
-        if (voto == null || voto.Organizacion.Trim() == "")
+        voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(Session["CodigoUsuario"].ToString(), campaniaNombre);
+        if (voto == null || voto.OrganizacionVoto.Trim() == "")
         {
             //Session.CodigoUser
-            lnServicio.Insertar_RVoto_I(Session["Codigo"].ToString().ToUpper(), campaniaNombre, organizacionNombre, DateTime.Now, "0", "Valido");
+            lnServicio.Insertar_RVoto_I(Session["CodigoUsuario"].ToString().ToUpper(), campaniaNombre, organizacionNombre, DateTime.Now, "0", "Valido", DateTime.Now);
             Response.Redirect("PVotarOrganizaciones.aspx");
         }
     }

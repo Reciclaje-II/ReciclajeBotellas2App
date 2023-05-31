@@ -195,8 +195,8 @@
   <xs:element name="Obtener_RImagen_O_Organizacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Tipo" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="OrganizacionImagen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoImagen" type="xs:unsignedByte" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -210,12 +210,13 @@
   <xs:element name="Insertar_RVoto_I">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Donacion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreOrganizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaRegistroVoto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DonacionVoto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EstadoVoto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaModificacionVoto" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -227,12 +228,13 @@
   <xs:element name="Actualizar_RVoto_A">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Donacion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreOrganizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaRegistroVoto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DonacionVoto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EstadoVoto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaModificacionVoto" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -244,8 +246,8 @@
   <xs:element name="Obtener_RVoto_O_Codigo_Campania">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -259,7 +261,7 @@
   <xs:element name="Obtener_RVotos_O_Campania">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CampaniaVoto" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -273,8 +275,8 @@
   <xs:element name="Obtener_RVotos_O_Campania_Organizacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OrganizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -288,7 +290,7 @@
   <xs:element name="Obtener_RVoto_O_Donacion_Total">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CampaniaVoto" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -302,7 +304,7 @@
   <xs:element name="Obtener_RVoto_O_Donacion_Maxima">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -316,7 +318,7 @@
   <xs:element name="Obtener_RVoto_O_Organizacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

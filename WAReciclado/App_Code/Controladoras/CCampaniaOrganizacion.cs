@@ -42,12 +42,12 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
     #endregion
 
     #region Registro
-    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {

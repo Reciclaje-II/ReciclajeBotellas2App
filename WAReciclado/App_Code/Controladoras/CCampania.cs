@@ -129,7 +129,7 @@ public class CCampania : System.Web.UI.Page
             eUsuarios = lnServicio.Obtener_RUsuarios_O_Sede(Sede).ToList();
             foreach (var user in eUsuarios)
             {
-                lnServicio.Actualizar_RVoto_A(user.Codigo, NombreCampania, NombreOrganizacion, DateTime.Now.Date, user.Creditos, "");
+                lnServicio.Actualizar_RVoto_A(user.Codigo, NombreCampania, NombreOrganizacion, DateTime.Now.Date, user.Creditos, "", DateTime.Now.Date);
                 lnServicio.Actualizar_RUsuario_A_Creditos_Sede(NombreCampania, user.Codigo);
             }
             Session["Campania"] = NombreCampania;
