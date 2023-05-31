@@ -40,14 +40,14 @@ public class ADRUsuario
     /// </summary>
     /// <param name="Codigo"></param>
     /// <returns>Retorna un usuario</returns>
-    public DTORUsuario Obtener_RUsuario_O_Codigo(string Codigo)
+    public DTORUsuario Obtener_RUsuario_O_Codigo(string CodigoUsuario)
     {
         DTORUsuario dtoRUsuario = new DTORUsuario();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RUsuario_O_Codigo");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, CodigoUsuario);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dtoRUsuario, "RUsuario");
         }
 

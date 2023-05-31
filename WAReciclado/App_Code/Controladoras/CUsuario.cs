@@ -29,12 +29,12 @@ public class CUsuario : System.Web.UI.Page
     #region Metodos publicos
 
     #region LNServicio
-    public ERUsuario Obtener_RUsuario_O_Codigo_CU(string Codigo)
+    public ERUsuario Obtener_RUsuario_O_Codigo_CU(string CodigoUsuario)
     {
         ERUsuario erUsuario = new ERUsuario();
         try
         {
-            erUsuario = lnServicio.Obtener_RUsuario_O_Codigo(Codigo);
+            erUsuario = lnServicio.Obtener_RUsuario_O_Codigo(CodigoUsuario);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -43,12 +43,12 @@ public class CUsuario : System.Web.UI.Page
         return erUsuario;
 
     }
-    public List<EUsuarioCompleja> Obtener_EUsuarioCompleja_O_Sede_CU(string Sede)
+    public List<EUsuarioCompleja> Obtener_EUsuarioCompleja_O_Sede_CU(string SedeUsuarioNetvalle)
     {
         List<EUsuarioCompleja> lstEUsuarioCompleja = new List<EUsuarioCompleja>();
         try
         {
-            lstEUsuarioCompleja = lnServicio.Obtener_EUsuarioCompleja_O_Sede(Sede).ToList();
+            lstEUsuarioCompleja = lnServicio.Obtener_EUsuarioCompleja_O_Sede(SedeUsuarioNetvalle).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {

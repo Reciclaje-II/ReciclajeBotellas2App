@@ -1126,12 +1126,12 @@ public class LNServicio
     #endregion
 
     #region ERUsuarioNetValle
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string Sede, string Codigo)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string SedeUsuarioNetvalle, string CodigoUsuarioNetvalle)
     {
         ERUsuarioNetvalle erUsuarioNetvalle = new ERUsuarioNetvalle();
         try
         {
-            erUsuarioNetvalle = swlnReciclado.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(Sede, Codigo);
+            erUsuarioNetvalle = swlnReciclado.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(SedeUsuarioNetvalle, CodigoUsuarioNetvalle);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1150,7 +1150,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erUsuarioNetvalle = sWLNServicioClient.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(Sede, Codigo);
+                    erUsuarioNetvalle = sWLNServicioClient.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(SedeUsuarioNetvalle, CodigoUsuarioNetvalle);
                 }
             }
             else
@@ -1173,12 +1173,12 @@ public class LNServicio
         return erUsuarioNetvalle;
     }
 
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string Tarjeta)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string TarjetaUsuarioNetvalle)
     {
         ERUsuarioNetvalle erUsuarioNetvalle = new ERUsuarioNetvalle();
         try
         {
-            erUsuarioNetvalle = swlnReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(Tarjeta);
+            erUsuarioNetvalle = swlnReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(TarjetaUsuarioNetvalle);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1197,7 +1197,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erUsuarioNetvalle = sWLNServicioClient.Obtener_RUsuarioNetvalle_O_Tarjeta(Tarjeta);
+                    erUsuarioNetvalle = sWLNServicioClient.Obtener_RUsuarioNetvalle_O_Tarjeta(TarjetaUsuarioNetvalle);
                 }
             }
             else
@@ -1222,12 +1222,12 @@ public class LNServicio
     #endregion
 
     #region ERUsuario
-    public ERUsuario Obtener_RUsuario_O_Codigo(string Codigo)
+    public ERUsuario Obtener_RUsuario_O_Codigo(string CodigoUsuario)
     {
         ERUsuario erUsuario = new ERUsuario();
         try
         {
-            erUsuario = swlnReciclado.Obtener_RUsuario_O_Codigo(Codigo);
+            erUsuario = swlnReciclado.Obtener_RUsuario_O_Codigo(CodigoUsuario);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1246,7 +1246,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erUsuario = sWLNServicioClient.Obtener_RUsuario_O_Codigo(Codigo);
+                    erUsuario = sWLNServicioClient.Obtener_RUsuario_O_Codigo(CodigoUsuario);
                 }
             }
             else
@@ -1315,13 +1315,13 @@ public class LNServicio
         return lstErUsuario;
     }
 
-    public List<ERUsuario> Obtener_RUsuarios_O_Sede(string sede)
+    public List<ERUsuario> Obtener_RUsuarios_O_Sede(string SedeUsuarioNetvalle)
     {
         List<ERUsuario> lstErUsuario = new List<ERUsuario>();
 
         try
         {
-            lstErUsuario = swlnReciclado.Obtener_RUsuarios_O_Sede(sede).ToList();
+            lstErUsuario = swlnReciclado.Obtener_RUsuarios_O_Sede(SedeUsuarioNetvalle).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -1340,7 +1340,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    lstErUsuario = sWLNServicioClient.Obtener_RUsuarios_O_Top_Creditos(sede).ToList();
+                    lstErUsuario = sWLNServicioClient.Obtener_RUsuarios_O_Top_Creditos(SedeUsuarioNetvalle).ToList();
                 }
             }
             else
