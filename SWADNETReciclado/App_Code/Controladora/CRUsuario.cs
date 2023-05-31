@@ -24,9 +24,9 @@ public class CRUsuario
         foreach (DTORUsuario.RUsuarioRow drRUsuario in dtoRUsuario.RUsuario.Rows)
         {
             eRUsuario = new ERUsuario();
-            eRUsuario.Codigo = drRUsuario.Codigo.ToString().TrimEnd();
-            eRUsuario.Creditos = drRUsuario.Creditos.ToString().TrimEnd();
-            eRUsuario.Rol = drRUsuario.Rol.ToString().TrimEnd();
+            eRUsuario.CodigoUsuario = drRUsuario.Codigo.ToString().TrimEnd();
+            eRUsuario.CreditosUsuario = drRUsuario.Creditos.ToString().TrimEnd();
+            eRUsuario.RolUsuario = drRUsuario.Rol.ToString().TrimEnd();
         }
         return eRUsuario;
     }
@@ -39,9 +39,9 @@ public class CRUsuario
         foreach (DTORUsuario.RUsuarioRow drRUsuario in dtoRUsuario.RUsuario.Rows)
         {
             eRUsuario = new ERUsuario();
-            eRUsuario.Codigo = drRUsuario.Codigo.ToString().TrimEnd();
-            eRUsuario.Creditos = drRUsuario.Creditos.ToString().TrimEnd();
-            eRUsuario.Rol = drRUsuario.Rol.ToString().TrimEnd();
+            eRUsuario.CodigoUsuario = drRUsuario.Codigo.ToString().TrimEnd();
+            eRUsuario.CreditosUsuario = drRUsuario.Creditos.ToString().TrimEnd();
+            eRUsuario.RolUsuario = drRUsuario.Rol.ToString().TrimEnd();
             lsteRUsuario.Add(eRUsuario);
         }
         return lsteRUsuario;
@@ -55,8 +55,8 @@ public class CRUsuario
         foreach (DTORUsuario.RUsuarioRow drRUsuario in dtoRUsuario.RUsuario.Rows)
         {
             eRUsuario = new ERUsuario();
-            eRUsuario.Codigo = drRUsuario.Codigo.ToString().TrimEnd();
-            eRUsuario.Creditos = drRUsuario.Creditos.ToString().TrimEnd();
+            eRUsuario.CodigoUsuario = drRUsuario.Codigo.ToString().TrimEnd();
+            eRUsuario.CreditosUsuario = drRUsuario.Creditos.ToString().TrimEnd();
             lsteRUsuario.Add(eRUsuario);
         }
         return lsteRUsuario;
