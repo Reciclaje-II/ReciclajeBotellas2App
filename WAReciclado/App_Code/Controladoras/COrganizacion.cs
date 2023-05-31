@@ -37,12 +37,12 @@ public class COrganizacion : System.Web.UI.Page
         }
         return lstErOrganizacion;
     }
-    public EROrganizacion Obtener_ROrganizacion_O_Nombre_CO(string nombre)
+    public EROrganizacion Obtener_ROrganizacion_O_Nombre_CO(string NombreOrganizacion)
     {
         EROrganizacion erOganizacion = new EROrganizacion();
         try
         {
-            erOganizacion = lnServicio.Obtener_ROrganizacion_O_Nombre(nombre);
+            erOganizacion = lnServicio.Obtener_ROrganizacion_O_Nombre(NombreOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -64,22 +64,22 @@ public class COrganizacion : System.Web.UI.Page
         return organizacion;
 
     }
-    public void Actualizar_ROrganizacion_A_CO(string Nombre, string Descripcion)
+    public void Actualizar_ROrganizacion_A_CO(string NombreOrganizacion, string DescripcionOrganizacion)
     {
         try
         {
-            lnServicio.Actualizar_ROrganizacion_A(Nombre, Descripcion);
+            lnServicio.Actualizar_ROrganizacion_A(NombreOrganizacion, DescripcionOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
             throw ex;
         }
     }
-    public void Insertar_ROrganizacion_I_CO(string Nombre, string Descripcion)
+    public void Insertar_ROrganizacion_I_CO(string NombreOrganizacion, string DescripcionOrganizacion)
     {
         try
         {
-            lnServicio.Insertar_ROrganizacion_I(Nombre, Descripcion);
+            lnServicio.Insertar_ROrganizacion_I(NombreOrganizacion, DescripcionOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {

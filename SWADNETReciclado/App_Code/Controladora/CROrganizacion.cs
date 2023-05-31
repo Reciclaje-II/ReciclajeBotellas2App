@@ -27,14 +27,14 @@ public class CROrganizacion
         adROrganizacion.Actualizar_ROrganizacion_A(eROrganizacion);
     }
 
-    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre)
+    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string NombreOrganizacion)
     {
         EROrganizacion eROrganizacion = new EROrganizacion();
-        DTOROrganizacion dtoROrganizacion = adROrganizacion.Obtener_ROrganizacion_O_Nombre(Nombre);
+        DTOROrganizacion dtoROrganizacion = adROrganizacion.Obtener_ROrganizacion_O_Nombre(NombreOrganizacion);
         foreach (DTOROrganizacion.ROrganizacionRow drRCampania in dtoROrganizacion.ROrganizacion.Rows)
         {
-            eROrganizacion.Nombre = drRCampania.Nombre.TrimEnd();
-            eROrganizacion.Descripcion = drRCampania.Descripcion.TrimEnd();
+            eROrganizacion.NombreOrganizacion = drRCampania.NombreOrganizacion.TrimEnd();
+            eROrganizacion.DescripcionORiganizacion = drRCampania.DescripcionOrganizacion.TrimEnd();
         }
         return eROrganizacion;
     }
@@ -47,15 +47,15 @@ public class CROrganizacion
         foreach (DTOROrganizacion.ROrganizacionRow drROrganizacion in dtoROrganizacion.ROrganizacion.Rows)
         {
             eROrganizacion = new EROrganizacion();
-            eROrganizacion.Nombre = drROrganizacion.Nombre.ToString();
+            eROrganizacion.NombreOrganizacion = drROrganizacion.NombreOrganizacion.ToString();
             lstROrganizaciones.Add(eROrganizacion);
         }
         return lstROrganizaciones;
     }
 
-    public void Eliminar_ROrganizacion_E_Nombre(string Nombre)
+    public void Eliminar_ROrganizacion_E_Nombre(string NombreOrganizacion)
     {
-        adROrganizacion.Eliminar_ROrganizacion_E_Nombre(Nombre);
+        adROrganizacion.Eliminar_ROrganizacion_E_Nombre(NombreOrganizacion);
     }
     #endregion
 }

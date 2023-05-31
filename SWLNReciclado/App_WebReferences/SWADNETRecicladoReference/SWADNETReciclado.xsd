@@ -58,11 +58,11 @@
   <xs:element name="ArrayOfERCampaniaOrganizacion" nillable="true" type="tns:ArrayOfERCampaniaOrganizacion" />
   <xs:complexType name="EROrganizacion">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaActualizacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescripcionORiganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombreOrganizacion" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EROrganizacion" nillable="true" type="tns:EROrganizacion" />

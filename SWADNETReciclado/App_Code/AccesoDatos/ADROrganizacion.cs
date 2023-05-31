@@ -44,8 +44,8 @@ public class ADROrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.Descripcion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.NombreOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.DescripcionORiganizacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
 
@@ -66,8 +66,8 @@ public class ADROrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_A");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.Descripcion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.NombreOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.DescripcionORiganizacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
    
@@ -81,16 +81,16 @@ public class ADROrganizacion
     /// <summary>
     /// Obtener organización por nombre
     /// </summary>
-    /// <param name="Nombre"></param>
+    /// <param name="NombreOrganizacion"></param>
     /// <returns>Retorna una organización</returns>
-    public DTOROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre)
+    public DTOROrganizacion Obtener_ROrganizacion_O_Nombre(string NombreOrganizacion)
     {
         DTOROrganizacion dTOROrganizacion = new DTOROrganizacion();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_O_Nombre");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, NombreOrganizacion);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTOROrganizacion, "ROrganizacion");
         }
    
@@ -127,14 +127,14 @@ public class ADROrganizacion
     /// <summary>
     /// Deshabilita una organizacion cambiando su estado a 0
     /// </summary>
-    /// <param name="Nombre">Solo enviar el nombre de la organización que no este asociada a una campaña activa</param>
-    public void Eliminar_ROrganizacion_E_Nombre(string Nombre)
+    /// <param name="NombreOrganizacion">Solo enviar el nombre de la organización que no este asociada a una campaña activa</param>
+    public void Eliminar_ROrganizacion_E_Nombre(string NombreOrganizacion)
     {
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_E_Nombre");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, NombreOrganizacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
   

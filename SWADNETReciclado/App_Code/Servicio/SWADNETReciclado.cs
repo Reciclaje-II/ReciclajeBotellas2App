@@ -156,11 +156,11 @@ public class SWADNETReciclado : ISWADNETReciclado
         cROrganizacion.Actualizar_ROrganizacion_A(eROrganizacion);
     }
 
-    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre)
+    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string NombreOrganizacion)
     {
         CROrganizacion cROrganizacion = new CROrganizacion();
         EROrganizacion eROrganizacion = new EROrganizacion();
-        eROrganizacion = cROrganizacion.Obtener_ROrganizacion_O_Nombre(Nombre);
+        eROrganizacion = cROrganizacion.Obtener_ROrganizacion_O_Nombre(NombreOrganizacion);
         return eROrganizacion;
     }
 
@@ -172,10 +172,10 @@ public class SWADNETReciclado : ISWADNETReciclado
         return lstEROrganizaciones;
     }
 
-    public void Eliminar_ROrganizacion_E_Nombre(string Nombre)
+    public void Eliminar_ROrganizacion_E_Nombre(string NombreOrganizacion)
     {
         CROrganizacion cROrganizacion = new CROrganizacion();
-        cROrganizacion.Eliminar_ROrganizacion_E_Nombre(Nombre);
+        cROrganizacion.Eliminar_ROrganizacion_E_Nombre(NombreOrganizacion);
     }
     #endregion
     #region Tabla : RImagen

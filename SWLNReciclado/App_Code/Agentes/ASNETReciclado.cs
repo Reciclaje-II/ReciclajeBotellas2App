@@ -148,11 +148,11 @@ public class ASNETReciclado
         }
     }
 
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string NombreOrganizacion)
     {
         try
         {
-            swADNETReciclado.Actualizar_RCampania_A_Estado(Nombre);
+            swADNETReciclado.Actualizar_RCampania_A_Estado(NombreOrganizacion);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -164,7 +164,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                swADNETReciclado.Actualizar_RCampania_A_Estado(Nombre);
+                swADNETReciclado.Actualizar_RCampania_A_Estado(NombreOrganizacion);
             }
             else
             {
@@ -175,11 +175,11 @@ public class ASNETReciclado
         }
     }
 
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    public void Actualizar_RCampania_A_Estado_Cancelado(string NombreOrganizacion)
     {
         try
         {
-            swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+            swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreOrganizacion);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -191,7 +191,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+                swADNETReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreOrganizacion);
             }
             else
             {
@@ -260,12 +260,12 @@ public class ASNETReciclado
     }
     #endregion
     #region ROrganizacion
-    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string nombre)
+    public EROrganizacion Obtener_ROrganizacion_O_Nombre(string NombreOrganizacion)
     {
         EROrganizacion erOganizacion = new EROrganizacion();
         try
         {
-            erOganizacion = swADNETReciclado.Obtener_ROrganizacion_O_Nombre(nombre);
+            erOganizacion = swADNETReciclado.Obtener_ROrganizacion_O_Nombre(NombreOrganizacion);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -277,7 +277,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erOganizacion = swADNETReciclado.Obtener_ROrganizacion_O_Nombre(nombre);
+                erOganizacion = swADNETReciclado.Obtener_ROrganizacion_O_Nombre(NombreOrganizacion);
             }
             else
             {
@@ -369,11 +369,11 @@ public class ASNETReciclado
 
         }
     }
-    public void Eliminar_ROrganizacion_E_Nombre(string Nombre)
+    public void Eliminar_ROrganizacion_E_Nombre(string NombreOrganizacion)
     {
         try
         {
-            swADNETReciclado.Eliminar_ROrganizacion_E_Nombre(Nombre);
+            swADNETReciclado.Eliminar_ROrganizacion_E_Nombre(NombreOrganizacion);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -385,7 +385,7 @@ public class ASNETReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                swADNETReciclado.Eliminar_ROrganizacion_E_Nombre(Nombre);
+                swADNETReciclado.Eliminar_ROrganizacion_E_Nombre(NombreOrganizacion);
             }
             else
             {

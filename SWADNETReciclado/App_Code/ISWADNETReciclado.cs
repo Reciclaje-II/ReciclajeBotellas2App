@@ -61,11 +61,11 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Actualizar_ROrganizacion_A(EROrganizacion eROrganizacion);
     [OperationContract]
-    EROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre);
+    EROrganizacion Obtener_ROrganizacion_O_Nombre(string NombreOrganizacion);
     [OperationContract]
     List<EROrganizacion> Obtener_ROrganizaciones_O();
     [OperationContract]
-    void Eliminar_ROrganizacion_E_Nombre(string Nombre);
+    void Eliminar_ROrganizacion_E_Nombre(string NombreOrganizacion);
     #endregion
     #region Tabla : RImagen
     [OperationContract]
