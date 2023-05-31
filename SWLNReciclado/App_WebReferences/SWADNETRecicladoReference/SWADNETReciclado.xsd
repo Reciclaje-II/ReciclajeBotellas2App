@@ -25,14 +25,17 @@
   <xs:element name="ERUsuarioNetvalle" nillable="true" type="tns:ERUsuarioNetvalle" />
   <xs:complexType name="ERCampania">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaActualizacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaFin" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescripcionCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFinCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicioCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaModificacionCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ERCampania" nillable="true" type="tns:ERCampania" />
@@ -44,9 +47,12 @@
   <xs:element name="ArrayOfERCampania" nillable="true" type="tns:ArrayOfERCampania" />
   <xs:complexType name="ERCampaniaOrganizacion">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Organizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionCampaniaOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroCampaniaOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ERCampaniaOrganizacion" nillable="true" type="tns:ERCampaniaOrganizacion" />

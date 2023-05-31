@@ -10,62 +10,62 @@ using System.Text;
 public class SWLNReciclado : ISWLNReciclado
 {
     #region RCampania
-    public ERCampania Obtener_RCampania_O_Sede(string Sede)
+    public ERCampania Obtener_RCampania_O_Sede(string SedeCampania)
     {
         CReciclado cReciclado = new CReciclado();
         ERCampania erCampania = new ERCampania();
-        erCampania = cReciclado.Obtener_RCampania_O_Sede(Sede);
+        erCampania = cReciclado.Obtener_RCampania_O_Sede(SedeCampania);
         return erCampania;
     }
 
-    public List<ERCampania> Obtener_RCampania_O(string Sede)
+    public List<ERCampania> Obtener_RCampania_O(string SedeCampania)
     {
         CReciclado cReciclado = new CReciclado();
         List<ERCampania> lstErCampania = new List<ERCampania>();
-        lstErCampania = cReciclado.Obtener_RCampania_O(Sede);
+        lstErCampania = cReciclado.Obtener_RCampania_O(SedeCampania);
         return lstErCampania;
     }
-    public ERCampania Obtener_RCampania_O_Sede_Campania(string Campania, string Sede)
+    public ERCampania Obtener_RCampania_O_Sede_Campania(string nombreCampania, string SedeCampania)
     {
         CReciclado cReciclado = new CReciclado();
         ERCampania erCampania = new ERCampania();
-        erCampania = cReciclado.Obtener_RCampania_O_Sede_Campania(Campania, Sede);
+        erCampania = cReciclado.Obtener_RCampania_O_Sede_Campania(nombreCampania, SedeCampania);
         return erCampania;
     }
 
-    public void Insertar_RCampania_I(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, string sede)
+    public void Insertar_RCampania_I(string nombreCampania, string descripcionCampania, DateTime fechaInicioCampania, DateTime fechaFinCampania, string sedeCampania)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Insertar_RCampania_I(nombre, descripcion, fechaInicio, fechaFin, sede);
+        cReciclado.Insertar_RCampania_I(nombreCampania, descripcionCampania, fechaInicioCampania, fechaFinCampania, sedeCampania);
     }
-    public void Actualizar_RCampania_A(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, string sede)
+    public void Actualizar_RCampania_A(string nombreCampania, string descripcionCampania, DateTime fechaInicioCampania, DateTime fechaFinCampania, string sedeCampania)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Actualizar_RCampania_A(nombre, descripcion, fechaInicio, fechaFin, sede);        
+        cReciclado.Actualizar_RCampania_A(nombreCampania, descripcionCampania, fechaInicioCampania, fechaFinCampania, sedeCampania);        
     }
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string NombreCampania)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Actualizar_RCampania_A_Estado(Nombre);
+        cReciclado.Actualizar_RCampania_A_Estado(NombreCampania);
     }
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    public void Actualizar_RCampania_A_Estado_Cancelado(string NombreCampania)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+        cReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
     }
     #endregion
     #region RCampaniaOrganizacion
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion)
     {
         CReciclado cReciclado = new CReciclado();
         List<ERCampaniaOrganizacion> lstErCampaniaOrganizacion = new List<ERCampaniaOrganizacion>();
-        lstErCampaniaOrganizacion = cReciclado.Obtener_RCampaniaOrganizacion_O_Campania(Campania);
+        lstErCampaniaOrganizacion = cReciclado.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion);
         return lstErCampaniaOrganizacion;
     }
-    public void Insertar_RCampaniaOrganizacion_I(string Campania, string Organizacion)
+    public void Insertar_RCampaniaOrganizacion_I(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         CReciclado cReciclado = new CReciclado();
-        cReciclado.Insertar_RCampaniaOrganizacion_I(Campania, Organizacion);
+        cReciclado.Insertar_RCampaniaOrganizacion_I(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
     }
     #endregion
     #region ROrganizacion

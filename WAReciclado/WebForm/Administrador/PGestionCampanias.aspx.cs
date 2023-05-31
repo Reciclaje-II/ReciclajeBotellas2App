@@ -21,7 +21,7 @@ public partial class PGestionCampanias : System.Web.UI.Page
     {
         eCampania = new ERCampania();
         eCampania = cCampania.Obtener_RCampania_O_Sede_CC(Session["Sede"].ToString());
-        if (eCampania.Nombre.Trim() != "")
+        if (eCampania.NombreCampania.Trim() != "")
         {
             btnCrearCampania.Visible = false;
         }
@@ -65,7 +65,7 @@ public partial class PGestionCampanias : System.Web.UI.Page
     private void CargarDatos()
     {
         gvListaCampanias.DataSource = null;
-        lstERCampania = cCampania.Obtener_RCampania_O_CC(Session["Sede"].ToString()).Where(campania => campania.Estado.ToUpper() != "CANCELADA").ToList();
+        lstERCampania = cCampania.Obtener_RCampania_O_CC(Session["Sede"].ToString()).Where(campania => campania.EstadoCampania.ToUpper() != "CANCELADA").ToList();
         gvListaCampanias.DataSource = lstERCampania;
         gvListaCampanias.DataBind();
         

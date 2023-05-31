@@ -75,12 +75,12 @@ public class LNServicio
     #region Metodos publicos
 
     #region ERCampania
-    public ERCampania Obtener_RCampania_O_Sede(string Sede)
+    public ERCampania Obtener_RCampania_O_Sede(string SedeCampania)
     {
         ERCampania erCampania = new ERCampania();
         try
         {
-            erCampania = swlnReciclado.Obtener_RCampania_O_Sede(Sede);
+            erCampania = swlnReciclado.Obtener_RCampania_O_Sede(SedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -99,7 +99,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erCampania = sWLNServicioClient.Obtener_RCampania_O_Sede(Sede);
+                    erCampania = sWLNServicioClient.Obtener_RCampania_O_Sede(SedeCampania);
                 }
             }
             else
@@ -122,12 +122,12 @@ public class LNServicio
         return erCampania;
     }
 
-    public List<ERCampania> Obtener_RCampania_O(string Sede)
+    public List<ERCampania> Obtener_RCampania_O(string SedeCampania)
     {
         List<ERCampania> lstErCampania = new List<ERCampania>();
         try
         {
-            lstErCampania = swlnReciclado.Obtener_RCampania_O(Sede).ToList();
+            lstErCampania = swlnReciclado.Obtener_RCampania_O(SedeCampania).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -146,7 +146,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    lstErCampania = sWLNServicioClient.Obtener_RCampania_O(Sede).ToList();
+                    lstErCampania = sWLNServicioClient.Obtener_RCampania_O(SedeCampania).ToList();
                 }
             }
             else
@@ -169,11 +169,11 @@ public class LNServicio
         return lstErCampania;
     }
 
-    public void Insertar_RCampania_I(string Nombre, string Descripcion, DateTime FechaInicio, DateTime FechaFin, string Sede)
+    public void Insertar_RCampania_I(string NombreCampania, string DescripcionCampania, DateTime FechaInicioCampania, DateTime FechaFinCampania, string SedeCampania)
     {
         try
         {
-            swlnReciclado.Insertar_RCampania_I(Nombre, Descripcion, FechaInicio, FechaFin, Sede);
+            swlnReciclado.Insertar_RCampania_I(NombreCampania, DescripcionCampania, FechaInicioCampania, FechaFinCampania, SedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -192,7 +192,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Insertar_RCampania_I(Nombre, Descripcion, FechaInicio, FechaFin, Sede);
+                    sWLNServicioClient.Insertar_RCampania_I(NombreCampania, DescripcionCampania, FechaInicioCampania, FechaFinCampania, SedeCampania);
                 }
             }
             else
@@ -213,11 +213,11 @@ public class LNServicio
         }
     }
 
-    public void Actualizar_RCampania_A(string Nombre, string Descripcion, DateTime FechaInicio, DateTime FechaFin, string Sede)
+    public void Actualizar_RCampania_A(string NombreCampania, string DescripcionCampania, DateTime FechaInicioCampania, DateTime FechaFinCampania, string SedeCampania)
     {
         try
         {
-            swlnReciclado.Actualizar_RCampania_A(Nombre, Descripcion, FechaInicio, FechaFin, Sede);
+            swlnReciclado.Actualizar_RCampania_A(NombreCampania, DescripcionCampania, FechaInicioCampania, FechaFinCampania, SedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -236,7 +236,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Actualizar_RCampania_A(Nombre, Descripcion, FechaInicio, FechaFin, Sede);
+                    sWLNServicioClient.Actualizar_RCampania_A(NombreCampania, DescripcionCampania, FechaInicioCampania, FechaFinCampania, SedeCampania);
                 }
             }
             else
@@ -257,11 +257,11 @@ public class LNServicio
         }
     }
 
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string NombreCampania)
     {
         try
         {
-            swlnReciclado.Actualizar_RCampania_A_Estado(Nombre);
+            swlnReciclado.Actualizar_RCampania_A_Estado(NombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -280,7 +280,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Actualizar_RCampania_A_Estado(Nombre);
+                    sWLNServicioClient.Actualizar_RCampania_A_Estado(NombreCampania);
                 }
             }
             else
@@ -301,11 +301,11 @@ public class LNServicio
         }
     }
 
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    public void Actualizar_RCampania_A_Estado_Cancelado(string NombreCampania)
     {
         try
         {
-            swlnReciclado.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+            swlnReciclado.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -324,7 +324,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+                    sWLNServicioClient.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
                 }
             }
             else
@@ -347,12 +347,12 @@ public class LNServicio
     #endregion
 
     #region ERCampaniaOrganizacion
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania)/*01*/
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion)/*01*/
     {
         List<ERCampaniaOrganizacion> lstErCampania = new List<ERCampaniaOrganizacion>();
         try
         {
-            lstErCampania = swlnReciclado.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+            lstErCampania = swlnReciclado.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -371,7 +371,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    lstErCampania = sWLNServicioClient.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+                    lstErCampania = sWLNServicioClient.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion).ToList();
                 }
             }
             else
@@ -393,12 +393,12 @@ public class LNServicio
 
         return lstErCampania;
     }
-    public ERCampania Obtener_RCampania_O_Sede_Campania(string Campania, string Sede)
+    public ERCampania Obtener_RCampania_O_Sede_Campania(string NombreCampania, string SedeCampania)
     {
         ERCampania erCampania = new ERCampania();
         try
         {
-            erCampania = swlnReciclado.Obtener_RCampania_O_Sede_Campania(Campania, Sede);
+            erCampania = swlnReciclado.Obtener_RCampania_O_Sede_Campania(NombreCampania, SedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -417,7 +417,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    erCampania = sWLNServicioClient.Obtener_RCampania_O_Sede_Campania(Campania, Sede);
+                    erCampania = sWLNServicioClient.Obtener_RCampania_O_Sede_Campania(NombreCampania, SedeCampania);
                 }
             }
             else
@@ -440,11 +440,11 @@ public class LNServicio
         return erCampania;
     }
 
-    public void Insertar_RCampaniaOrganizacion_I(string Campania, string Organizacion)
+    public void Insertar_RCampaniaOrganizacion_I(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         try
         {
-            swlnReciclado.Insertar_RCampaniaOrganizacion_I(Campania, Organizacion);
+            swlnReciclado.Insertar_RCampaniaOrganizacion_I(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -463,7 +463,7 @@ public class LNServicio
             {
                 using (SWLNRecicladoClient sWLNServicioClient = new SWLNRecicladoClient())
                 {
-                    sWLNServicioClient.Insertar_RCampaniaOrganizacion_I(Campania, Organizacion);
+                    sWLNServicioClient.Insertar_RCampaniaOrganizacion_I(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
                 }
             }
             else

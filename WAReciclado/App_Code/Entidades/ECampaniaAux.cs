@@ -8,10 +8,10 @@ using System.Web;
 /// </summary>
 public class ECampaniaAux
 {
-    public string organizacion { get; set; }
+    public string NombreOrganizacion { get; set; }
 
     public ECampaniaAux(string organizacion)
     {
-        this.organizacion = organizacion;
+        NombreOrganizacion = organizacion;
     }
 }

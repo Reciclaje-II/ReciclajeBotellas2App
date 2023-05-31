@@ -87,11 +87,11 @@ public class SWADNETReciclado : ISWADNETReciclado
     }
     #endregion
     #region Tabla : RCampania
-    public ERCampania Obtener_RCampania_O_Sede(string Sede)
+    public ERCampania Obtener_RCampania_O_Sede(string SedeCampania)
     {
         CRCampania cRCampania = new CRCampania();
         ERCampania eRCampania = new ERCampania();
-        eRCampania = cRCampania.Obtener_RCampania_O_Sede(Sede);
+        eRCampania = cRCampania.Obtener_RCampania_O_Sede(SedeCampania);
         return eRCampania;
 
     }
@@ -116,16 +116,16 @@ public class SWADNETReciclado : ISWADNETReciclado
         cRCampania.Actualizar_RCampania_A(eRCampania);
     }
 
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string NombreCampania)
     {
         CRCampania cRCampania = new CRCampania();
-        cRCampania.Actualizar_RCampania_A_Estado(Nombre);
+        cRCampania.Actualizar_RCampania_A_Estado(NombreCampania);
     }
 
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    public void Actualizar_RCampania_A_Estado_Cancelado(string NombreCampania)
     {
         CRCampania cRCampania = new CRCampania();
-        cRCampania.Actualizar_RCampania_A_Estado_Cancelado(Nombre);
+        cRCampania.Actualizar_RCampania_A_Estado_Cancelado(NombreCampania);
     }
     #endregion
     #region Tabla : RCampaniaOrganizacion
@@ -135,11 +135,11 @@ public class SWADNETReciclado : ISWADNETReciclado
         cRCampaniaOrganizacion.Insertar_RCampaniaOrganizacion_I(eRCampaniaOrganizacion);
     }
 
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion)
     {
         CRCampaniaOrganizacion cRCampaniaOrganizacion = new CRCampaniaOrganizacion();
         List<ERCampaniaOrganizacion> lstRCampaniaOrganizacion = new List<ERCampaniaOrganizacion>();
-        lstRCampaniaOrganizacion = cRCampaniaOrganizacion.Obtener_RCampaniaOrganizacion_O_Campania(Campania);
+        lstRCampaniaOrganizacion = cRCampaniaOrganizacion.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion);
         return lstRCampaniaOrganizacion;
     }
     #endregion
