@@ -132,7 +132,7 @@ public partial class PAgregarCampania : System.Web.UI.Page
     {
         if (lstOrganizaciones == null)
             lstOrganizaciones = new List<ECampaniaAux>();
-        if (!lstOrganizaciones.Exists(orgizacionAux => orgizacionAux.organizacion == DropDownListOrganizaciones.SelectedValue))
+        if (!lstOrganizaciones.Exists(orgizacionAux => orgizacionAux.NombreOrganizacion == DropDownListOrganizaciones.SelectedValue))
         {
             lstOrganizaciones.Add(new ECampaniaAux(DropDownListOrganizaciones.SelectedValue));
             GridViewListaOrganizaciones.DataSource = null;

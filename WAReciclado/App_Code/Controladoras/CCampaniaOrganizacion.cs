@@ -26,12 +26,12 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
     #region Metodos publicos
 
     #region LNServicio
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania_CCO(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania_CCO(string CampaniaCampaniaOrganizacion)
     {
         List<ERCampaniaOrganizacion> lstErCampania = new List<ERCampaniaOrganizacion>();
         try
         {
-            lstErCampania = lnServicio.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+            lstErCampania = lnServicio.Obtener_RCampaniaOrganizacion_O_Campania(CampaniaCampaniaOrganizacion).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -42,12 +42,12 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
     #endregion
 
     #region Registro
-    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string CampaniaCampaniaOrganizacion, string OrganizacionCampaniaOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(CampaniaCampaniaOrganizacion, OrganizacionCampaniaOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -57,12 +57,12 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
         return votos;
 
     }
-    public void Insertar_Campania_Organizacion(string NombreCampania, string FechaFin, string Descripcion, string FechaInicio, List<ECampaniaAux> lstOrganizaciones)
+    public void Insertar_Campania_Organizacion(string NombreCampania, string FechaFinCampania, string DescripcionCampania, string FechaInicioCampania, List<ECampaniaAux> lstOrganizaciones)
     {
         try
         {
             lstERCampania = new List<ERCampania>();
-            string nombreCampania = SUtil.NombreCampaniasConvert(NombreCampania.Trim().ToUpper(), Session["Sede"].ToString(), FechaFin.Trim());
+            string nombreCampania = SUtil.NombreCampaniasConvert(NombreCampania.Trim().ToUpper(), Session["Sede"].ToString(), FechaFinCampania.Trim());
             lstERCampania = lnServicio.Obtener_RCampania_O(Session["Sede"].ToString()).ToList();
             foreach (var item in lstERCampania)
             {
@@ -78,11 +78,11 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
                 }
             }
 
-            lnServicio.Insertar_RCampania_I(nombreCampania, Descripcion, DateTime.Parse(FechaInicio.Trim()), DateTime.Parse(FechaFin.Trim()), Session["Sede"].ToString());
+            lnServicio.Insertar_RCampania_I(nombreCampania, DescripcionCampania, DateTime.Parse(FechaInicioCampania.Trim()), DateTime.Parse(FechaFinCampania.Trim()), Session["Sede"].ToString());
 
             for (int i = 0; i < lstOrganizaciones.Count; i++)
             {
-                lnServicio.Insertar_RCampaniaOrganizacion_I(nombreCampania, lstOrganizaciones[i].organizacion);
+                lnServicio.Insertar_RCampaniaOrganizacion_I(nombreCampania, lstOrganizaciones[i].NombreOrganizacion);
             }
         }
         catch (FaultException<EDefecto> ex)
