@@ -16,7 +16,7 @@ public partial class PTopDonadores : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         lstEusuarioCompleja = cUsuario.Obtener_EUsuarioCompleja_O_Sede_CU(Session["Sede"].ToString()).ToList();
-        lstEusuarioCompleja.OrderByDescending(a => a.Creditos);
+        lstEusuarioCompleja = lstEusuarioCompleja.OrderByDescending(a => a.Creditos).ToList();
         divContenedor.Controls.Clear();
         lugar = 1;
         foreach (EUsuarioCompleja eUsuarioCompleja in lstEusuarioCompleja)

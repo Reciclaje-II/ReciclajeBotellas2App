@@ -5,12 +5,35 @@ using System.Web;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADRContenedor
 /// </summary>
 public class ADRContenedor
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ContruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETReciclado";
+        eDefectoAD.Clase = "ADRContenedor";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion 
     #region Metodos Publicos
     /// <summary>
     /// Insertar registro de un contenedor
@@ -22,17 +45,21 @@ public class ADRContenedor
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RContenedor_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, eRContenedor.Codigo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "maquina", DbType.Byte, eRContenedor.IdMaquina);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "gramos", DbType.String, eRContenedor.Gramos);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fecha", DbType.DateTime, eRContenedor.Fecha);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, eRContenedor.CodigoUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "maquinaContenedor", DbType.Byte, eRContenedor.IdMaquinaContenedor);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "gramosContenedor", DbType.String, eRContenedor.GramosContenedor);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroContenedor", DbType.DateTime, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoContenedor", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionContenedor", DbType.DateTime, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-        catch (Exception)
+    
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Insertar_RContenedor_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
-        
+
     }
 
     /// <summary>
@@ -40,19 +67,21 @@ public class ADRContenedor
     /// </summary>
     /// <param name="Codigo"></param>
     /// <returns>Retorna una lista de contenedor</returns>
-    public DTORContenedor Obtener_RContenedor_O_Codigo(string Codigo)
+    public DTORContenedor Obtener_RContenedor_O_Codigo(string codigoUsuario)
     {
         DTORContenedor dTORContenedor = new DTORContenedor();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RContenedor_O_Codigo");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, codigoUsuario);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORContenedor, "RContenedor");
         }
-        catch (Exception)
+   
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Obtener_RContenedor_O_Codigo", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTORContenedor;
     }

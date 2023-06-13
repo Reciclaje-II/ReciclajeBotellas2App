@@ -26,12 +26,12 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
     #region Metodos publicos
 
     #region LNServicio
-    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania_CCO(string Campania)
+    public List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania_CCO(string campaniaCampaniaOrganizacion)
     {
         List<ERCampaniaOrganizacion> lstErCampania = new List<ERCampaniaOrganizacion>();
         try
         {
-            lstErCampania = lnServicio.Obtener_RCampaniaOrganizacion_O_Campania(Campania).ToList();
+            lstErCampania = lnServicio.Obtener_RCampaniaOrganizacion_O_Campania(campaniaCampaniaOrganizacion).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -42,47 +42,49 @@ public class CCampaniaOrganizacion : System.Web.UI.Page
     #endregion
 
     #region Registro
-    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion_CCO(string campaniaCampaniaOrganizacion, string organizacionCampaniaOrganizacion)
     {
         int votos = 0;
         try
         {
-            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(Campania, Organizacion);
+            votos = lnServicio.Obtener_RVotos_O_Campania_Organizacion(campaniaCampaniaOrganizacion, organizacionCampaniaOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
             throw ex;
         }
-        
+
         return votos;
 
     }
-    public void Insertar_Campania_Organizacion(string NombreCampania, string FechaFin, string Descripcion, string FechaInicio, List<ECampaniaAux> lstOrganizaciones)
+    public void Insertar_Campania_Organizacion(string nombreCampania, string fechaFinCampania, string descripcionCampania, string fechaInicioCampania, List<ECampaniaAux> lstOrganizaciones)
     {
         try
         {
             lstERCampania = new List<ERCampania>();
-            string nombreCampania = SUtil.NombreCampaniasConvert(NombreCampania.Trim().ToUpper(), Session["Sede"].ToString(), FechaFin.Trim());
+            string NombreCampania = SUtil.NombreCampaniasConvert(nombreCampania.Trim().ToUpper(), Session["Sede"].ToString(), fechaFinCampania.Trim());
             lstERCampania = lnServicio.Obtener_RCampania_O(Session["Sede"].ToString()).ToList();
+            int CantidadExistentes=0;
             foreach (var item in lstERCampania)
             {
-                if (item.Nombre == nombreCampania)
+                var nombreCampaniaSplit = item.NombreCampania.Split('-');
+                var nombreCampaniaToUpper = nombreCampania.ToUpper();
+                if (nombreCampaniaSplit[1] == nombreCampaniaToUpper)
                 {
-                    if (nombreCampania.Split('|').Count() == 2)
-                    {
-                        string[] aux = nombreCampania.Split('|');
-                        int nuevoNumeroNombre = int.Parse(aux[1]) + 1;
-                        nombreCampania = aux[0] + "|" + nuevoNumeroNombre.ToString();
-                    }
-                    else nombreCampania = nombreCampania + "|1";
+                    CantidadExistentes ++;
                 }
             }
+            if (CantidadExistentes > 0)
+            {
+                NombreCampania = NombreCampania + '-' + CantidadExistentes;
+            }
 
-            lnServicio.Insertar_RCampania_I(nombreCampania, Descripcion, DateTime.Parse(FechaInicio.Trim()), DateTime.Parse(FechaFin.Trim()), Session["Sede"].ToString());
+
+            lnServicio.Insertar_RCampania_I(NombreCampania, descripcionCampania, DateTime.Parse(fechaInicioCampania.Trim()), DateTime.Parse(fechaFinCampania.Trim()), Session["Sede"].ToString());
 
             for (int i = 0; i < lstOrganizaciones.Count; i++)
             {
-                lnServicio.Insertar_RCampaniaOrganizacion_I(nombreCampania, lstOrganizaciones[i].organizacion);
+                lnServicio.Insertar_RCampaniaOrganizacion_I(NombreCampania, lstOrganizaciones[i].NombreOrganizacion);
             }
         }
         catch (FaultException<EDefecto> ex)

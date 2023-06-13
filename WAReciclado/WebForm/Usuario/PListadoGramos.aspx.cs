@@ -16,10 +16,10 @@ public partial class PListadoGramos : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            lstContenedor = cContenedor.Obtener_RContenedor_O_Codigo_CTR(Session["Codigo"].ToString()).OrderByDescending(contenedor => contenedor.Fecha).ToList();
+            lstContenedor = cContenedor.Obtener_RContenedor_O_Codigo_CTR(Session["Codigo"].ToString()).OrderByDescending(contenedor => contenedor.FechaRegistroContenedor).ToList();
             eUsuario = cUsuario.Obtener_RUsuario_O_Codigo_CU(Session["Codigo"].ToString());
             CargarDatos();
-            lblCreditos.Text = eUsuario.Creditos;
+            lblCreditos.Text = eUsuario.CreditosUsuario;
         }
     }
 

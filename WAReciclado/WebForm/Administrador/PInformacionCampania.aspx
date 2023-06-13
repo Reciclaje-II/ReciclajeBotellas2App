@@ -13,10 +13,26 @@
             </p>
             <b class="titulo">
                 <asp:Label ID="lblNombreCampania" CssClass="titulo" runat="server" Text="Campañas solidarias"></asp:Label>
-            </b>         
+            </b>
+            <asp:HiddenField ID="hiddenCancelado" runat="server" />
+            <asp:HiddenField ID="hiddenFinalizado" runat="server" />
+            <p>
+                <b>Fecha Inicial:</b>      
+                <asp:Label ID="lblFechaInicio" runat="server" ForeColor="Green"></asp:Label>    
+                <b>Fecha Final:</b>      
+                <asp:Label ID="lblFechaFinal" runat="server" ForeColor="Green"></asp:Label>
+            </p>
+            <p>
+                <b>Dias restantes:</b>      
+                <asp:Label ID="lblDiasRestantes" runat="server" ForeColor="Blue"></asp:Label>               
+            </p>
             <div id="divContenedor" runat="server" class="container">
                 
             </div>
+            <div class="boton">
+                <asp:Button ID="btnCancelar" CssClass="btnFinalizar" runat="server" Text="CANCELAR" OnClick="btnCancelar_Click"/>
+            </div>
+            <br>
             <div class="boton">
                 <asp:Button ID="btnFinalizar" CssClass="btnFinalizar" runat="server" Text="FINALIZAR" OnClick="btnFinalizar_Click"/>
             </div>
@@ -27,7 +43,7 @@
                 <asp:ImageButton ID="btnCerrar" CssClass="btnCerrar" ImageUrl="~/Imagenes/close.png" runat="server" OnClick="btnCerrar_Click"></asp:ImageButton>
                 <div class="content">
                     <p class="LBLContenido centrar">
-                        ¿ESTA SEGURO/A DE FINALIZAR ESTA CAMPAÑA?      
+                        USTED ESTA APUNTO DE :      
                         <b>
                             <asp:Label ID="lblCampaniaFin" runat="server"></asp:Label>
                         </b>                        
@@ -41,5 +57,3 @@
         <script src="../../Guiones/JModalEliminarCampania.js"></script>
     </form>
 </asp:Content>
-
-

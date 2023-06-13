@@ -7,24 +7,30 @@ using System.Web;
 /// <summary>
 /// Descripción breve de ERContenedor
 /// </summary>
+[DataContract]
 public class ERContenedor
 {
 
     #region Atributos
     [DataMember]
-    public string Codigo { get; set; }
+    public string CodigoUsuario { get; set; }
     [DataMember]
-    public byte IdMaquina { get; set; }
+    public byte IdMaquinaContenedor { get; set; }
     [DataMember]
-    public string Gramos { get; set; }
+    public string GramosContenedor { get; set; }
     [DataMember]
-    public DateTime Fecha { get; set; }
+    public DateTime FechaRegistroContenedor { get; set; }
+    [DataMember]
+    public char EstadoContenedor { get; set; }
+    [DataMember]
+    public DateTime FechaModificacionContenedor { get; set; }
     #endregion
     public ERContenedor()
     {
-        Codigo = string.Empty;
-        IdMaquina = byte.MinValue;
-        Gramos = string.Empty;
-        Fecha = DateTime.MinValue;
+        CodigoUsuario = string.Empty;
+        IdMaquinaContenedor = byte.MinValue;
+        GramosContenedor = string.Empty;
+        FechaRegistroContenedor = DateTime.MinValue;
+        
     }
 }

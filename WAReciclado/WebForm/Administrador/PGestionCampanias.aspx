@@ -18,12 +18,12 @@
             </div>
             <asp:GridView ID="gvListaCampanias" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaCampanias_RowCommand">
                 <Columns>
-                    <asp:BoundField DataField="NOMBRE" HeaderText="NOMBRE" />
-                    <asp:BoundField Visible="false" DataField="DESCRIPCION" HeaderText="DESCRIPCION"  />
-                    <asp:BoundField Visible="false" DataField="FECHAINICIO" HeaderText="FECHAINICIO" DataFormatString="{0:d}" />
-                    <asp:BoundField Visible="false" DataField="FECHAFIN" HeaderText="FECHAFIN" DataFormatString="{0:d}"/>
-                    <asp:BoundField DataField="ESTADO" HeaderText="ESTADO" />
-                    <asp:BoundField DataField="SEDE" HeaderText="SEDE" />
+                    <asp:BoundField DataField="NombreCampania" HeaderText="NOMBRE" />
+                    <asp:BoundField Visible="false" DataField="DescripcionCampania" HeaderText="DESCRIPCION"  />
+                    <asp:BoundField Visible="false" DataField="FechaInicioCampania" HeaderText="FECHAINICIO" DataFormatString="{0:d}" />
+                    <asp:BoundField Visible="false" DataField="FechaFinCampania" HeaderText="FECHAFIN" DataFormatString="{0:d}"/>
+                    <asp:BoundField DataField="EstadoCampania" HeaderText="ESTADO" />
+                    <asp:BoundField DataField="SedeCampania" HeaderText="SEDE" />
                     <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
                     <asp:ButtonField ButtonType="Button" CommandName="btnCancelar" Text="Eliminar" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
                     <asp:ButtonField ButtonType="Button" CommandName="btnActualizar" Text="Actualizar" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />

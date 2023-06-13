@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,13 +31,34 @@ public partial class PNuevaOrganizacion : System.Web.UI.Page
                 string nombreO = txbNombre.Text.Trim().ToLower();
                 string descripcionO = txbDescripcion.Text;
 
-                cOrganizacion.Insertar_ROrganizacion_I_CO(nombreO, descripcionO);
-                string nombreOr = String.Concat(nombreO.Where(c => !Char.IsWhiteSpace(c)));
-
-                subirImagenLogo(nombreOr.Trim().TrimEnd(), fluLogo);
-                subirImagenDescripcion(nombreOr.Trim().TrimEnd(), fluDescripcion);
-                txbDescripcion.Text = "";
-                txbNombre.Text = "";
+                if (cOrganizacion.Obtener_ROrganizacion_O_Nombre_CO(nombreO).NombreOrganizacion == "") 
+                {
+                    cOrganizacion.Insertar_ROrganizacion_I_CO(nombreO, descripcionO);
+                    string nombreOr = String.Concat(nombreO.Where(c => !Char.IsWhiteSpace(c)));
+                    subirImagenLogo(nombreOr.Trim().TrimEnd(), fluLogo);
+                    subirImagenDescripcion(nombreOr.Trim().TrimEnd(), fluDescripcion);
+                    txbDescripcion.Text = "";
+                    txbNombre.Text = "";
+                    Response.Redirect("PGestionOrganizaciones.aspx");
+                }
+                else
+                {
+                    string estado = cOrganizacion.Obtener_ROrganizacion_O_Nombre_CO(nombreO).EstadoOrganizacion;
+                    if ( estado == EPAEstaticos.EstadoCancelada)
+                    {
+                        cOrganizacion.Actualizar_ROrganizacion_A_CO(nombreO, descripcionO);
+                        string nombreOr = String.Concat(nombreO.Where(c => !Char.IsWhiteSpace(c)));
+                        subirImagenLogo(nombreOr.Trim().TrimEnd(), fluLogo);
+                        subirImagenDescripcion(nombreOr.Trim().TrimEnd(), fluDescripcion);
+                        txbDescripcion.Text = "";
+                        txbNombre.Text = "";
+                        Response.Redirect("PGestionOrganizaciones.aspx");
+                    }
+                    else
+                    {
+                        lblDescripcion.Text = "Organización ya existente";
+                    }
+                }
             }
         }
         catch (Exception)

@@ -9,16 +9,13 @@ using SWLNReciclado;
 
 public partial class PInformacionCampania : System.Web.UI.Page
 {
-    SWLNRecicladoClient swlnReciclado = new SWLNRecicladoClient();
     ERCampania eCampania = new ERCampania();
     List<ERCampaniaOrganizacion> eCampaniaOrganizacion = new List<ERCampaniaOrganizacion>();
-    List<ERUsuario> eUsuarios = new List<ERUsuario>();
     CCampaniaOrganizacion cCampaniaOrganizacion = new CCampaniaOrganizacion();
 
     private string nombreCampania = string.Empty, sede = string.Empty, nombreOrganizacion = string.Empty;
     private DateTime fechaFin = new DateTime();
 
-    LNServicio lnServicio = new LNServicio();
     CCampania cCampania = new CCampania();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -41,39 +38,87 @@ public partial class PInformacionCampania : System.Web.UI.Page
         {
             foreach (var item in eCampaniaOrganizacion)
             {
-                string pathOrganizacion = Regex.Replace(item.Organizacion.ToLower(), @"\s", "");
+                string pathOrganizacion = Regex.Replace(item.OrganizacionCampaniaOrganizacion.ToLower(), @"\s", "");
                 pathOrganizacion = @"/Imagenes/Logo/" + pathOrganizacion + ".png";
-                int votos = cCampaniaOrganizacion.Obtener_RVotos_O_Campania_Organizacion_CCO(item.Campania, item.Organizacion);
-                CargarOrganizaciones(votos, item.Organizacion, pathOrganizacion);
+                int votos = cCampaniaOrganizacion.Obtener_RVotos_O_Campania_Organizacion_CCO(item.CampaniaCampaniaOrganizacion, item.OrganizacionCampaniaOrganizacion);
+                CargarOrganizaciones(votos, item.OrganizacionCampaniaOrganizacion, pathOrganizacion);
                 votosList.Add(votos);
             }
         }
-
-        auxVotos = votosList.Max();
-        if (votosList.FindAll(x => x == auxVotos).Count() > 1)
+        if (votosList.Count > 0)
         {
-            btnFinalizar.Visible = false;
-            lblExep.Visible = true;
-            lblExep.Text = "No existe campaña ganadora por el momento.";
+            auxVotos = votosList.Max();
+            if (votosList.FindAll(x => x == auxVotos).Count() > 1)
+            {
+                btnFinalizar.Visible = false;
+                lblExep.Visible = true;
+                lblExep.Text = "No existen campañas con votos por el momento.";
+            }
+        }
+
+        eCampania = cCampania.Obtener_RCampania_O_Sede_CC(sede);
+        DateTime fechaInicio = eCampania.FechaInicioCampania.Date;
+        DateTime fechaFin = eCampania.FechaFinCampania.Date;
+        DateTime fechaActual = DateTime.Now.Date;
+
+        lblFechaInicio.Text = fechaInicio.ToShortDateString();
+        lblFechaFinal.Text = fechaFin.ToShortDateString();
+
+        if (fechaActual >= fechaInicio || fechaActual <= fechaFin)
+        {
+            TimeSpan diasRestantes = fechaFin.Subtract(fechaActual);
+            lblDiasRestantes.Text = diasRestantes.Days.ToString();
+
+            //if (fechaActual == fechaFin)
+            //{
+            //    cCampania.Obtener_Organizacion_Ganadora(nombreCampania, nombreOrganizacion, sede);
+            //}
+        }
+        else
+        {
+            lblDiasRestantes.Text = "0";
         }
     }
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        hiddenCancelado.Value = "true";
+        eCampania = new ERCampania();
+        eCampania = cCampania.Obtener_RCampania_O_Sede_CC(sede);
 
+        lblCampaniaFin.Text = "Cancelar la Campaña. ¿Esta seguro/a de cancelar la campaña " + eCampania.NombreCampania + " ?";
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Abrir()", true);
+    }
     protected void btnAceptar_Click(object sender, EventArgs e)
     {
-        cCampania.Obtener_Organizacion_Ganadora(nombreCampania, nombreOrganizacion, sede);
-    }
+        
+        bool cancelado = hiddenCancelado.Value == "true";
+        bool finalizado = hiddenFinalizado.Value == "true";
 
+        if (cancelado)
+        {
+            cCampania.Eliminar_Campania(nombreCampania);
+        }
+        else if (finalizado)
+        {
+            cCampania.Obtener_Organizacion_Ganadora(nombreCampania, nombreOrganizacion, sede);
+        }
+        
+    }
     protected void btnCerrar_Click(object sender, ImageClickEventArgs e)
     {
+        hiddenCancelado.Value = "false";
+        hiddenFinalizado.Value = "false";
+
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Cerrar()", true);
     }
 
     protected void btnFinalizar_Click(object sender, EventArgs e)
     {
+        hiddenFinalizado.Value = "true";
         //cCampania.Finalizar_Campania(fechaFin, sede, lblCampaniaFin.Text);
         eCampania = new ERCampania();
         eCampania = cCampania.Obtener_RCampania_O_Sede_CC(sede);
-        fechaFin = eCampania.FechaFin;
+        fechaFin = eCampania.FechaFinCampania;
         string verbo = string.Empty;
         if (fechaFin < DateTime.Now.Date)
             verbo = " venció ";
@@ -81,7 +126,7 @@ public partial class PInformacionCampania : System.Web.UI.Page
             verbo = " vencerá ";
         if (fechaFin == DateTime.Now.Date)
             verbo = " vence ";
-        lblCampaniaFin.Text = "La " + eCampania.Nombre + verbo + " el " + fechaFin.ToShortDateString();
+        lblCampaniaFin.Text = "Finalizar la Campaña.\n" + "La " + eCampania.NombreCampania + verbo + " el " + fechaFin.ToShortDateString() + "\n" + "¿Esta seguro/a?";
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Abrir()", true);
     }
 

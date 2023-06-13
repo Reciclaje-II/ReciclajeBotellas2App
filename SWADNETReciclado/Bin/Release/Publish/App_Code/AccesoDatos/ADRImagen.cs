@@ -5,12 +5,35 @@ using System.Web;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADRImagen
 /// </summary>
 public class ADRImagen
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ContruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD EDefectoAD = new EDefectoAD();
+        EDefectoAD.TipoError = tipoError;
+        EDefectoAD.Servicio = "SWADNETReciclado";
+        EDefectoAD.Clase = "ADRImagen";
+        EDefectoAD.Metodo = metodo;
+        EDefectoAD.Excepcion = excepcion;
+        EDefectoAD.Mensaje = mensaje;
+        return EDefectoAD;
+    }
+    #endregion 
     #region Metodos publicos
 
     /// <summary>
@@ -23,38 +46,44 @@ public class ADRImagen
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RImagen_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eRImagen.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "tipo", DbType.Byte, eRImagen.Tipo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, eRImagen.Organizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreImagen", DbType.String, eRImagen.NombreImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tipoImage", DbType.Byte, eRImagen.TipoImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacionImagen", DbType.String, eRImagen.OrganizacionImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroImagen", DbType.String, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacion", DbType.String, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoImagen", DbType.String, EPAEstaticos.EstadoActiva);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-        catch (Exception)
+ 
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD EDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Insertar_RImagen_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(EDefectoAD);
         }
     }
 
     /// <summary>
     /// Obtener Imagen por organizacion
     /// </summary>
-    /// <param name="Organizacion"></param>
-    /// <param name="Tipo"></param>
+    /// <param name="organizacionImagen"></param>
+    /// <param name="tipoImagen"></param>
     /// <returns>Retorna una lista de RImagen</returns>
-    public DTORImagen Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public DTORImagen Obtener_RImagen_O_Organizacion(string organizacionImagen, byte tipoImagen)
     {
         DTORImagen dTORImagen = new DTORImagen();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RImagen_O_Organizacion");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, Organizacion);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "tipo", DbType.Byte, Tipo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacionImagen", DbType.String, organizacionImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tipoImagen", DbType.Byte, tipoImagen);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORImagen, "RImagen");
         }
-        catch (Exception)
+    
+        catch (SqlException SQLEx)
         {
-
-            throw;
+            EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Obtener_RImagen_O_Organizacion", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTORImagen;
     }

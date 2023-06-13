@@ -44,8 +44,15 @@ public static class SUtil
                 break;
         }
         DateTime convertFecha = DateTime.Parse(fechaFin.Trim());
-        if (convertFecha.Month <= 6) result = result + nombreCampania.Trim().ToUpper() + "-1_" + convertFecha.Year.ToString();
-        else result = result + nombreCampania.Trim().ToUpper() + "-2_" + convertFecha.Year.ToString();
+        if (convertFecha.Month <= 6) 
+        { 
+            result = result + nombreCampania.Trim().ToUpper() + "-1_" + convertFecha.Year.ToString(); 
+        }
+        else 
+        {
+            result = result + nombreCampania.Trim().ToUpper() + "-2_" + convertFecha.Year.ToString(); 
+        }
+        
         return result;
     }
 

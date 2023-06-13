@@ -2,71 +2,72 @@
 <xs:schema id="DTORVoto" targetNamespace="http://tempuri.org/DTORVoto.xsd" xmlns:mstns="http://tempuri.org/DTORVoto.xsd" xmlns="http://tempuri.org/DTORVoto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDRecicladoBotellasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDRecicladoBotellasConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDRecicladoBotellasConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDReciclajeBotellasConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDReciclajeBotellasConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDReciclajeBotellasConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDReciclajeBotellasConnectionString9" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDReciclajeBotellasConnectionString9 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDReciclajeBotellasConnectionString9.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDReciclajeBotellasConnectionString10" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDReciclajeBotellasConnectionString10 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDReciclajeBotellasConnectionString10.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDReciclajeBotellasConnectionString11" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDReciclajeBotellasConnectionString11 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDReciclajeBotellasConnectionString11.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDReciclajeBotellasConnectionString12" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDReciclajeBotellasConnectionString12 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDReciclajeBotellasConnectionString12.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RVotoTableAdapter" GeneratorDataComponentClassName="RVotoTableAdapter" Name="RVoto" UserDataComponentName="RVotoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDRecicladoBotellasConnectionString (Web.config)" DbObjectName="BDRecicladoBotellas.dbo.RVoto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDReciclajeBotellasConnectionString12 (Web.config)" DbObjectName="BDReciclajeBotellas.dbo.RVoto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[RVoto] WHERE (([Codigo] = @Original_Codigo) AND ([Campania] = @Original_Campania) AND ([Organizacion] = @Original_Organizacion))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[RVoto] WHERE (([IdVoto] = @Original_IdVoto))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Campania" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Campania" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Organizacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Organizacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdVoto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdVoto" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[RVoto] ([Codigo], [Campania], [Organizacion], [Fecha], [Donacion], [Estado], [FechaActualizacion]) VALUES (@Codigo, @Campania, @Organizacion, @Fecha, @Donacion, @Estado, @FechaActualizacion)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[RVoto] ([CodigoUsuario], [CampaniaVoto], [OrganizacionVoto], [FechaRegistroVoto], [DonacionVoto], [EstadoVoto], [FechaModificacionVoto]) VALUES (@CodigoUsuario, @CampaniaVoto, @OrganizacionVoto, @FechaRegistroVoto, @DonacionVoto, @EstadoVoto, @FechaModificacionVoto)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Campania" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Campania" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Organizacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Organizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Donacion" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Donacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaActualizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaActualizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CampaniaVoto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CampaniaVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@OrganizacionVoto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="OrganizacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistroVoto" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistroVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DonacionVoto" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="DonacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoVoto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacionVoto" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Codigo, Campania, Organizacion, Fecha, Donacion, Estado, FechaActualizacion FROM dbo.RVoto</CommandText>
+                    <CommandText>SELECT CodigoUsuario, CampaniaVoto, OrganizacionVoto, FechaRegistroVoto, DonacionVoto, EstadoVoto, FechaModificacionVoto, IdVoto FROM dbo.RVoto</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[RVoto] SET [Codigo] = @Codigo, [Campania] = @Campania, [Organizacion] = @Organizacion, [Fecha] = @Fecha, [Donacion] = @Donacion, [Estado] = @Estado, [FechaActualizacion] = @FechaActualizacion WHERE (([Codigo] = @Original_Codigo) AND ([Campania] = @Original_Campania) AND ([Organizacion] = @Original_Organizacion))</CommandText>
+                    <CommandText>UPDATE [dbo].[RVoto] SET [CodigoUsuario] = @CodigoUsuario, [CampaniaVoto] = @CampaniaVoto, [OrganizacionVoto] = @OrganizacionVoto, [FechaRegistroVoto] = @FechaRegistroVoto, [DonacionVoto] = @DonacionVoto, [EstadoVoto] = @EstadoVoto, [FechaModificacionVoto] = @FechaModificacionVoto WHERE (([IdVoto] = @Original_IdVoto))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Campania" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Campania" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Organizacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Organizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Donacion" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Donacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaActualizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaActualizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Campania" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Campania" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Organizacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Organizacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CampaniaVoto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CampaniaVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@OrganizacionVoto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="OrganizacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistroVoto" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistroVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DonacionVoto" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="DonacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoVoto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacionVoto" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacionVoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdVoto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdVoto" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
-              <Mapping SourceColumn="Campania" DataSetColumn="Campania" />
-              <Mapping SourceColumn="Organizacion" DataSetColumn="Organizacion" />
-              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
-              <Mapping SourceColumn="Donacion" DataSetColumn="Donacion" />
-              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
-              <Mapping SourceColumn="FechaActualizacion" DataSetColumn="FechaActualizacion" />
+              <Mapping SourceColumn="CodigoUsuario" DataSetColumn="CodigoUsuario" />
+              <Mapping SourceColumn="CampaniaVoto" DataSetColumn="CampaniaVoto" />
+              <Mapping SourceColumn="OrganizacionVoto" DataSetColumn="OrganizacionVoto" />
+              <Mapping SourceColumn="FechaRegistroVoto" DataSetColumn="FechaRegistroVoto" />
+              <Mapping SourceColumn="DonacionVoto" DataSetColumn="DonacionVoto" />
+              <Mapping SourceColumn="EstadoVoto" DataSetColumn="EstadoVoto" />
+              <Mapping SourceColumn="FechaModificacionVoto" DataSetColumn="FechaModificacionVoto" />
+              <Mapping SourceColumn="IdVoto" DataSetColumn="IdVoto" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -75,43 +76,44 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DTORVoto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DTORVoto" msprop:Generator_UserDSName="DTORVoto">
+  <xs:element name="DTORVoto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DTORVoto" msprop:Generator_DataSetName="DTORVoto">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="RVoto" msprop:Generator_TableClassName="RVotoDataTable" msprop:Generator_TableVarName="tableRVoto" msprop:Generator_TablePropName="RVoto" msprop:Generator_RowDeletingName="RVotoRowDeleting" msprop:Generator_RowChangingName="RVotoRowChanging" msprop:Generator_RowEvHandlerName="RVotoRowChangeEventHandler" msprop:Generator_RowDeletedName="RVotoRowDeleted" msprop:Generator_UserTableName="RVoto" msprop:Generator_RowChangedName="RVotoRowChanged" msprop:Generator_RowEvArgName="RVotoRowChangeEvent" msprop:Generator_RowClassName="RVotoRow">
+        <xs:element name="RVoto" msprop:Generator_RowEvHandlerName="RVotoRowChangeEventHandler" msprop:Generator_RowDeletedName="RVotoRowDeleted" msprop:Generator_RowDeletingName="RVotoRowDeleting" msprop:Generator_RowEvArgName="RVotoRowChangeEvent" msprop:Generator_TablePropName="RVoto" msprop:Generator_RowChangedName="RVotoRowChanged" msprop:Generator_RowChangingName="RVotoRowChanging" msprop:Generator_TableClassName="RVotoDataTable" msprop:Generator_RowClassName="RVotoRow" msprop:Generator_TableVarName="tableRVoto" msprop:Generator_UserTableName="RVoto">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+              <xs:element name="CodigoUsuario" msprop:Generator_ColumnPropNameInRow="CodigoUsuario" msprop:Generator_ColumnPropNameInTable="CodigoUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoUsuario" msprop:Generator_UserColumnName="CodigoUsuario">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="14" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campania" msprop:Generator_ColumnVarNameInTable="columnCampania" msprop:Generator_ColumnPropNameInRow="Campania" msprop:Generator_ColumnPropNameInTable="CampaniaColumn" msprop:Generator_UserColumnName="Campania">
+              <xs:element name="CampaniaVoto" msprop:Generator_ColumnPropNameInRow="CampaniaVoto" msprop:Generator_ColumnPropNameInTable="CampaniaVotoColumn" msprop:Generator_ColumnVarNameInTable="columnCampaniaVoto" msprop:Generator_UserColumnName="CampaniaVoto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Organizacion" msprop:Generator_ColumnVarNameInTable="columnOrganizacion" msprop:Generator_ColumnPropNameInRow="Organizacion" msprop:Generator_ColumnPropNameInTable="OrganizacionColumn" msprop:Generator_UserColumnName="Organizacion">
+              <xs:element name="OrganizacionVoto" msprop:Generator_ColumnPropNameInRow="OrganizacionVoto" msprop:Generator_ColumnPropNameInTable="OrganizacionVotoColumn" msprop:Generator_ColumnVarNameInTable="columnOrganizacionVoto" msprop:Generator_UserColumnName="OrganizacionVoto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
-              <xs:element name="Donacion" msprop:Generator_ColumnVarNameInTable="columnDonacion" msprop:Generator_ColumnPropNameInRow="Donacion" msprop:Generator_ColumnPropNameInTable="DonacionColumn" msprop:Generator_UserColumnName="Donacion" type="xs:decimal" />
-              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado">
+              <xs:element name="FechaRegistroVoto" msprop:Generator_ColumnPropNameInRow="FechaRegistroVoto" msprop:Generator_ColumnPropNameInTable="FechaRegistroVotoColumn" msprop:Generator_ColumnVarNameInTable="columnFechaRegistroVoto" msprop:Generator_UserColumnName="FechaRegistroVoto" type="xs:dateTime" />
+              <xs:element name="DonacionVoto" msprop:Generator_ColumnPropNameInRow="DonacionVoto" msprop:Generator_ColumnPropNameInTable="DonacionVotoColumn" msprop:Generator_ColumnVarNameInTable="columnDonacionVoto" msprop:Generator_UserColumnName="DonacionVoto" type="xs:decimal" />
+              <xs:element name="EstadoVoto" msprop:Generator_ColumnPropNameInRow="EstadoVoto" msprop:Generator_ColumnPropNameInTable="EstadoVotoColumn" msprop:Generator_ColumnVarNameInTable="columnEstadoVoto" msprop:Generator_UserColumnName="EstadoVoto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FechaActualizacion" msprop:Generator_ColumnVarNameInTable="columnFechaActualizacion" msprop:Generator_ColumnPropNameInRow="FechaActualizacion" msprop:Generator_ColumnPropNameInTable="FechaActualizacionColumn" msprop:Generator_UserColumnName="FechaActualizacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaModificacionVoto" msprop:Generator_ColumnPropNameInRow="FechaModificacionVoto" msprop:Generator_ColumnPropNameInTable="FechaModificacionVotoColumn" msprop:Generator_ColumnVarNameInTable="columnFechaModificacionVoto" msprop:Generator_UserColumnName="FechaModificacionVoto" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IdVoto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="IdVoto" msprop:Generator_ColumnPropNameInTable="IdVotoColumn" msprop:Generator_ColumnVarNameInTable="columnIdVoto" msprop:Generator_UserColumnName="IdVoto" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -119,9 +121,7 @@
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:RVoto" />
-      <xs:field xpath="mstns:Codigo" />
-      <xs:field xpath="mstns:Campania" />
-      <xs:field xpath="mstns:Organizacion" />
+      <xs:field xpath="mstns:IdVoto" />
     </xs:unique>
   </xs:element>
 </xs:schema>

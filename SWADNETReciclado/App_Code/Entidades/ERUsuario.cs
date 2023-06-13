@@ -12,17 +12,17 @@ public class ERUsuario
 {
     #region Atributos
     [DataMember]
-    public string Codigo { get; set; }
+    public string CodigoUsuario { get; set; }
     [DataMember]
-    public string Creditos { get; set; }
+    public string CreditosUsuario { get; set; }
     [DataMember]
-    public string Rol { get; set; }
+    public string RolUsuario { get; set; }
     #endregion
 
     public ERUsuario()
     {
-        Codigo = string.Empty;
-        Creditos = string.Empty;
-        Rol = string.Empty;
+        CodigoUsuario = string.Empty;
+        CreditosUsuario = string.Empty;
+        RolUsuario = string.Empty;
     }
 }

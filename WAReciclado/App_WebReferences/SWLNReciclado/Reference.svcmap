@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:61259/SWLNReciclado.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SWLNReciclado.wsdl" MetadataType="Wsdl" ID="284f89d6-e8f9-4574-afda-3d7c4ef60c86" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?wsdl" />
+    <MetadataFile FileName="SWLNReciclado1.xsd" MetadataType="Schema" ID="7a0ea641-490b-437d-8389-4644947e9a3b" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?xsd=xsd1" />
     <MetadataFile FileName="SWLNReciclado.disco" MetadataType="Disco" ID="b6e51290-936f-4b81-ac6a-2a1333d0adf3" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?disco" />
     <MetadataFile FileName="SWLNReciclado3.xsd" MetadataType="Schema" ID="b64dcbc4-f14a-4cc6-81a1-1aa5c89a0bfc" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?xsd=xsd3" />
-    <MetadataFile FileName="SWLNReciclado1.xsd" MetadataType="Schema" ID="7a0ea641-490b-437d-8389-4644947e9a3b" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?xsd=xsd1" />
     <MetadataFile FileName="SWLNReciclado2.xsd" MetadataType="Schema" ID="d834882e-68c9-46c7-af23-b5b959925e5d" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?xsd=xsd2" />
+    <MetadataFile FileName="SWLNReciclado.wsdl" MetadataType="Wsdl" ID="284f89d6-e8f9-4574-afda-3d7c4ef60c86" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?wsdl" />
     <MetadataFile FileName="SWLNReciclado.xsd" MetadataType="Schema" ID="f63b47b1-76c7-40f6-b8b9-24a826b70d56" SourceId="1" SourceUrl="http://localhost:61259/SWLNReciclado.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>

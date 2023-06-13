@@ -23,6 +23,7 @@
                     <asp:Label Font-Size="10" runat="server" Font-Bold="false" Text="DESCRIPCIÓN:"></asp:Label>
                     <asp:TextBox CssClass="BackGroundTxt" ID="txbDescripcion" TextMode="MultiLine" runat="server" Width="100%" Wrap="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="txbDescripcion" ErrorMessage="Este campo es obligatorio" ForeColor="Red" Display="Dynamic" ToolTip="Este campo es obligatorio" runat="server"></asp:RequiredFieldValidator>
+                <asp:Label Font-Size="10" ID="lblDescripcion" runat="server" Font-Bold="false" Text="" ForeColor="Red"  ></asp:Label>
 
                 </div>
                 <div class="bodyText">
@@ -47,8 +48,10 @@
                         <asp:Image ID="Image1" CssClass="marginLeft imagenDescripcion" runat="server" Width="200px" Height="200px" />
                     </div>
                 </div>
+                
                 <div class="bodyText center">
                     <asp:Button ID="btnGuardar" CssClass="boton1" Height="30px" CausesValidation="true" Font-Bold="true" Font-Size="10" runat="server" Text="GUARDAR" Width="20%" OnClick="btnGuardar_Click" />
+                    
                 </div>
 
             </div>

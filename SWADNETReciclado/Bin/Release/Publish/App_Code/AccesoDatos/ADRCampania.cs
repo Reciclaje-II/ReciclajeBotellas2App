@@ -5,35 +5,36 @@ using System.Web;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADRCampania
 /// </summary>
 public class ADRCampania
 {
-    #region Metodos Publicos
+    #region Metodos Privados
     /// <summary>
-    /// Obtener campaña activa por sede
+    /// Contruir el Error del servicio > metodo
     /// </summary>
-    /// <param name="Sede"></param>
-    /// <returns>Retorna una campania</returns>
-    public DTORCampania Obtener_RCampania_O_Sede(string Sede)
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
     {
-        DTORCampania dTORCampania = new DTORCampania();
-        try
-        {
-            Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
-            DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_O_Sede");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "sede", DbType.String, Sede);
-            BDSWADNETReciclado.LoadDataSet(dbCommand, dTORCampania, "RCampania");
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        return dTORCampania;
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETReciclado";
+        eDefectoAD.Clase = "ADRCampania";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
     }
+    #endregion
+    #region Metodos publicos
 
     /// <summary>
     /// Obtener todas las campañas
@@ -46,14 +47,18 @@ public class ADRCampania
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_O");
+            
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORCampania, "RCampania");
         }
-        catch (Exception)
+        
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_RCampania_O", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTORCampania;
     }
+
 
     /// <summary>
     /// Metodo para insertar una Campaña
@@ -65,16 +70,21 @@ public class ADRCampania
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eRCampania.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eRCampania.Descripcion);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaInicio", DbType.DateTime, eRCampania.FechaInicio);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaFin", DbType.DateTime, eRCampania.FechaFin);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "sede", DbType.String, eRCampania.Sede);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, eRCampania.NombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcionCampania", DbType.String, eRCampania.DescripcionCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaInicioCampania", DbType.DateTime, eRCampania.FechaInicioCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaFinCampania", DbType.DateTime, eRCampania.FechaFinCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "sedeCampania", DbType.String, eRCampania.SedeCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampania", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionCampania", DbType.String, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroCampania", DbType.String, EPAEstaticos.FechaRegistro);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-        catch (Exception)
+
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_RCampania_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
 
@@ -88,15 +98,20 @@ public class ADRCampania
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_A");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eRCampania.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eRCampania.Descripcion);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaInicio", DbType.DateTime, eRCampania.FechaInicio);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaFin", DbType.DateTime, eRCampania.FechaFin);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, eRCampania.NombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcionCampania", DbType.String, eRCampania.DescripcionCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaInicioCampania", DbType.DateTime, eRCampania.FechaInicioCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaFinCampania", DbType.DateTime, eRCampania.FechaFinCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "sedeCampania", DbType.String, eRCampania.SedeCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampania", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionCampania", DbType.String, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
-        }
-        catch (Exception)
+    }
+
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_RCampania_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
 
@@ -104,38 +119,77 @@ public class ADRCampania
     /// Actualiza el estado de una campaña a 'FINALIAZADA'
     /// </summary>
     /// <param name="eRCampania"></param>
-    public void Actualizar_RCampania_A_Estado(string Nombre)
+    public void Actualizar_RCampania_A_Estado(string nombreCampania)
     {
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_A_Estado");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, nombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampaniaF", DbType.String, EPAEstaticos.EstadoFinalizada);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionCampania", DbType.String, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-        catch (Exception)
+
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_RCampania_A_Estado", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
 
     /// <summary>
     /// Actualizar el estado de una campaña a cancelado
     /// </summary>
-    /// <param name="Nombre"></param>
-    public void Actualizar_RCampania_A_Estado_Cancelado(string Nombre)
+    /// <param name="nombreCampania"></param>
+    public void Actualizar_RCampania_A_Estado_Cancelado(string nombreCampania)
     {
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_A_Estado_Cancelado");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, nombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampania", DbType.String, EPAEstaticos.EstadoCancelada);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionCampania", DbType.String, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-        catch (Exception)
+
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_RCampania_A_Estado_Cancelado", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+
         }
+
+
     }
+
+
+    /// <summary>
+    /// Obtener campaña activa por sede
+    /// </summary>
+    /// <param name="sedeCampania"></param>
+    /// <returns>Retorna una campania</returns>
+    public DTORCampania Obtener_RCampania_O_Sede(string sedeCampania)
+    {
+        DTORCampania dTORCampania = new DTORCampania();
+        try
+        {
+            Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
+            DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampania_O_Sede");
+            BDSWADNETReciclado.AddInParameter(dbCommand, "sedeCampania", DbType.String, sedeCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampania", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.LoadDataSet(dbCommand, dTORCampania, "RCampania");
+        }
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_RCampania_O_Sede", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+        return dTORCampania;
+    }
+
     #endregion
 }
+
+

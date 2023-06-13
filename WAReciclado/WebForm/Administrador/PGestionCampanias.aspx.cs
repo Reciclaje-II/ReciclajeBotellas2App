@@ -21,7 +21,9 @@ public partial class PGestionCampanias : System.Web.UI.Page
     {
         eCampania = new ERCampania();
         eCampania = cCampania.Obtener_RCampania_O_Sede_CC(Session["Sede"].ToString());
-        if (eCampania.Nombre.Trim() != "")
+        //LNServicio lNServicio = new LNServicio();
+        //lNServicio.Insertar_RContenedor_I("BVR5001132", 1, "12", DateTime.Now);
+        if (eCampania.NombreCampania.Trim() != "")
         {
             btnCrearCampania.Visible = false;
         }
@@ -34,30 +36,30 @@ public partial class PGestionCampanias : System.Web.UI.Page
 
     private void EditarBotones()
     {
-        //for (int i = 0; i < gvListaCampanias.Rows.Count; i++)
-        //{
-        //    //this.dataGridView1.Columns["CustomerID"].Visible = false;
-        //    string valor = gvListaCampanias.Rows[i].Cells[1].Text;
-
-        //    //gvListaCampanias.Rows[i].Cells[4].Visible = false;
-        //    //gvListaCampanias.Rows[i].Cells[5].Visible = false;
-
-        //    Button button = (Button)gvListaCampanias.Rows[1].Cells[3].Controls[0];
-        //    button.Visible = false;
-
-        //}
 
         for (int i = 0; i < gvListaCampanias.Rows.Count; i++)
         {
             string valor = gvListaCampanias.Rows[i].Cells[4].Text;
 
-
-
-
-            if (valor == "FINALIZADA" || valor == "CANCELADA")
+            if (valor == EPAEstaticos.EstadoFinalizada)
             {
-                gvListaCampanias.Rows[i].Cells[6].Controls[0].Visible = false;
                 gvListaCampanias.Rows[i].Cells[8].Controls[0].Visible = false;
+            }
+
+           
+
+            switch (valor)
+            {
+                case "AC":
+                    gvListaCampanias.Rows[i].Cells[4].Text = "Activa";
+                    break;
+                
+                case "FI":
+
+                    gvListaCampanias.Rows[i].Cells[8].Controls[0].Visible = false;
+                    gvListaCampanias.Rows[i].Cells[4].Text = "Finalizada";
+
+                    break;
             }
         }
     }
@@ -65,10 +67,10 @@ public partial class PGestionCampanias : System.Web.UI.Page
     private void CargarDatos()
     {
         gvListaCampanias.DataSource = null;
-        lstERCampania = cCampania.Obtener_RCampania_O_CC(Session["Sede"].ToString()).Where(campania => campania.Estado.ToUpper() != "CANCELADA").ToList();
+        lstERCampania = cCampania.Obtener_RCampania_O_CC(Session["Sede"].ToString()).Where(campania => campania.EstadoCampania.ToUpper() != "CA").OrderBy(campania => campania.EstadoCampania).ToList();
         gvListaCampanias.DataSource = lstERCampania;
         gvListaCampanias.DataBind();
-        
+
         EditarBotones();
     }
 
@@ -89,15 +91,15 @@ public partial class PGestionCampanias : System.Web.UI.Page
         organizacion = cOrganizacion.Obtener_RVoto_O_Organizacion_CO(Id_Campania);
         if (e.CommandName == "btnVer")
         {
-            estado = gvListaCampanias.Rows[index].Cells[4].Text.ToUpper();
-            if (estado == "ACTIVA")
+            estado = gvListaCampanias.Rows[index].Cells[4].Text;
+            if (estado == "Activa")
             {
                 Session["Campania"] = Id_Campania;
                 Session["Sede"] = sede;
                 Response.Redirect("PInformacionCampania.aspx");
                 btnCrearCampania.Text = Id_Campania;
             }
-            else if (estado == "FINALIZADA")
+            else if (estado == "Finalizada")
             {
                 Session["Campania"] = Id_Campania;
                 Session["Sede"] = sede;
@@ -131,27 +133,5 @@ public partial class PGestionCampanias : System.Web.UI.Page
     }
 
 
-    //protected void gvListaCampanias_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        TableCell cell = e.Row.Cells[4];
-    //        // Reemplaza "1" con el índice de la celda que deseas ocultar 
-    //        // Aplicar la condición para ocultar la celda if (condicionCumplida) 
-    //        cell.Visible = false;
-    //    }
-    //}
 
-    //protected void gvListaCampanias_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    if (e.CommandName == "btnVer" || e.CommandName == "btnActualizar")
-    //    {
-    //        int columnIndex = int.Parse(e.CommandArgument.ToString()); // Acceder al ButtonField utilizando el índice de columna ButtonField buttonField = (ButtonField)gvListaCampanias.Columns[columnIndex]; // Puedes utilizar buttonField para realizar operaciones en el ButtonField // por ejemplo, obtener su Text, CommandName, etc. } }
-    //    }
-    //}
-
-    //protected void Button1_Click(object sender, EventArgs e)
-    //{
-    //    EditarBotones();
-    //}
 }

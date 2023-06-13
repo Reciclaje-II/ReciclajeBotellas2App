@@ -21,13 +21,13 @@ public partial class PVerDescripcion : System.Web.UI.Page
         {
             //eROrganizacion = swlnReciclado.Obtener_ROrganizacion_O_Nombre(@"Aldeas Infantiles SOS Bolivia");
             eOrganizacion = cOrganizacion.Obtener_ROrganizacion_O_Nombre_CO(Session["Organizacion"].ToString());
-            lblOrganizacion.Text = eOrganizacion.Nombre;
+            lblOrganizacion.Text = eOrganizacion.NombreOrganizacion;
         }
-        string pathOrganizacion = eOrganizacion.Nombre;
+        string pathOrganizacion = eOrganizacion.NombreOrganizacion;
         pathOrganizacion = pathOrganizacion.ToLower();
         pathOrganizacion = Regex.Replace(pathOrganizacion, @"\s", "");
         string pathImage = @"/Imagenes/Descripcion/" + pathOrganizacion + ".png";
         imgImagen.ImageUrl = pathImage;
-        lblDescripcion.Text = eOrganizacion.Descripcion;//saltos de linea
+        lblDescripcion.Text = eOrganizacion.DescripcionOrganizacion;//saltos de linea
     }
 }

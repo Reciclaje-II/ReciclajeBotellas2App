@@ -15,29 +15,29 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Actualizar_RVoto_A(ERVoto eRVoto);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania);
+    ERVoto Obtener_RVoto_O_Codigo_Campania(string codigoUsuario, string nombreCampania);
     [OperationContract]
-    int Obtener_RVotos_O_Campania(string Campania);
+    int Obtener_RVotos_O_Campania(string nombeCampaniaVoto);
     [OperationContract]
-    int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion);
+    int Obtener_RVotos_O_Campania_Organizacion(string campaniaVoto, string nombreOrganizacionVoto);
     [OperationContract]
-    int Obtener_RVoto_O_Donacion_Total(string Campania);
+    int Obtener_RVoto_O_Donacion_Total(string nombreCampaniaVoto);
     [OperationContract]
-    ERVoto Obtener_RVoto_O_Donacion_Maxima(string Campania);
+    ERVoto Obtener_RVoto_O_Donacion_Maxima(string nombreCampania);
     [OperationContract]
-    string Obtener_RVoto_O_Organizacion(string Campania);
+    string Obtener_RVoto_O_Organizacion(string nombreCampania);
     #endregion
     #region Tabla : RUsuarioNetvalle
     [OperationContract]
-    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string Sede, string Codigo);
+    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string sedeUsuarioNetvalle, string codigoUsuarioNetvalle);
     [OperationContract]
-    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string Codigo);
+    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string codigoUsuarioNetvalle);
     [OperationContract]
-    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string Tarjeta);
+    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetvalle);
     #endregion
     #region Tabla : RCampania
     [OperationContract]
-    ERCampania Obtener_RCampania_O_Sede(string Sede);
+    ERCampania Obtener_RCampania_O_Sede(string sedeCampania);
     [OperationContract]
     List<ERCampania> Obtener_RCampania_O();
     [OperationContract]
@@ -45,15 +45,15 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Actualizar_RCampania_A(ERCampania eRCampania);
     [OperationContract]
-    void Actualizar_RCampania_A_Estado(string Nombre);
+    void Actualizar_RCampania_A_Estado(string nombreCampania);
     [OperationContract]
-    void Actualizar_RCampania_A_Estado_Cancelado(string Nombre);
+    void Actualizar_RCampania_A_Estado_Cancelado(string nombreCampania);
     #endregion
     #region Tabla : RCampaniaOrganizacion
     [OperationContract]
     void Insertar_RCampaniaOrganizacion_I(ERCampaniaOrganizacion eRCampaniaOrganizacion);
     [OperationContract]
-    List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string Campania);
+    List<ERCampaniaOrganizacion> Obtener_RCampaniaOrganizacion_O_Campania(string campaniaCampaniaOrganizacion);
     #endregion
     #region Tabla : ROrganizacion
     [OperationContract]
@@ -61,34 +61,34 @@ public interface ISWADNETReciclado
     [OperationContract]
     void Actualizar_ROrganizacion_A(EROrganizacion eROrganizacion);
     [OperationContract]
-    EROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre);
+    EROrganizacion Obtener_ROrganizacion_O_Nombre(string nombreOrganizacion);
     [OperationContract]
     List<EROrganizacion> Obtener_ROrganizaciones_O();
     [OperationContract]
-    void Eliminar_ROrganizacion_E_Nombre(string Nombre);
+    void Eliminar_ROrganizacion_E_Nombre(string nombreOrganizacion);
     #endregion
     #region Tabla : RImagen
     [OperationContract]
     void Insertar_RImagen_I(ERImagen eRImagen);
     [OperationContract]
-    List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo);
+    List<ERImagen> Obtener_RImagen_O_Organizacion(string organizacionImagen, byte tipoImagen);
     #endregion
     #region Tabla: RUsuario
     [OperationContract]
-    ERUsuario Obtener_RUsuario_O_Codigo(string Codigo);
+    ERUsuario Obtener_RUsuario_O_Codigo(string codigoUsuario);
     [OperationContract]
-    List<ERUsuario> Obtener_RUsuarios_O_Top_Creditos(string Sede);
+    List<ERUsuario> Obtener_RUsuarios_O_Top_Creditos(string sedeUsuarioNetvalle);
     [OperationContract]
-    List<ERUsuario> Obtener_RUsuarios_O_Sede(string Sede);
+    List<ERUsuario> Obtener_RUsuarios_O_Sede(string sedeUsuarioNetvalle);
     [OperationContract]
-    void Actualizar_RUsuario_A_Creditos_Sede(string Campania, string Codigo);
+    void Actualizar_RUsuario_A_Creditos_Sede(string codigoUsuarioNetvalle);
     [OperationContract]
-    void Actualizar_RUsuario_A_Creditos_Codigo(string Codigo, string Creditos);
+    void Actualizar_RUsuario_A_Creditos_Codigo(string codigoUsuario, string creditoUsuario);
     #endregion
     #region Tabla: RContenedor
     [OperationContract]
     void Insertar_RContenedor_I(ERContenedor eRContenedor);
     [OperationContract]
-    List<ERContenedor> Obtener_RContenedor_O_Codigo(string Codigo);
+    List<ERContenedor> Obtener_RContenedor_O_Codigo(string codigoUsuario);
     #endregion
 }

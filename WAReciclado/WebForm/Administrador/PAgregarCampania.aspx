@@ -39,24 +39,20 @@
                         </div>
                     </div>
                     <div class="col">
-                        <%--<div class="inputBox">
-                            <asp:Label ID="lblOrganizacioneslblEstatico" CssClass="textEstatico" Text="Organizaciones:" runat="server"></asp:Label>
-                            <asp:Button ID="btnAniadirOrganizacion" CssClass="btnAniadirOrg" runat="server" Text="Añadir nueva organizacion" OnClick="btnAniadirOrganizacion_Click" />
-                        </div>--%>
+                        </div>
                     </div>
-                    <asp:DropDownList CssClass="drpOrganizacion" ID="DropDownListOrganizaciones" runat="server"  DataTextField="Nombre" DataValueField="Nombre" Width="165px" Height="30px"></asp:DropDownList>
-                    <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BDRecicladoBotellasConnectionString %>" SelectCommand="SELECT [Nombre] FROM [ROrganizacion] WHERE ([Estado] = @Estado)">
+                    <asp:DropDownList CssClass="drpOrganizacion" ID="DropDownListOrganizaciones" runat="server"  DataTextField="NombreOrganizacion" DataValueField="NombreOrganizacion" Width="165px" Height="30px"></asp:DropDownList>
                         <SelectParameters>
                             <asp:Parameter DefaultValue="1" Name="Estado" Type="Byte" />
                         </SelectParameters>
-                    </asp:SqlDataSource>--%>
+                    </asp:SqlDataSource>
                     <asp:Button ID="btnAñadirListaOrganizaciones" CssClass="btnAddOrg" runat="server" Text="+" OnClick="btnAñadirListaOrganizaciones_Click" />
                     <br />
                     <asp:Label CssClass="textEstatico" Text="Organizaciones Seleccionadas:" runat="server"></asp:Label><br />
                     <div class="divCentrogrv">
                         <asp:GridView ID="GridViewListaOrganizaciones" CssClass="gridview" AutoGenerateColumns="false" runat="server" OnRowCommand="GridViewListaOrganizaciones_RowCommand">
                             <Columns>
-                                <asp:BoundField DataField="organizacion" SortExpression="organization" />
+                                <asp:BoundField DataField="NombreOrganizacion" SortExpression="organization" />
                                 <asp:ButtonField ButtonType="Button" CommandName="btnEliminar" Text="ELIMINAR" ControlStyle-CssClass="button" />
                             </Columns>
                         </asp:GridView>
@@ -73,7 +69,6 @@
                 </div>
             </div>
         </div>
-        <%--  ----------------%>
         <div class="modal-container" id="modalContainer">
             <div class="modal" id="modalConfirmarDatosCampania">
                 <div>
@@ -93,7 +88,7 @@
                         <div class="divCentrogrv">
                             <asp:GridView CssClass="gridview" ID="grvOrganizacionesModal" AutoGenerateColumns="false" runat="server" OnRowCommand="GridViewListaOrganizaciones_RowCommand">
                                 <Columns>
-                                    <asp:BoundField DataField="organizacion" HeaderText="ORGANIZACION" SortExpression="organization" />
+                                    <asp:BoundField DataField="NombreOrganizacion" HeaderText="ORGANIZACION" SortExpression="organization" />
                                 </Columns>
                             </asp:GridView>
                         </div>

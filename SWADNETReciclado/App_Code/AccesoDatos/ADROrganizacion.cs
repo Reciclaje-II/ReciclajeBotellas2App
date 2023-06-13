@@ -44,10 +44,13 @@ public class ADROrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.Descripcion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacion", DbType.String, eROrganizacion.NombreOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcionOrganizacion", DbType.String, eROrganizacion.DescripcionOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoOrganizacion", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroOrganizacion", DbType.String, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionOrganizacion", DbType.String, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
-        }
+    }
 
         catch (SqlException SQLEx)
         {
@@ -66,8 +69,11 @@ public class ADROrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_A");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eROrganizacion.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcion", DbType.String, eROrganizacion.Descripcion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacion", DbType.String, eROrganizacion.NombreOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "descripcionOrganizacion", DbType.String, eROrganizacion.DescripcionOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionOrganizacion", DbType.String, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoOrganizacion", DbType.String, EPAEstaticos.EstadoActiva);
+
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
    
@@ -81,16 +87,16 @@ public class ADROrganizacion
     /// <summary>
     /// Obtener organización por nombre
     /// </summary>
-    /// <param name="Nombre"></param>
+    /// <param name="nombreOrganizacion"></param>
     /// <returns>Retorna una organización</returns>
-    public DTOROrganizacion Obtener_ROrganizacion_O_Nombre(string Nombre)
+    public DTOROrganizacion Obtener_ROrganizacion_O_Nombre(string nombreOrganizacion)
     {
         DTOROrganizacion dTOROrganizacion = new DTOROrganizacion();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_O_Nombre");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacion", DbType.String, nombreOrganizacion);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTOROrganizacion, "ROrganizacion");
         }
    
@@ -113,13 +119,15 @@ public class ADROrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizaciones_O");
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoOrganizacion", DbType.String, EPAEstaticos.EstadoActiva);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dtoROrganizacion, "ROrganizacion");
         }
     
         catch (SqlException SQLEx)
         {
             EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Obtener_ROrganizaciones_O", SQLEx.ToString(), SQLEx.Message);
-            throw new FaultException<EDefectoAD>(eDefectoAD);
+            //throw new FaultException<EDefectoAD>(eDefectoAD);
+            throw SQLEx;
         }
         return dtoROrganizacion;
     }
@@ -127,14 +135,16 @@ public class ADROrganizacion
     /// <summary>
     /// Deshabilita una organizacion cambiando su estado a 0
     /// </summary>
-    /// <param name="Nombre">Solo enviar el nombre de la organización que no este asociada a una campaña activa</param>
-    public void Eliminar_ROrganizacion_E_Nombre(string Nombre)
+    /// <param name="nombreOrganizacion">Solo enviar el nombre de la organización que no este asociada a una campaña activa</param>
+    public void Eliminar_ROrganizacion_E_Nombre(string nombreOrganizacion)
     {
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("ROrganizacion_E_Nombre");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, Nombre);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacion", DbType.String, nombreOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoOrganizacion", DbType.String, EPAEstaticos.EstadoCancelada);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaActualizacion", DbType.String, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
   

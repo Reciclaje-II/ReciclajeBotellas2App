@@ -12,25 +12,34 @@ public class ERUsuarioNetvalle
 {
     #region Atributos
     [DataMember]
-    public string Codigo { get; set; }
+    public string CodigoUsuarioNetvalle { get; set; }
     [DataMember]
-    public string Nombres { get; set; }
+    public string NombresUsuarioNetvalle { get; set; }
     [DataMember]
-    public string Apellidos { get; set; }
+    public string ApellidosUsuarioNetvalle { get; set; }
     [DataMember]
-    public string Cargo { get; set; }
+    public string CargoUsuarioNetvalle { get; set; }
     [DataMember]
-    public string Tarjeta { get; set; }
+    public string TarjetaUsuarioNetvalle { get; set; }
     [DataMember]
-    public string Sede { get; set; }
+    public string SedeUsuarioNetvalle { get; set; }
+    [DataMember]
+    public DateTime FechaRegistroUsuarioNetvalle { get; set; }
+    [DataMember]
+    public DateTime FechaModificacionUsuarioNetvalle { get; set; }
+    [DataMember]
+    public char EstadoUsuarioNetvalle { get; set; }
     #endregion
     public ERUsuarioNetvalle()
     {
-        Codigo = string.Empty;
-        Nombres = string.Empty;
-        Apellidos = string.Empty;
-        Cargo = string.Empty;
-        Tarjeta = string.Empty;
-        Sede = string.Empty;
+        CodigoUsuarioNetvalle = string.Empty;
+        NombresUsuarioNetvalle = string.Empty;
+        ApellidosUsuarioNetvalle = string.Empty;
+        CargoUsuarioNetvalle = string.Empty;
+        TarjetaUsuarioNetvalle = string.Empty;
+        SedeUsuarioNetvalle = string.Empty;
+        FechaRegistroUsuarioNetvalle = DateTime.MinValue;
+        FechaModificacionUsuarioNetvalle = DateTime.MinValue;
+        EstadoUsuarioNetvalle = char.MinValue;
     }
 }

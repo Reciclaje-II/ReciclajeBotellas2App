@@ -45,11 +45,16 @@ public class ADRCampaniaOrganizacion
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampaniaOrganizacion_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, eRCampaniaOrganizacion.Campania);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, eRCampaniaOrganizacion.Organizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "campaniaCampaniaOrganizacion", DbType.String, eRCampaniaOrganizacion.CampaniaCampaniaOrganizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacionCampaniaOrganizacion", DbType.String, eRCampaniaOrganizacion.OrganizacionCampaniaOrganizacion);
+            
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoCampaniaOrganizacion", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroCampaniaOrganizacion", DbType.DateTime, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionCampaniaOrganizacion", DbType.DateTime, EPAEstaticos.FechaModificacion);
+
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
-  
+
         catch (SqlException SQLEx)
         {
             EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Insertar_RCampaniaOrganizacion_I", SQLEx.ToString(), SQLEx.Message);
@@ -60,19 +65,19 @@ public class ADRCampaniaOrganizacion
     /// <summary>
     /// Obtener campaña - organizacion por campaña
     /// </summary>
-    /// <param name="Campania"></param>
+    /// <param name="CampaniaCampaniaOrganizacion"></param>
     /// <returns>Retorna una lista de RCampaniaOrganizacion</returns>
-    public DTORCampaniaOrganizacion Obtener_RCampaniaOrganizacion_O_Campania(string Campania)
+    public DTORCampaniaOrganizacion Obtener_RCampaniaOrganizacion_O_Campania(string CampaniaCampaniaOrganizacion)
     {
         DTORCampaniaOrganizacion dTORCampaniaOrganizacion = new DTORCampaniaOrganizacion();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RCampaniaOrganizacion_O_Campania");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "campaniaCampaniaOrganizacion", DbType.String, CampaniaCampaniaOrganizacion);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORCampaniaOrganizacion, "RCampaniaOrganizacion");
         }
-    
+
         catch (SqlException SQLEx)
         {
             EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Obtener_RCampaniaOrganizacion_O_Campania", SQLEx.ToString(), SQLEx.Message);

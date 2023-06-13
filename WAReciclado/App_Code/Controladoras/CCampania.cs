@@ -15,7 +15,7 @@ public class CCampania : System.Web.UI.Page
 {
     LNServicio lnServicio = new LNServicio();
     List<ERUsuario> eUsuarios = new List<ERUsuario>();
-
+    ERVoto voto;
     public CCampania()
     {
         //
@@ -25,12 +25,12 @@ public class CCampania : System.Web.UI.Page
 
     #region Metodos publicos
     #region LNServicio
-    public ERCampania Obtener_RCampania_O_Sede_Campania_CC(string Campania, string Sede)
+    public ERCampania Obtener_RCampania_O_Sede_Campania_CC(string nombreCampania, string sedeCampania)
     {
         ERCampania erCampania = new ERCampania();
         try
         {
-            erCampania = lnServicio.Obtener_RCampania_O_Sede_Campania(Campania, Sede);
+            erCampania = lnServicio.Obtener_RCampania_O_Sede_Campania(nombreCampania, sedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -39,12 +39,12 @@ public class CCampania : System.Web.UI.Page
         return erCampania;
     }
 
-    public ERCampania Obtener_RCampania_O_Sede_CC(string Sede)
+    public ERCampania Obtener_RCampania_O_Sede_CC(string sedeCampania)
     {
         ERCampania erCampania = new ERCampania();
         try
         {
-            erCampania = lnServicio.Obtener_RCampania_O_Sede(Sede);
+            erCampania = lnServicio.Obtener_RCampania_O_Sede(sedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -52,12 +52,12 @@ public class CCampania : System.Web.UI.Page
         }
         return erCampania;
     }
-    public ECampaniaFinalizadaCompleja Obtener_ECampaniaFinalizadaCompleja_O_Campania_CC(string Campania, string Sede)
+    public ECampaniaFinalizadaCompleja Obtener_ECampaniaFinalizadaCompleja_O_Campania_CC(string nombreCampania, string sedeCampania)
     {
         ECampaniaFinalizadaCompleja eCampaniaFinalizadaCompleja = new ECampaniaFinalizadaCompleja();
         try
         {
-            eCampaniaFinalizadaCompleja = lnServicio.Obtener_ECampaniaFinalizadaCompleja_O_Campania(Campania, Sede);
+            eCampaniaFinalizadaCompleja = lnServicio.Obtener_ECampaniaFinalizadaCompleja_O_Campania(nombreCampania, sedeCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -65,12 +65,12 @@ public class CCampania : System.Web.UI.Page
         }
         return eCampaniaFinalizadaCompleja;
     }
-    public int Obtener_RVotos_O_Campania_CC(string Campania)
+    public int Obtener_RVotos_O_Campania_CC(string nombreCampania)
     {
         int votos = 0;
         try
         {
-            votos = lnServicio.Obtener_RVotos_O_Campania(Campania);
+            votos = lnServicio.Obtener_RVotos_O_Campania(nombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -79,12 +79,12 @@ public class CCampania : System.Web.UI.Page
         return votos;
 
     }
-    public List<ERCampania> Obtener_RCampania_O_CC(string Sede)
+    public List<ERCampania> Obtener_RCampania_O_CC(string sedeCampania)
     {
         List<ERCampania> lstErCampania = new List<ERCampania>();
         try
         {
-            lstErCampania = lnServicio.Obtener_RCampania_O(Sede).ToList();
+            lstErCampania = lnServicio.Obtener_RCampania_O(sedeCampania).ToList();
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -95,11 +95,11 @@ public class CCampania : System.Web.UI.Page
     #endregion
 
     #region Registro
-    public void Editar_Campania(string Descripcion, string FechaInicio, string FechaFin)
+    public void Editar_Campania(string descripcionCampania, string fechaInicioCampania, string fechaFinCampania)
     {
         try
         {
-            lnServicio.Actualizar_RCampania_A(Session["EditarCampania"].ToString(), Descripcion, DateTime.Parse(FechaInicio.Trim()), DateTime.Parse(FechaFin.Trim()), Session["Sede"].ToString());
+            lnServicio.Actualizar_RCampania_A(Session["EditarCampania"].ToString(), descripcionCampania, DateTime.Parse(fechaInicioCampania.Trim()), DateTime.Parse(fechaFinCampania.Trim()), Session["Sede"].ToString());
             //Context.Response.Redirect("../../WebForm/Administrador/PGestionCampanias.aspx");
         }
         catch (FaultException<EDefecto> ex)
@@ -119,22 +119,33 @@ public class CCampania : System.Web.UI.Page
             throw ex;
         }
     }
-    public void Obtener_Organizacion_Ganadora(string NombreCampania, string NombreOrganizacion, string Sede)
+    public void Obtener_Organizacion_Ganadora(string nombreCampania, string nombreOrganizacion, string sedeOrganizacion)
     {
         try
         {
             eUsuarios = new List<ERUsuario>();
-            lnServicio.Actualizar_RCampania_A_Estado(NombreCampania);
-            NombreOrganizacion = lnServicio.Obtener_RVoto_O_Organizacion(NombreCampania);
-            eUsuarios = lnServicio.Obtener_RUsuarios_O_Sede(Sede).ToList();
+            lnServicio.Actualizar_RCampania_A_Estado(nombreCampania);
+            nombreOrganizacion = lnServicio.Obtener_RVoto_O_Organizacion(nombreCampania);
+            eUsuarios = lnServicio.Obtener_RUsuarios_O_Sede(sedeOrganizacion).ToList();
+            voto = new ERVoto();
+            //Session.UserCode            
             foreach (var user in eUsuarios)
             {
-                lnServicio.Actualizar_RVoto_A(user.Codigo, NombreCampania, NombreOrganizacion, DateTime.Now.Date, user.Creditos, "");
-                lnServicio.Actualizar_RUsuario_A_Creditos_Sede(NombreCampania, user.Codigo);
+                if (double.Parse(user.CreditosUsuario) > 0)
+                {
+                    voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(user.CodigoUsuario, nombreCampania);
+                    if (voto == null || voto.OrganizacionVoto.Trim() == "")
+                    {
+                        lnServicio.Insertar_RVoto_I(user.CodigoUsuario, nombreCampania, nombreOrganizacion, DateTime.Now, user.CreditosUsuario, EPAEstaticos.EstadoInvalido);
+                    }
+                    lnServicio.Actualizar_RVoto_A(user.CodigoUsuario, nombreCampania, nombreOrganizacion, DateTime.Now.Date, user.CreditosUsuario, "");
+                    lnServicio.Actualizar_RUsuario_A_Creditos_Sede(user.CodigoUsuario);
+                }                
+                
             }
-            Session["Campania"] = NombreCampania;
-            Session["Sede"] = Sede;
-            Session["GANADORA"] = NombreOrganizacion;
+            Session["Campania"] = nombreCampania;
+            Session["Sede"] = sedeOrganizacion;
+            Session["GANADORA"] = nombreOrganizacion;
             Context.Response.Redirect("../../WebForm/Administrador/PResultadoCampania.aspx");
         }
         catch (FaultException<EDefecto> ex)

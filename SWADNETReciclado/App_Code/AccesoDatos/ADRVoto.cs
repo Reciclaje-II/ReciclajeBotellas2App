@@ -45,9 +45,13 @@ public class ADRVoto
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, eRVoto.Codigo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, eRVoto.Campania);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, eRVoto.Organizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, eRVoto.CodigoUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, eRVoto.CampaniaVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacion", DbType.String, eRVoto.OrganizacionVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroVoto", DbType.DateTime, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionVoto", DbType.DateTime, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoVoto", DbType.String, eRVoto.EstadoVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "donacionVoto", DbType.String, eRVoto.DonacionVoto);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
         catch (SqlException SQLEx)
@@ -67,10 +71,9 @@ public class ADRVoto
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_A");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, eRVoto.Codigo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, eRVoto.Campania);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, eRVoto.Organizacion);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "donacion", DbType.String, eRVoto.Donacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, eRVoto.CodigoUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionVoto", DbType.DateTime, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "donacionVoto", DbType.String, eRVoto.DonacionVoto);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
         catch (SqlException SQLEx)
@@ -83,19 +86,21 @@ public class ADRVoto
     /// <summary>
     /// Obtener un voto por codigo y campaña
     /// </summary>
-    /// <param name="Codigo"></param>
+    /// <param name="CodigoUsuario"></param>
     /// <param name="Campania"></param>
     /// <returns>Retorna un voto</returns>
-    public DTORVoto Obtener_RVoto_O_Codigo_Campania(string Codigo, string Campania)
+    public DTORVoto Obtener_RVoto_O_Codigo_Campania(string CodigoUsuario, string CampaniaVoto)
     {
         DTORVoto dTORVoto = new DTORVoto();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_O_Codigo_Campania");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String,Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, CodigoUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, CampaniaVoto);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORVoto, "RVoto");
+            //BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
+
         }
         catch (SqlException SQLEx)
         {
@@ -108,16 +113,17 @@ public class ADRVoto
     /// <summary>
     /// Obtener el total de los votos por campaña
     /// </summary>
-    /// <param name="Campania"></param>
+    /// <param name="nombeCampaniaVoto"></param>
     /// <returns>El número de votos en esa campaña</returns>
-    public int Obtener_RVotos_O_Campania(string Campania)
+    public int Obtener_RVotos_O_Campania(string nombeCampaniaVoto)
     {
         int votosTotal = int.MinValue;
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVotos_O_Campania");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombeCampaniaVoto", DbType.String, nombeCampaniaVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoVoto", DbType.String, EPAEstaticos.EstadoValido);
             IDataReader reader = BDSWADNETReciclado.ExecuteReader(dbCommand);
             while (reader.Read())
             {
@@ -135,18 +141,19 @@ public class ADRVoto
     /// <summary>
     /// Obtener el total de votos por organizacion en una campaña
     /// </summary>
-    /// <param name="Campania"></param>
-    /// <param name="Organizacion"></param>
+    /// <param name="campaniaVoto"></param>
+    /// <param name="nombreOrganizacionVoto"></param>
     /// <returns>El número de votos por organización en esa campaña</returns>
-    public int Obtener_RVotos_O_Campania_Organizacion(string Campania, string Organizacion)
+    public int Obtener_RVotos_O_Campania_Organizacion(string campaniaVoto, string nombreOrganizacionVoto)
     {
         int votosTotal = int.MinValue;
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVotos_O_Campania_Organizacion");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, Organizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "campaniaVoto", DbType.String, campaniaVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreOrganizacionVoto", DbType.String, nombreOrganizacionVoto);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoVoto", DbType.String, EPAEstaticos.EstadoValido);
             IDataReader reader = BDSWADNETReciclado.ExecuteReader(dbCommand);
             while (reader.Read())
             {
@@ -164,16 +171,16 @@ public class ADRVoto
     /// <summary>
     /// Obtener toda la donacion (créditos de los usuarios) por campaña finalizada
     /// </summary>
-    /// <param name="Campania"></param>
+    /// <param name="nombreCampaniaVoto"></param>
     /// <returns>El número de donación (todos los créditos de los que votaron) en esa campaña finalizada</returns>
-    public int Obtener_RVoto_O_Donacion_Total(string Campania)
+    public int Obtener_RVoto_O_Donacion_Total(string nombreCampaniaVoto)
     {
         int donacionTotal = int.MinValue;
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_O_Donacion_Total");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampaniaVoto", DbType.String, nombreCampaniaVoto);
             IDataReader reader = BDSWADNETReciclado.ExecuteReader(dbCommand);
             while (reader.Read())
             {
@@ -191,16 +198,17 @@ public class ADRVoto
     /// <summary>
     /// Obtener el codigo del usuario con la mayor donación 
     /// </summary>
-    /// <param name="Campania"></param>
+    /// <param name="nombreCampania"></param>
     /// <returns>Retorna un voto: codigo y donación</returns>
-    public DTORVoto Obtener_RVoto_O_Donacion_Maxima(string Campania)
+    public DTORVoto Obtener_RVoto_O_Donacion_Maxima(string nombreCampania)
     {
         DTORVoto dTORVoto = new DTORVoto();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_O_Donacion_Maxima");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, nombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoVoto", DbType.String, EPAEstaticos.EstadoFinalizada);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORVoto, "RVoto");
         }
      
@@ -215,16 +223,17 @@ public class ADRVoto
     /// <summary>
     /// Obtener la organización con mas votos válidos
     /// </summary>
-    /// <param name="Campania"></param>
+    /// <param name="nombreCampania"></param>
     /// <returns>El nombre de la organización ganadora por mas votos válidos</returns>
-    public string Obtener_RVoto_O_Organizacion(string Campania)
+    public string Obtener_RVoto_O_Organizacion(string nombreCampania)
     {
         string organizacionGanadora = string.Empty;
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RVoto_O_Organizacion");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "campania", DbType.String, Campania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreCampania", DbType.String, nombreCampania);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoVoto", DbType.String, EPAEstaticos.EstadoValido);
             IDataReader reader = BDSWADNETReciclado.ExecuteReader(dbCommand);
             while (reader.Read())
             {

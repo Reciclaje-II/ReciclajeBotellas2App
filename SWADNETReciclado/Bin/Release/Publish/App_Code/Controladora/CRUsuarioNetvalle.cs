@@ -17,49 +17,49 @@ public class CRUsuarioNetvalle
         adRUsuarioNetvalle = new ADRUsuarioNetvalle();
     }
 
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string Sede, string Codigo)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string sedeUsuarioNetvalle, string codigoUsuarioNetvalle)
     {
         ERUsuarioNetvalle eRUsuarioNetvalle = new ERUsuarioNetvalle();
-        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(Sede,Codigo);
+        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(sedeUsuarioNetvalle, codigoUsuarioNetvalle);
         foreach (DTORUsuarioNetvalle.RUsuarioNetvalleRow drRUsuarioNetvalle in dtoRUsuarioNetvalle.RUsuarioNetvalle.Rows)
         {
             eRUsuarioNetvalle = new ERUsuarioNetvalle();
-            eRUsuarioNetvalle.Nombres = drRUsuarioNetvalle.Nombres.ToString().TrimEnd();
-            eRUsuarioNetvalle.Apellidos = drRUsuarioNetvalle.Apellidos.ToString().TrimEnd();
+            eRUsuarioNetvalle.NombresUsuarioNetvalle = drRUsuarioNetvalle.NombresUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.ApellidosUsuarioNetvalle = drRUsuarioNetvalle.ApellidosUsuarioNetvalle.ToString().TrimEnd();
         }
         return eRUsuarioNetvalle;
     }
 
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string Codigo)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string codigoUsuarioNetvalle)
     {
         ERUsuarioNetvalle eRUsuarioNetvalle = new ERUsuarioNetvalle();
-        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Codigo(Codigo);
+        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Codigo(codigoUsuarioNetvalle);
         foreach (DTORUsuarioNetvalle.RUsuarioNetvalleRow drRUsuarioNetvalle in dtoRUsuarioNetvalle.RUsuarioNetvalle.Rows)
         {
             eRUsuarioNetvalle = new ERUsuarioNetvalle();
-            eRUsuarioNetvalle.Codigo = drRUsuarioNetvalle.Codigo.ToString().TrimEnd();
-            eRUsuarioNetvalle.Nombres = drRUsuarioNetvalle.Nombres.ToString().TrimEnd();
-            eRUsuarioNetvalle.Apellidos = drRUsuarioNetvalle.Apellidos.ToString().TrimEnd();
-            eRUsuarioNetvalle.Cargo = drRUsuarioNetvalle.Cargo.ToString().TrimEnd();
-            eRUsuarioNetvalle.Tarjeta = drRUsuarioNetvalle.Tarjeta.ToString().TrimEnd();
-            eRUsuarioNetvalle.Sede = drRUsuarioNetvalle.Sede.ToString().TrimEnd();
+            eRUsuarioNetvalle.CodigoUsuarioNetvalle = drRUsuarioNetvalle.CodigoUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.NombresUsuarioNetvalle = drRUsuarioNetvalle.NombresUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.ApellidosUsuarioNetvalle = drRUsuarioNetvalle.ApellidosUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.CargoUsuarioNetvalle = drRUsuarioNetvalle.CargoUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.TarjetaUsuarioNetvalle = drRUsuarioNetvalle.TarjetaUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.SedeUsuarioNetvalle = drRUsuarioNetvalle.SedeUsuarioNetvalle.ToString().TrimEnd();
         }
         return eRUsuarioNetvalle;
     }
 
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string Tarjeta)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetvalle)
     {
         ERUsuarioNetvalle eRUsuarioNetvalle = new ERUsuarioNetvalle();
-        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Tarjeta(Tarjeta);
+        DTORUsuarioNetvalle dtoRUsuarioNetvalle = adRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetvalle);
         foreach (DTORUsuarioNetvalle.RUsuarioNetvalleRow drRUsuarioNetvalle in dtoRUsuarioNetvalle.RUsuarioNetvalle.Rows)
         {
             eRUsuarioNetvalle = new ERUsuarioNetvalle();
-            eRUsuarioNetvalle.Codigo = drRUsuarioNetvalle.Codigo.ToString().TrimEnd();
-            eRUsuarioNetvalle.Nombres = drRUsuarioNetvalle.Nombres.ToString().TrimEnd();
-            eRUsuarioNetvalle.Apellidos = drRUsuarioNetvalle.Apellidos.ToString().TrimEnd();
-            eRUsuarioNetvalle.Cargo = drRUsuarioNetvalle.Cargo.ToString().TrimEnd();
-            eRUsuarioNetvalle.Tarjeta = drRUsuarioNetvalle.Tarjeta.ToString().TrimEnd();
-            eRUsuarioNetvalle.Sede = drRUsuarioNetvalle.Sede.ToString().TrimEnd();
+            eRUsuarioNetvalle.CodigoUsuarioNetvalle = drRUsuarioNetvalle.CodigoUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.NombresUsuarioNetvalle = drRUsuarioNetvalle.NombresUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.ApellidosUsuarioNetvalle = drRUsuarioNetvalle.ApellidosUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.CargoUsuarioNetvalle = drRUsuarioNetvalle.CargoUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.TarjetaUsuarioNetvalle = drRUsuarioNetvalle.TarjetaUsuarioNetvalle.ToString().TrimEnd();
+            eRUsuarioNetvalle.SedeUsuarioNetvalle = drRUsuarioNetvalle.SedeUsuarioNetvalle.ToString().TrimEnd();
         }
         return eRUsuarioNetvalle;
     }

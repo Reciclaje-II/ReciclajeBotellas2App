@@ -7,21 +7,30 @@ using System.Web;
 /// <summary>
 /// Descripción breve de ERCampaniaOrganizacion
 /// </summary>
-/// [DataContract]
+[DataContract]
 public class ERCampaniaOrganizacion
 {
     #region Atributos
     [DataMember]
-    public string Campania { get; set; }
+    public string CampaniaCampaniaOrganizacion { get; set; }
     [DataMember]
-    public string Organizacion { get; set; }
+    public string OrganizacionCampaniaOrganizacion { get; set; }
     [DataMember]
-    public DateTime FechaCreacion { get; set; }
+    public DateTime FechaRegistroCampaniaOrganizacion { get; set; }
+    [DataMember]
+    public int IdCampaniaOrganizacion { get; set; }
+    [DataMember]
+    public string EstadoCampaniaOrganizacion { get; set; }
+    [DataMember]
+    public DateTime FechaModificacionCampaniaOrganizacion { get; set; }
     #endregion
     public ERCampaniaOrganizacion()
     {
-        Campania = string.Empty;
-        Organizacion = string.Empty;
-        FechaCreacion = DateTime.MinValue;
+        CampaniaCampaniaOrganizacion = string.Empty;
+        OrganizacionCampaniaOrganizacion = string.Empty;
+        FechaRegistroCampaniaOrganizacion = DateTime.MinValue;
+        IdCampaniaOrganizacion = 0;
+        EstadoCampaniaOrganizacion = string.Empty;
+        FechaModificacionCampaniaOrganizacion = DateTime.MinValue;
     }
 }

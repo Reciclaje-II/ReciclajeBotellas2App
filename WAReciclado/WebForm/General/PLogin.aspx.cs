@@ -20,10 +20,10 @@ public partial class PLogin : System.Web.UI.Page
         {
             eUsuarioNetvalle = new ERUsuarioNetvalle();
             eUsuarioNetvalle = swLNReciclado.Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol(txbCuenta.Text.Trim().ToUpper(), txbPIN.Text, ddlSelectUser.SelectedValue);
-            if (eUsuarioNetvalle.Codigo.Trim() != "")
+            if (eUsuarioNetvalle.CodigoUsuarioNetvalle.Trim() != "")
             {
-                Session["Codigo"] = eUsuarioNetvalle.Codigo.ToUpper();
-                Session["Sede"] = eUsuarioNetvalle.Sede.ToUpper();
+                Session["Codigo"] = eUsuarioNetvalle.CodigoUsuarioNetvalle.ToUpper();
+                Session["Sede"] = eUsuarioNetvalle.SedeUsuarioNetvalle.ToUpper();
                 if (ddlSelectUser.SelectedValue == "AD")
                 {
                     Session["Rol"] = "ADMINISTRATIVO";

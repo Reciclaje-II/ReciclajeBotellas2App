@@ -45,10 +45,12 @@ public class ADRContenedor
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RContenedor_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, eRContenedor.Codigo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "maquina", DbType.Byte, eRContenedor.IdMaquina);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "gramos", DbType.String, eRContenedor.Gramos);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "fecha", DbType.DateTime, eRContenedor.Fecha);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, eRContenedor.CodigoUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "maquinaContenedor", DbType.Byte, eRContenedor.IdMaquinaContenedor);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "gramosContenedor", DbType.String, eRContenedor.GramosContenedor);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroContenedor", DbType.DateTime, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoContenedor", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionContenedor", DbType.DateTime, EPAEstaticos.FechaModificacion);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
     
@@ -65,14 +67,14 @@ public class ADRContenedor
     /// </summary>
     /// <param name="Codigo"></param>
     /// <returns>Retorna una lista de contenedor</returns>
-    public DTORContenedor Obtener_RContenedor_O_Codigo(string Codigo)
+    public DTORContenedor Obtener_RContenedor_O_Codigo(string codigoUsuario)
     {
         DTORContenedor dTORContenedor = new DTORContenedor();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RContenedor_O_Codigo");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuario", DbType.String, codigoUsuario);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORContenedor, "RContenedor");
         }
    

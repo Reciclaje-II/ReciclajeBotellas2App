@@ -22,17 +22,20 @@ public class CRImagen
         adRImagen.Insertar_RImagen_I(eRImagen);
     }
 
-    public List<ERImagen> Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public List<ERImagen> Obtener_RImagen_O_Organizacion(string organizacionImagen, byte tipoImagen)
     {
         ERImagen eRImagen;
         List<ERImagen> lstERImagen = new List<ERImagen>();
-        DTORImagen dtoRImagen = adRImagen.Obtener_RImagen_O_Organizacion(Organizacion, Tipo);
+        DTORImagen dtoRImagen = adRImagen.Obtener_RImagen_O_Organizacion(organizacionImagen, tipoImagen);
         foreach (DTORImagen.RImagenRow drRImagen in dtoRImagen.RImagen.Rows)
         {
             eRImagen = new ERImagen();
-            eRImagen.Nombre = drRImagen.Nombre.TrimEnd();
-            eRImagen.Organizacion = drRImagen.Organizacion.TrimEnd();
-            eRImagen.Tipo = drRImagen.Tipo;
+            eRImagen.NombreImagen = drRImagen.NombreImagen.TrimEnd();
+            eRImagen.OrganizacionImagen = drRImagen.OrganizacionImagen.TrimEnd();
+            eRImagen.TipoImagen = drRImagen.TipoImagen;
+            eRImagen.FechaRegistroImagen= drRImagen.FechaRegistroImagen;
+            eRImagen.FechaModificacionImagen = drRImagen.FechaModificacionImagen;
+            eRImagen.EstadoImagen = drRImagen.EstadoImagen;
             lstERImagen.Add(eRImagen);
         }
         return lstERImagen;

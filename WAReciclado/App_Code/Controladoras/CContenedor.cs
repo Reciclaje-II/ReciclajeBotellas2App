@@ -25,12 +25,12 @@ public class CContenedor : System.Web.UI.Page
     #region Metodos publicos
 
     #region LNServicio
-    public List<ERContenedor> Obtener_RContenedor_O_Codigo_CTR(string Codigo)
+    public List<ERContenedor> Obtener_RContenedor_O_Codigo_CTR(string codigoUsuario)
     {
         List<ERContenedor> lsteRContenedor = new List<ERContenedor>();
         try
         {
-            lsteRContenedor = lnServicio.Obtener_RContenedor_O_Codigo(Codigo);
+            lsteRContenedor = lnServicio.Obtener_RContenedor_O_Codigo(codigoUsuario);
         }
         catch (FaultException<EDefecto> ex)
         {

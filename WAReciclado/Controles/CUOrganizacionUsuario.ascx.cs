@@ -29,7 +29,7 @@ public partial class CUOrganizacionUsuario : System.Web.UI.UserControl
         lblOrganizacion.Text = "¿ESTA SEGURO/A QUE QUIERE VOTAR A " + organizacionNombre + "?&nbsp";
         //Session.CodigoUser
         voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(Session["Codigo"].ToString().ToUpper(), campaniaNombre);
-        if (voto.Estado.Trim() != "")
+        if (voto.EstadoVoto.Trim() != "")
         {
             btnVotar.Visible = false;
         }
@@ -53,10 +53,10 @@ public partial class CUOrganizacionUsuario : System.Web.UI.UserControl
         voto = new ERVoto();
         //Session.UserCode
         voto = lnServicio.Obtener_RVoto_O_Codigo_Campania(Session["Codigo"].ToString(), campaniaNombre);
-        if (voto == null || voto.Organizacion.Trim() == "")
+        if (voto == null || voto.OrganizacionVoto.Trim() == "")
         {
             //Session.CodigoUser
-            lnServicio.Insertar_RVoto_I(Session["Codigo"].ToString().ToUpper(), campaniaNombre, organizacionNombre, DateTime.Now, "0", "Valido");
+            lnServicio.Insertar_RVoto_I(Session["Codigo"].ToString().ToUpper(), campaniaNombre, organizacionNombre, DateTime.Now, "0", EPAEstaticos.EstadoValido);
             Response.Redirect("PVotarOrganizaciones.aspx");
         }
     }

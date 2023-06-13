@@ -9,8 +9,8 @@
         <form id="form1" runat="server">
             <asp:GridView ID="gvListaGramos" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:BoundField DataField="Gramos" HeaderText="GRAMOS" />
-                    <asp:BoundField DataField="Fecha" HeaderText="FECHA" />
+                    <asp:BoundField DataField="GramosContenedor" HeaderText="GRAMOS" />
+                    <asp:BoundField DataField="FechaRegistroContenedor" HeaderText="FECHA" />
                 </Columns>
             </asp:GridView>
 

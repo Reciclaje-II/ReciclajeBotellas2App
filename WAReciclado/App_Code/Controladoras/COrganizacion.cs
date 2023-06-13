@@ -37,12 +37,12 @@ public class COrganizacion : System.Web.UI.Page
         }
         return lstErOrganizacion;
     }
-    public EROrganizacion Obtener_ROrganizacion_O_Nombre_CO(string nombre)
+    public EROrganizacion Obtener_ROrganizacion_O_Nombre_CO(string nombreOrganizacion)
     {
         EROrganizacion erOganizacion = new EROrganizacion();
         try
         {
-            erOganizacion = lnServicio.Obtener_ROrganizacion_O_Nombre(nombre);
+            erOganizacion = lnServicio.Obtener_ROrganizacion_O_Nombre(nombreOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -50,12 +50,12 @@ public class COrganizacion : System.Web.UI.Page
         }
         return erOganizacion;
     }
-    public string Obtener_RVoto_O_Organizacion_CO(string Campania)
+    public string Obtener_RVoto_O_Organizacion_CO(string nombreCampania)
     {
         string organizacion = string.Empty;
         try
         {
-            organizacion = lnServicio.Obtener_RVoto_O_Organizacion(Campania);
+            organizacion = lnServicio.Obtener_RVoto_O_Organizacion(nombreCampania);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -64,22 +64,22 @@ public class COrganizacion : System.Web.UI.Page
         return organizacion;
 
     }
-    public void Actualizar_ROrganizacion_A_CO(string Nombre, string Descripcion)
+    public void Actualizar_ROrganizacion_A_CO(string nombreOrganizacion, string descripcionOrganizacion)
     {
         try
         {
-            lnServicio.Actualizar_ROrganizacion_A(Nombre, Descripcion);
+            lnServicio.Actualizar_ROrganizacion_A(nombreOrganizacion, descripcionOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
             throw ex;
         }
     }
-    public void Insertar_ROrganizacion_I_CO(string Nombre, string Descripcion)
+    public void Insertar_ROrganizacion_I_CO(string nombreOrganizacion, string descripcionOrganizacion)
     {
         try
         {
-            lnServicio.Insertar_ROrganizacion_I(Nombre, Descripcion);
+            lnServicio.Insertar_ROrganizacion_I(nombreOrganizacion, descripcionOrganizacion);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -89,11 +89,11 @@ public class COrganizacion : System.Web.UI.Page
     #endregion
 
     #region Registro
-    public void Eliminar_Organizacion(string Organizacion)
+    public void Eliminar_Organizacion(string nombreOrganizacion)
     {
         try
         {
-            lnServicio.Eliminar_ROrganizacion_E_Nombre(Organizacion.Trim().ToUpper());
+            lnServicio.Eliminar_ROrganizacion_E_Nombre(nombreOrganizacion.Trim().ToUpper());
             Context.Response.Redirect("../../WebForm/Administrador/PGestionOrganizaciones.aspx");
         }
         catch (FaultException<EDefecto> ex)

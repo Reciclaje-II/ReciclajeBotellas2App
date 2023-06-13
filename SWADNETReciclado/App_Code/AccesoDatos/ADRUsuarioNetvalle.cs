@@ -41,15 +41,15 @@ public class ADRUsuarioNetvalle
     /// <param name="Sede"></param>
     /// <param name="Codigo"></param>
     /// <returns>Retorna nombres y apellidos de un usuarionetvalle por sede y codigo</returns>
-    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string Sede, string Codigo)
+    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(string sedeUsuarioNetvalle, string codigoUsuarioNetvalle)
     {
         DTORUsuarioNetvalle dtoRUsuarioNetvalle = new DTORUsuarioNetvalle();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RUsuarioNetvalle_O_Top_Sede_Codigo");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "sede", DbType.String, Sede);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "sedeUsuarioNetvalle", DbType.String, sedeUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuarioNetvalle", DbType.String, codigoUsuarioNetvalle);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dtoRUsuarioNetvalle, "RUsuarioNetvalle");
         }
 
@@ -66,14 +66,14 @@ public class ADRUsuarioNetvalle
     /// </summary>
     /// <param name="Codigo"></param>
     /// <returns>Retorna un usuarionetvalle</returns>
-    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string Codigo)
+    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string codigoUsuarioNetvalle)
     {
         DTORUsuarioNetvalle dtoRUsuarioNetvalle = new DTORUsuarioNetvalle();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RUsuarioNetvalle_O_Codigo");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "codigo", DbType.String, Codigo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuarioNetvalle", DbType.String, codigoUsuarioNetvalle);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dtoRUsuarioNetvalle, "RUsuarioNetvalle");
         }
 
@@ -90,14 +90,14 @@ public class ADRUsuarioNetvalle
     /// </summary>
     /// <param name="Tarjeta"></param>
     /// <returns>Retorna un usuarionetvalle</returns>
-    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string Tarjeta)
+    public DTORUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetvalle)
     {
         DTORUsuarioNetvalle dtoRUsuarioNetvalle = new DTORUsuarioNetvalle();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RUsuarioNetvalle_O_Tarjeta");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "tarjeta", DbType.String, Tarjeta);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tarjetaUsuarioNetvalle", DbType.String, tarjetaUsuarioNetvalle);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dtoRUsuarioNetvalle, "RUsuarioNetvalle");
         }
 

@@ -46,9 +46,12 @@ public class ADRImagen
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RImagen_I");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "nombre", DbType.String, eRImagen.Nombre);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "tipo", DbType.Byte, eRImagen.Tipo);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, eRImagen.Organizacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombreImagen", DbType.String, eRImagen.NombreImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tipoImage", DbType.Byte, eRImagen.TipoImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacionImagen", DbType.String, eRImagen.OrganizacionImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroImagen", DbType.String, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacion", DbType.String, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoImagen", DbType.String, EPAEstaticos.EstadoActiva);
             BDSWADNETReciclado.ExecuteNonQuery(dbCommand);
         }
  
@@ -62,18 +65,18 @@ public class ADRImagen
     /// <summary>
     /// Obtener Imagen por organizacion
     /// </summary>
-    /// <param name="Organizacion"></param>
-    /// <param name="Tipo"></param>
+    /// <param name="organizacionImagen"></param>
+    /// <param name="tipoImagen"></param>
     /// <returns>Retorna una lista de RImagen</returns>
-    public DTORImagen Obtener_RImagen_O_Organizacion(string Organizacion, byte Tipo)
+    public DTORImagen Obtener_RImagen_O_Organizacion(string organizacionImagen, byte tipoImagen)
     {
         DTORImagen dTORImagen = new DTORImagen();
         try
         {
             Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
             DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RImagen_O_Organizacion");
-            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacion", DbType.String, Organizacion);
-            BDSWADNETReciclado.AddInParameter(dbCommand, "tipo", DbType.Byte, Tipo);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "organizacionImagen", DbType.String, organizacionImagen);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tipoImagen", DbType.Byte, tipoImagen);
             BDSWADNETReciclado.LoadDataSet(dbCommand, dTORImagen, "RImagen");
         }
     

@@ -12,18 +12,28 @@ public class ERImagen
 {
     #region Atributos
     [DataMember]
-    public string Nombre { get; set; }
+    public string NombreImagen { get; set; }
     [DataMember]
-    public byte Tipo { get; set; }
+    public byte TipoImagen { get; set; }
     [DataMember]
-    public string Organizacion { get; set; }
+    public string OrganizacionImagen { get; set; }
+    [DataMember]
+    public DateTime FechaRegistroImagen { get; set; }
+    [DataMember]
+    public DateTime FechaModificacionImagen { get; set; }
+    [DataMember]
+    public string EstadoImagen { get; set; }
+    
 
     #endregion
 
     public ERImagen()
     {
-        Nombre = string.Empty;
-        Tipo = 0;
-        Organizacion = string.Empty;
+        NombreImagen = string.Empty;
+        TipoImagen = 0;
+        OrganizacionImagen = string.Empty;
+        FechaRegistroImagen = DateTime.MinValue;
+        FechaModificacionImagen = DateTime.MinValue;
+        EstadoImagen = string.Empty;
     }
 }

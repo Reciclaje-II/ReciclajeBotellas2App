@@ -27,17 +27,17 @@ public partial class PEditarOrganizacion : System.Web.UI.Page
         if (eOrganizacion != null)
         {
             eOrganizacion = cOrganizacion.Obtener_ROrganizacion_O_Nombre_CO(Session["Organizacion"].ToString());
-            lblNombre.Text = eOrganizacion.Nombre;
-            txbDescripcionEdit.Text = eOrganizacion.Descripcion;
+            lblNombre.Text = eOrganizacion.NombreOrganizacion;
+            txbDescripcionEdit.Text = eOrganizacion.DescripcionOrganizacion;
         }
-        string pathOrganizacion = eOrganizacion.Nombre;
+        string pathOrganizacion = eOrganizacion.NombreOrganizacion;
         pathOrganizacion = pathOrganizacion.ToLower();
         pathOrganizacion = Regex.Replace(pathOrganizacion, @"\s", "");
         string pathImage = @"/Imagenes/Descripcion/" + pathOrganizacion + ".png";
         string pathImageLogo = @"/Imagenes/Logo/" + pathOrganizacion + ".png";
         Image1.ImageUrl = pathImage;
         imgLogo.ImageUrl = pathImageLogo;
-        lblDescripcion.Text = eOrganizacion.Descripcion;
+        lblDescripcion.Text = eOrganizacion.DescripcionOrganizacion;
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {

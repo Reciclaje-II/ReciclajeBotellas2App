@@ -14,30 +14,30 @@ public class EROrganizacion
 {
     #region Atributos
     [DataMember]
-    [Required(ErrorMessage ="Campo obligatorio")]
-    [RegularExpression("[A-Za-z]*", ErrorMessage ="Solo se permite letras")]
-    public string Nombre { get; set; }
+    [Required(ErrorMessage = "Campo obligatorio")]
+    [RegularExpression("[A-Za-z]*", ErrorMessage = "Solo se permite letras")]
+    public string NombreOrganizacion { get; set; }
     [DataMember]
     [Required(ErrorMessage = "Campo obligatorio")]
     [RegularExpression("[A-Za-z]*", ErrorMessage = "Solo se permite letras")]
-    public string Descripcion { get; set; }
+    public string DescripcionOrganizacion { get; set; }
     [DataMember]
-    public string Estado { get; set; }
-    [DataMember]
-    [Required(ErrorMessage = "Campo obligatorio")]
-    public DateTime FechaCreacion { get; set; }
+    public string EstadoOrganizacion { get; set; }
     [DataMember]
     [Required(ErrorMessage = "Campo obligatorio")]
-    public DateTime FechaActualizacion { get; set; }
+    public DateTime FechaRegistroOrganizacion { get; set; }
+    [DataMember]
+    [Required(ErrorMessage = "Campo obligatorio")]
+    public DateTime FechaModificacionOrganizacion { get; set; }
     #endregion
 
     public EROrganizacion()
     {
-        Nombre = string.Empty;
-        Descripcion = string.Empty;
-        Estado = string.Empty;
-        FechaCreacion = DateTime.MinValue;
-        FechaActualizacion = DateTime.MinValue;
+        NombreOrganizacion = string.Empty;
+        DescripcionOrganizacion = string.Empty;
+        EstadoOrganizacion = string.Empty;
+        FechaRegistroOrganizacion = DateTime.MinValue;
+        FechaModificacionOrganizacion = DateTime.MinValue;
     }
 
 }
