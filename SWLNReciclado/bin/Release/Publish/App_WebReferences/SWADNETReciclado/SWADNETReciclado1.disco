@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://academic-dev.univalle.edu/SWADNETReciclado/SWADNETReciclado.svc?wsdl" docRef="https://academic-dev.univalle.edu/SWADNETReciclado/SWADNETReciclado.svc" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+</discovery>

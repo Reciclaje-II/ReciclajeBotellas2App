@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using SWADNETRecicladoReference;
+using SWADNETReciclado;
 
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "ISWLNReciclado" en el código y en el archivo de configuración a la vez.
 [ServiceContract]
@@ -73,6 +73,10 @@ public interface ISWLNReciclado
     ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol(string Codigo, string Passs, string Rol);
     [OperationContract]
     ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetValle);
+    [OperationContract]
+    ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle(string tarjetaUsuarioNetValle);
+    [OperationContract]
+    void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario, string codigoUsuarioNetvalle, string nombresUsuarioNetvalle, string apellidosUsuarioNetvalle, string cargoUsuarioNetvalle, string tarjetaUsuarioNetvalle, string sedeUsuarioNetvalle);
     #endregion
     #region RUsuario
     [OperationContract]
@@ -100,6 +104,11 @@ public interface ISWLNReciclado
     #region ECampaniaFinalizadaCompleja
     [OperationContract]
     ECampaniaFinalizadaCompleja Obtener_ECampaniaFinalizadaCompleja_O_Campania(string Campania, string Sede);
+    #endregion
+
+    #region LNReciclaje
+    [OperationContract]
+    ERUsuarioNetvalle RUsuarioNetvalle_RUsuaro_I(string tarjeta);
     #endregion
 
     //Añadidas

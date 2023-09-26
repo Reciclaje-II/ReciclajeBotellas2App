@@ -34,6 +34,8 @@ public interface ISWADNETReciclado
     ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Codigo(string codigoUsuarioNetvalle);
     [OperationContract]
     ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetvalle);
+    [OperationContract]
+    void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario,string codigoUsuarioNetvalle, string nombresUsuarioNetvalle,string apellidosUsuarioNetvalle, string cargoUsuarioNetvalle, string tarjetaUsuarioNetvalle, string sedeUsuarioNetvalle);
     #endregion
     #region Tabla : RCampania
     [OperationContract]

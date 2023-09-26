@@ -164,6 +164,18 @@
   <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_TarjetaResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNReciclado_Obtener_RUsuario_O_Codigo_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_RUsuario_O_Codigo" />
   </wsdl:message>
@@ -217,6 +229,12 @@
   </wsdl:message>
   <wsdl:message name="ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:RUsuarioNetvalle_RUsuaro_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RUsuarioNetvalle_RUsuaro_IResponse" />
   </wsdl:message>
   <wsdl:message name="ISWLNReciclado_Descifrado_InputMessage">
     <wsdl:part name="parameters" element="tns:Descifrado" />
@@ -347,6 +365,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_TarjetaResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" message="tns:ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuarioResponse" message="tns:ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Obtener_RUsuario_O_Codigo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_Codigo" message="tns:ISWLNReciclado_Obtener_RUsuario_O_Codigo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_CodigoResponse" message="tns:ISWLNReciclado_Obtener_RUsuario_O_Codigo_OutputMessage" />
@@ -382,6 +408,10 @@
     <wsdl:operation name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_Campania" message="tns:ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RUsuarioNetvalle_RUsuaro_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_I" message="tns:ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_IResponse" message="tns:ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Descifrado">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Descifrado" message="tns:ISWLNReciclado_Descifrado_InputMessage" />
@@ -636,6 +666,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Obtener_RUsuario_O_Codigo">
       <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_Codigo" style="document" />
       <wsdl:input>
@@ -710,6 +758,15 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
       <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RUsuarioNetvalle_RUsuaro_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_I" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

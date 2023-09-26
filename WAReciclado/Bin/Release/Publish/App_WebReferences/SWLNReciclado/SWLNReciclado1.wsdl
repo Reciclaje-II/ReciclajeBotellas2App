@@ -1,0 +1,2079 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="SWLNReciclado" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ISWLNReciclado_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xs:element name="Obtener_RCampania_O_Sede">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampania_O_SedeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RCampania_O_SedeResult" nillable="true" type="q1:ERCampania" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampania_O">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampania_OResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RCampania_OResult" nillable="true" type="q2:ArrayOfERCampania" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampania_O_Sede_Campania">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampaniania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampania_O_Sede_CampaniaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RCampania_O_Sede_CampaniaResult" nillable="true" type="q3:ERCampania" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RCampania_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="descripcionCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="fechaInicioCampania" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="fechaFinCampania" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RCampania_IResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_A">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="descripcionCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="fechaInicioCampania" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="fechaFinCampania" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="sedeCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_AResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_A_Estado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_A_EstadoResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_A_Estado_Cancelado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RCampania_A_Estado_CanceladoResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampaniaOrganizacion_O_Campania">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="campaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RCampaniaOrganizacion_O_CampaniaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RCampaniaOrganizacion_O_CampaniaResult" nillable="true" type="q4:ArrayOfERCampaniaOrganizacion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RCampaniaOrganizacion_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="campaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="organizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RCampaniaOrganizacion_IResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ROrganizacion_O_Nombre">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ROrganizacion_O_NombreResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_ROrganizacion_O_NombreResult" nillable="true" type="q5:EROrganizacion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ROrganizaciones_O">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ROrganizaciones_OResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_ROrganizaciones_OResult" nillable="true" type="q6:ArrayOfEROrganizacion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_ROrganizacion_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_ROrganizacion_IResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_ROrganizacion_A">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_ROrganizacion_AResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Eliminar_ROrganizacion_E_Nombre">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Eliminar_ROrganizacion_E_NombreResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RImagen_O_Organizacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="organizacionImagen" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tipoImagen" type="xs:unsignedByte" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RImagen_O_OrganizacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RImagen_O_OrganizacionResult" nillable="true" type="q7:ArrayOfERImagen" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RVoto_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreOrganizacion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="fechaRegistroVoto" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="donacionVoto" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="estadoVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RVoto_IResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RVoto_A">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreOrganizacion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="fechaRegistroVoto" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="donacionVoto" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="estadoVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RVoto_AResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Codigo_Campania">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="campaniaVoto" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreOrganizacionVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Codigo_CampaniaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RVoto_O_Codigo_CampaniaResult" nillable="true" type="q8:ERVoto" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVotos_O_Campania">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombeCampaniaVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVotos_O_CampaniaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Obtener_RVotos_O_CampaniaResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVotos_O_Campania_Organizacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="campaniaVoto" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombreOrganizacionVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVotos_O_Campania_OrganizacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Obtener_RVotos_O_Campania_OrganizacionResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Donacion_Total">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampaniaVoto" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Donacion_TotalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Obtener_RVoto_O_Donacion_TotalResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Donacion_Maxima">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Donacion_MaximaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RVoto_O_Donacion_MaximaResult" nillable="true" type="q9:ERVoto" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_Organizacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nombreCampania" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RVoto_O_OrganizacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Obtener_RVoto_O_OrganizacionResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sedeUnivalleNetValle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="codigoUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResult" nillable="true" type="q10:ERUsuarioNetvalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Passs" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Rol" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_RolResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_RolResult" nillable="true" type="q11:ERUsuarioNetvalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tarjetaUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_TarjetaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarioNetvalle_O_TarjetaResult" nillable="true" type="q12:ERUsuarioNetvalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tarjetaUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResult" nillable="true" type="q13:ERUsuarioNetvalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RUsuarioNetvalle_y_RUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="roleUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="codigoUsuarioNetvalle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="nombresUsuarioNetvalle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="apellidosUsuarioNetvalle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cargoUsuarioNetvalle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tarjetaUsuarioNetvalle" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sedeUsuarioNetvalle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RUsuarioNetvalle_y_RUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuario_O_Codigo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuario_O_CodigoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuario_O_CodigoResult" nillable="true" type="q14:ERUsuario" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarios_O_Top_Creditos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sedeUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarios_O_Top_CreditosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarios_O_Top_CreditosResult" nillable="true" type="q15:ArrayOfERUsuario" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarios_O_Sede">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sedeUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RUsuarios_O_SedeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RUsuarios_O_SedeResult" nillable="true" type="q16:ArrayOfERUsuario" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RUsuario_A_Creditos_Sede">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuarioNetValle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RUsuario_A_Creditos_SedeResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RUsuario_A_Creditos_Codigo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Creditos" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Actualizar_RUsuario_A_Creditos_CodigoResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RContenedor_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="maquinaContenedor" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="gramosContenedor" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="fechaRegistroContenedor" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Insertar_RContenedor_IResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RContenedor_O_Codigo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_RContenedor_O_CodigoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_RContenedor_O_CodigoResult" nillable="true" type="q17:ArrayOfERContenedor" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_EUsuarioCompleja_O_Sede">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_EUsuarioCompleja_O_SedeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleja_O_SedeResult" nillable="true" type="q18:ArrayOfEUsuarioCompleja" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Campania" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResult" nillable="true" type="q19:ECampaniaFinalizadaCompleja" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RUsuarioNetvalle_RUsuaro_I">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tarjeta" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RUsuarioNetvalle_RUsuaro_IResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="RUsuarioNetvalle_RUsuaro_IResult" nillable="true" type="q20:ERUsuarioNetvalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Descifrado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Texto" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DescifradoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DescifradoResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Cifrar_Cadena">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TextoACifrar" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Cifrar_CadenaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Cifrar_CadenaResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_Empleado_Id_Emp_SedeAcademica">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdEmp" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_Empleado_Id_Emp_SedeAcademicaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_Empleado_Id_Emp_SedeAcademicaResult" nillable="true" type="q21:TupleOfEEmpleadoEMensajeErroraI91Yjnm" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_EmpleadoFotografia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdEmp" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Obtener_EmpleadoFotografiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_EmpleadoFotografiaResult" nillable="true" type="q22:TupleOfbase64BinaryEMensajeErrorlLTIrbuF" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="ERCampania">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DescripcionCampania" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoCampania" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaFinCampania" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaInicioCampania" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaModificacionCampania" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroCampania" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERCampania" nillable="true" type="tns:ERCampania" />
+      <xs:complexType name="ArrayOfERCampania">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ERCampania" nillable="true" type="tns:ERCampania" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfERCampania" nillable="true" type="tns:ArrayOfERCampania" />
+      <xs:complexType name="ArrayOfERCampaniaOrganizacion">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ERCampaniaOrganizacion" nillable="true" type="tns:ERCampaniaOrganizacion" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfERCampaniaOrganizacion" nillable="true" type="tns:ArrayOfERCampaniaOrganizacion" />
+      <xs:complexType name="ERCampaniaOrganizacion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoCampaniaOrganizacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaModificacionCampaniaOrganizacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroCampaniaOrganizacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdCampaniaOrganizacion" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERCampaniaOrganizacion" nillable="true" type="tns:ERCampaniaOrganizacion" />
+      <xs:complexType name="EROrganizacion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DescripcionOrganizacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoOrganizacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaModificacionOrganizacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroOrganizacion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NombreOrganizacion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EROrganizacion" nillable="true" type="tns:EROrganizacion" />
+      <xs:complexType name="ArrayOfEROrganizacion">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EROrganizacion" nillable="true" type="tns:EROrganizacion" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEROrganizacion" nillable="true" type="tns:ArrayOfEROrganizacion" />
+      <xs:complexType name="ArrayOfERImagen">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ERImagen" nillable="true" type="tns:ERImagen" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfERImagen" nillable="true" type="tns:ArrayOfERImagen" />
+      <xs:complexType name="ERImagen">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EstadoImagen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaModificacionImagen" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroImagen" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NombreImagen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizacionImagen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoImagen" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERImagen" nillable="true" type="tns:ERImagen" />
+      <xs:complexType name="ERVoto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampaniaVoto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DonacionVoto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoVoto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaModificacionVoto" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroVoto" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdVoto" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizacionVoto" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERVoto" nillable="true" type="tns:ERVoto" />
+      <xs:complexType name="ERUsuarioNetvalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApellidosUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CargoUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaModificacionUsuarioNetvalle" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroUsuarioNetvalle" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NombresUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SedeUsuarioNetvalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TarjetaUsuarioNetvalle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERUsuarioNetvalle" nillable="true" type="tns:ERUsuarioNetvalle" />
+      <xs:complexType name="ERUsuario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditosUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RolUsuario" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERUsuario" nillable="true" type="tns:ERUsuario" />
+      <xs:complexType name="ArrayOfERUsuario">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ERUsuario" nillable="true" type="tns:ERUsuario" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfERUsuario" nillable="true" type="tns:ArrayOfERUsuario" />
+      <xs:complexType name="ArrayOfERContenedor">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ERContenedor" nillable="true" type="tns:ERContenedor" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfERContenedor" nillable="true" type="tns:ArrayOfERContenedor" />
+      <xs:complexType name="ERContenedor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoContenedor" type="ser:char" />
+          <xs:element minOccurs="0" name="FechaModificacionContenedor" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaRegistroContenedor" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GramosContenedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdMaquinaContenedor" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ERContenedor" nillable="true" type="tns:ERContenedor" />
+      <xs:complexType name="ArrayOfEUsuarioCompleja">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EUsuarioCompleja" nillable="true" type="tns:EUsuarioCompleja" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEUsuarioCompleja" nillable="true" type="tns:ArrayOfEUsuarioCompleja" />
+      <xs:complexType name="EUsuarioCompleja">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Creditos" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EUsuarioCompleja" nillable="true" type="tns:EUsuarioCompleja" />
+      <xs:complexType name="ECampaniaFinalizadaCompleja">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DonacionCampania" type="xs:int" />
+          <xs:element minOccurs="0" name="MejorDonadorCampania" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizacionCampania" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecaudacionCampania" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ECampaniaFinalizadaCompleja" nillable="true" type="tns:ECampaniaFinalizadaCompleja" />
+      <xs:complexType name="EEmpleado">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cargo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoEmpleado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CorreoElectronico" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CorreoPersonal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CuentaEmpleado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id_Departamento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NombreSedeAcademica" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Oficina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimerApellido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimerNombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SedeAcademica" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SegundoApellido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SegundoNombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TelefonoFijo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TelefonoMovil" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EEmpleado" nillable="true" type="tns:EEmpleado" />
+      <xs:complexType name="EMensajeError">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="EMensajeError" nillable="true" type="tns:EMensajeError" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
+      <xs:complexType name="TupleOfEEmpleadoEMensajeErroraI91Yjnm">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="EEmpleado" Namespace="http://schemas.datacontract.org/2004/07/" />
+              <GenericParameter Name="EMensajeError" Namespace="http://schemas.datacontract.org/2004/07/" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" name="m_Item1" nillable="true" type="q1:EEmpleado" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" name="m_Item2" nillable="true" type="q2:EMensajeError" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TupleOfEEmpleadoEMensajeErroraI91Yjnm" nillable="true" type="tns:TupleOfEEmpleadoEMensajeErroraI91Yjnm" />
+      <xs:complexType name="TupleOfbase64BinaryEMensajeErrorlLTIrbuF">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="base64Binary" Namespace="http://www.w3.org/2001/XMLSchema" />
+              <GenericParameter Name="EMensajeError" Namespace="http://schemas.datacontract.org/2004/07/" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="m_Item1" nillable="true" type="xs:base64Binary" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" name="m_Item2" nillable="true" type="q3:EMensajeError" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TupleOfbase64BinaryEMensajeErrorlLTIrbuF" nillable="true" type="tns:TupleOfbase64BinaryEMensajeErrorlLTIrbuF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_Sede_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_Sede_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampania_O_Sede_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_Sede_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RCampania_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampania_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RCampania_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampania_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_Estado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_Estado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_EstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_Estado_Cancelado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado_Cancelado" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RCampania_A_Estado_Cancelado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado_CanceladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampaniaOrganizacion_O_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampaniaOrganizacion_O_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RCampaniaOrganizacion_O_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampaniaOrganizacion_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RCampaniaOrganizacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampaniaOrganizacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RCampaniaOrganizacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampaniaOrganizacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ROrganizacion_O_Nombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizacion_O_Nombre" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ROrganizacion_O_Nombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizacion_O_NombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ROrganizaciones_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizaciones_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ROrganizaciones_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizaciones_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_ROrganizacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_ROrganizacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_ROrganizacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_ROrganizacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_ROrganizacion_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_ROrganizacion_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_ROrganizacion_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_ROrganizacion_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Eliminar_ROrganizacion_E_Nombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_ROrganizacion_E_Nombre" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Eliminar_ROrganizacion_E_Nombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_ROrganizacion_E_NombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RImagen_O_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RImagen_O_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RImagen_O_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RImagen_O_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RVoto_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RVoto_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RVoto_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RVoto_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RVoto_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RVoto_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RVoto_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RVoto_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Codigo_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Codigo_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Codigo_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Codigo_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVotos_O_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVotos_O_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVotos_O_Campania_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVotos_O_Campania_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Donacion_Total_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_Total" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Donacion_Total_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_TotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Donacion_Maxima_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_Maxima" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Donacion_Maxima_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_MaximaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RVoto_O_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Codigo_Pass_RolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_TarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuario_O_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuario_O_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuario_O_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuario_O_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarios_O_Top_Creditos_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Top_Creditos" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarios_O_Top_Creditos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Top_CreditosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarios_O_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RUsuarios_O_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RContenedor_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RContenedor_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Insertar_RContenedor_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RContenedor_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RContenedor_O_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RContenedor_O_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_RContenedor_O_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RContenedor_O_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_EUsuarioCompleja_O_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EUsuarioCompleja_O_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_EUsuarioCompleja_O_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EUsuarioCompleja_O_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ECampaniaFinalizadaCompleja_O_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:RUsuarioNetvalle_RUsuaro_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RUsuarioNetvalle_RUsuaro_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Descifrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Descifrado" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Descifrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DescifradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Cifrar_Cadena_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cifrar_Cadena" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Cifrar_Cadena_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Cifrar_CadenaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_Empleado_Id_Emp_SedeAcademica_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_Empleado_Id_Emp_SedeAcademica" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_Empleado_Id_Emp_SedeAcademica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_Empleado_Id_Emp_SedeAcademicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_EmpleadoFotografia_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EmpleadoFotografia" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNReciclado_Obtener_EmpleadoFotografia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EmpleadoFotografiaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISWLNReciclado">
+    <wsdl:operation name="Obtener_RCampania_O_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede" message="tns:ISWLNReciclado_Obtener_RCampania_O_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_SedeResponse" message="tns:ISWLNReciclado_Obtener_RCampania_O_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O" message="tns:ISWLNReciclado_Obtener_RCampania_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_OResponse" message="tns:ISWLNReciclado_Obtener_RCampania_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O_Sede_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede_Campania" message="tns:ISWLNReciclado_Obtener_RCampania_O_Sede_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_RCampania_O_Sede_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampania_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RCampania_I" message="tns:ISWLNReciclado_Insertar_RCampania_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RCampania_IResponse" message="tns:ISWLNReciclado_Insertar_RCampania_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A" message="tns:ISWLNReciclado_Actualizar_RCampania_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_AResponse" message="tns:ISWLNReciclado_Actualizar_RCampania_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado" message="tns:ISWLNReciclado_Actualizar_RCampania_A_Estado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_EstadoResponse" message="tns:ISWLNReciclado_Actualizar_RCampania_A_Estado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado_Cancelado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado_Cancelado" message="tns:ISWLNReciclado_Actualizar_RCampania_A_Estado_Cancelado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado_CanceladoResponse" message="tns:ISWLNReciclado_Actualizar_RCampania_A_Estado_Cancelado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampaniaOrganizacion_O_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampaniaOrganizacion_O_Campania" message="tns:ISWLNReciclado_Obtener_RCampaniaOrganizacion_O_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RCampaniaOrganizacion_O_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_RCampaniaOrganizacion_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampaniaOrganizacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RCampaniaOrganizacion_I" message="tns:ISWLNReciclado_Insertar_RCampaniaOrganizacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RCampaniaOrganizacion_IResponse" message="tns:ISWLNReciclado_Insertar_RCampaniaOrganizacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizacion_O_Nombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizacion_O_Nombre" message="tns:ISWLNReciclado_Obtener_ROrganizacion_O_Nombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizacion_O_NombreResponse" message="tns:ISWLNReciclado_Obtener_ROrganizacion_O_Nombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizaciones_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizaciones_O" message="tns:ISWLNReciclado_Obtener_ROrganizaciones_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizaciones_OResponse" message="tns:ISWLNReciclado_Obtener_ROrganizaciones_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_ROrganizacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_ROrganizacion_I" message="tns:ISWLNReciclado_Insertar_ROrganizacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_ROrganizacion_IResponse" message="tns:ISWLNReciclado_Insertar_ROrganizacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_ROrganizacion_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_ROrganizacion_A" message="tns:ISWLNReciclado_Actualizar_ROrganizacion_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_ROrganizacion_AResponse" message="tns:ISWLNReciclado_Actualizar_ROrganizacion_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_ROrganizacion_E_Nombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Eliminar_ROrganizacion_E_Nombre" message="tns:ISWLNReciclado_Eliminar_ROrganizacion_E_Nombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Eliminar_ROrganizacion_E_NombreResponse" message="tns:ISWLNReciclado_Eliminar_ROrganizacion_E_Nombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RImagen_O_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RImagen_O_Organizacion" message="tns:ISWLNReciclado_Obtener_RImagen_O_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RImagen_O_OrganizacionResponse" message="tns:ISWLNReciclado_Obtener_RImagen_O_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RVoto_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RVoto_I" message="tns:ISWLNReciclado_Insertar_RVoto_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RVoto_IResponse" message="tns:ISWLNReciclado_Insertar_RVoto_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RVoto_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RVoto_A" message="tns:ISWLNReciclado_Actualizar_RVoto_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RVoto_AResponse" message="tns:ISWLNReciclado_Actualizar_RVoto_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Codigo_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Codigo_Campania" message="tns:ISWLNReciclado_Obtener_RVoto_O_Codigo_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Codigo_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_RVoto_O_Codigo_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania" message="tns:ISWLNReciclado_Obtener_RVotos_O_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_RVotos_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania_Organizacion" message="tns:ISWLNReciclado_Obtener_RVotos_O_Campania_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania_OrganizacionResponse" message="tns:ISWLNReciclado_Obtener_RVotos_O_Campania_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Total">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Total" message="tns:ISWLNReciclado_Obtener_RVoto_O_Donacion_Total_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_TotalResponse" message="tns:ISWLNReciclado_Obtener_RVoto_O_Donacion_Total_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Maxima">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Maxima" message="tns:ISWLNReciclado_Obtener_RVoto_O_Donacion_Maxima_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_MaximaResponse" message="tns:ISWLNReciclado_Obtener_RVoto_O_Donacion_Maxima_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Organizacion" message="tns:ISWLNReciclado_Obtener_RVoto_O_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_OrganizacionResponse" message="tns:ISWLNReciclado_Obtener_RVoto_O_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Codigo_Pass_RolResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_TarjetaResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValleResponse" message="tns:ISWLNReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" message="tns:ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuarioResponse" message="tns:ISWLNReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuario_O_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_Codigo" message="tns:ISWLNReciclado_Obtener_RUsuario_O_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_CodigoResponse" message="tns:ISWLNReciclado_Obtener_RUsuario_O_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Top_Creditos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Top_Creditos" message="tns:ISWLNReciclado_Obtener_RUsuarios_O_Top_Creditos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Top_CreditosResponse" message="tns:ISWLNReciclado_Obtener_RUsuarios_O_Top_Creditos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Sede" message="tns:ISWLNReciclado_Obtener_RUsuarios_O_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_SedeResponse" message="tns:ISWLNReciclado_Obtener_RUsuarios_O_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Sede" message="tns:ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_SedeResponse" message="tns:ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Codigo" message="tns:ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_CodigoResponse" message="tns:ISWLNReciclado_Actualizar_RUsuario_A_Creditos_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RContenedor_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RContenedor_I" message="tns:ISWLNReciclado_Insertar_RContenedor_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Insertar_RContenedor_IResponse" message="tns:ISWLNReciclado_Insertar_RContenedor_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RContenedor_O_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RContenedor_O_Codigo" message="tns:ISWLNReciclado_Obtener_RContenedor_O_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_RContenedor_O_CodigoResponse" message="tns:ISWLNReciclado_Obtener_RContenedor_O_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EUsuarioCompleja_O_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_EUsuarioCompleja_O_Sede" message="tns:ISWLNReciclado_Obtener_EUsuarioCompleja_O_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_EUsuarioCompleja_O_SedeResponse" message="tns:ISWLNReciclado_Obtener_EUsuarioCompleja_O_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_Campania" message="tns:ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_CampaniaResponse" message="tns:ISWLNReciclado_Obtener_ECampaniaFinalizadaCompleja_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RUsuarioNetvalle_RUsuaro_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_I" message="tns:ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_IResponse" message="tns:ISWLNReciclado_RUsuarioNetvalle_RUsuaro_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Descifrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Descifrado" message="tns:ISWLNReciclado_Descifrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/DescifradoResponse" message="tns:ISWLNReciclado_Descifrado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cifrar_Cadena">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Cifrar_Cadena" message="tns:ISWLNReciclado_Cifrar_Cadena_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Cifrar_CadenaResponse" message="tns:ISWLNReciclado_Cifrar_Cadena_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_Empleado_Id_Emp_SedeAcademica">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_Empleado_Id_Emp_SedeAcademica" message="tns:ISWLNReciclado_Obtener_Empleado_Id_Emp_SedeAcademica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_Empleado_Id_Emp_SedeAcademicaResponse" message="tns:ISWLNReciclado_Obtener_Empleado_Id_Emp_SedeAcademica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EmpleadoFotografia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_EmpleadoFotografia" message="tns:ISWLNReciclado_Obtener_EmpleadoFotografia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNReciclado/Obtener_EmpleadoFotografiaResponse" message="tns:ISWLNReciclado_Obtener_EmpleadoFotografia_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISWLNReciclado" type="tns:ISWLNReciclado">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Obtener_RCampania_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O_Sede_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampania_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RCampania_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado_Cancelado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado_Cancelado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampaniaOrganizacion_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampaniaOrganizacion_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampaniaOrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RCampaniaOrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizacion_O_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizacion_O_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizaciones_O">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizaciones_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_ROrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_ROrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_ROrganizacion_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_ROrganizacion_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_ROrganizacion_E_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Eliminar_ROrganizacion_E_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RImagen_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RImagen_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RVoto_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RVoto_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RVoto_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RVoto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Codigo_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Codigo_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Total">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Total" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Maxima">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Maxima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuario_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Top_Creditos">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Top_Creditos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RContenedor_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RContenedor_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RContenedor_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RContenedor_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EUsuarioCompleja_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_EUsuarioCompleja_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RUsuarioNetvalle_RUsuaro_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Descifrado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Descifrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cifrar_Cadena">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Cifrar_Cadena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_Empleado_Id_Emp_SedeAcademica">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_Empleado_Id_Emp_SedeAcademica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EmpleadoFotografia">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_EmpleadoFotografia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ISWLNReciclado" type="tns:ISWLNReciclado">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ISWLNReciclado_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Obtener_RCampania_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O_Sede_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampania_O_Sede_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampania_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RCampania_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado_Cancelado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RCampania_A_Estado_Cancelado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampaniaOrganizacion_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RCampaniaOrganizacion_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampaniaOrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RCampaniaOrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizacion_O_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizacion_O_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizaciones_O">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ROrganizaciones_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_ROrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_ROrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_ROrganizacion_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_ROrganizacion_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_ROrganizacion_E_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Eliminar_ROrganizacion_E_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RImagen_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RImagen_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RVoto_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RVoto_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RVoto_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RVoto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Codigo_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Codigo_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVotos_O_Campania_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Total">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Total" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Maxima">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Donacion_Maxima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RVoto_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Codigo_Pass_Rol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuario_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuario_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Top_Creditos">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Top_Creditos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RUsuarios_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Actualizar_RUsuario_A_Creditos_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RContenedor_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Insertar_RContenedor_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RContenedor_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_RContenedor_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EUsuarioCompleja_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_EUsuarioCompleja_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ECampaniaFinalizadaCompleja_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_ECampaniaFinalizadaCompleja_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RUsuarioNetvalle_RUsuaro_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/RUsuarioNetvalle_RUsuaro_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Descifrado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Descifrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cifrar_Cadena">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Cifrar_Cadena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_Empleado_Id_Emp_SedeAcademica">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_Empleado_Id_Emp_SedeAcademica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EmpleadoFotografia">
+      <soap:operation soapAction="http://tempuri.org/ISWLNReciclado/Obtener_EmpleadoFotografia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SWLNReciclado">
+    <wsdl:port name="BasicHttpBinding_ISWLNReciclado" binding="tns:BasicHttpBinding_ISWLNReciclado">
+      <soap:address location="http://academic-dev/SWLNReciclado/SWLNReciclado.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ISWLNReciclado" binding="tns:BasicHttpsBinding_ISWLNReciclado">
+      <soap:address location="https://academic-dev.univalle.edu/SWLNReciclado/SWLNReciclado.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

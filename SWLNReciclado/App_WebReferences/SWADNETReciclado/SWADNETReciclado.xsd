@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ERVoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampaniaVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DonacionVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoVoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionVoto" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroVoto" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdVoto" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizacionVoto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERVoto" nillable="true" type="tns:ERVoto" />
+  <xs:complexType name="ERUsuarioNetvalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidosUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CargoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionUsuarioNetvalle" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroUsuarioNetvalle" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombresUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TarjetaUsuarioNetvalle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERUsuarioNetvalle" nillable="true" type="tns:ERUsuarioNetvalle" />
+  <xs:complexType name="ERCampania">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescripcionCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFinCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicioCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaModificacionCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroCampania" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombreCampania" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeCampania" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERCampania" nillable="true" type="tns:ERCampania" />
+  <xs:complexType name="ArrayOfERCampania">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ERCampania" nillable="true" type="tns:ERCampania" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfERCampania" nillable="true" type="tns:ArrayOfERCampania" />
+  <xs:complexType name="ERCampaniaOrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampaniaCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoCampaniaOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionCampaniaOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroCampaniaOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdCampaniaOrganizacion" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizacionCampaniaOrganizacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERCampaniaOrganizacion" nillable="true" type="tns:ERCampaniaOrganizacion" />
+  <xs:complexType name="ArrayOfERCampaniaOrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ERCampaniaOrganizacion" nillable="true" type="tns:ERCampaniaOrganizacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfERCampaniaOrganizacion" nillable="true" type="tns:ArrayOfERCampaniaOrganizacion" />
+  <xs:complexType name="EROrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescripcionOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoOrganizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroOrganizacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombreOrganizacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EROrganizacion" nillable="true" type="tns:EROrganizacion" />
+  <xs:complexType name="ArrayOfEROrganizacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EROrganizacion" nillable="true" type="tns:EROrganizacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEROrganizacion" nillable="true" type="tns:ArrayOfEROrganizacion" />
+  <xs:complexType name="ERImagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstadoImagen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacionImagen" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroImagen" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombreImagen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizacionImagen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoImagen" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERImagen" nillable="true" type="tns:ERImagen" />
+  <xs:complexType name="ArrayOfERImagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ERImagen" nillable="true" type="tns:ERImagen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfERImagen" nillable="true" type="tns:ArrayOfERImagen" />
+  <xs:complexType name="ERUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditosUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERUsuario" nillable="true" type="tns:ERUsuario" />
+  <xs:complexType name="ArrayOfERUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ERUsuario" nillable="true" type="tns:ERUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfERUsuario" nillable="true" type="tns:ArrayOfERUsuario" />
+  <xs:complexType name="ERContenedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoContenedor" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaModificacionContenedor" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistroContenedor" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GramosContenedor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdMaquinaContenedor" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ERContenedor" nillable="true" type="tns:ERContenedor" />
+  <xs:complexType name="ArrayOfERContenedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ERContenedor" nillable="true" type="tns:ERContenedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfERContenedor" nillable="true" type="tns:ArrayOfERContenedor" />
+</xs:schema>

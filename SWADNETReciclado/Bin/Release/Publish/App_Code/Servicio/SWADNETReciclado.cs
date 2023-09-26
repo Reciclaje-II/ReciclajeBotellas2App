@@ -85,6 +85,17 @@ public class SWADNETReciclado : ISWADNETReciclado
         eRUsuarioNetvalle = cRUsuarioNetvalle.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetvalle);
         return eRUsuarioNetvalle;
     }
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario, string codigoUsuarioNetvalle, string nombresUsuarioNetvalle, string apellidosUsuarioNetvalle, string cargoUsuarioNetvalle, string tarjetaUsuarioNetvalle, string sedeUsuarioNetvalle)
+    {
+        CRUsuarioNetvalle cRUsuarioNetvalle = new CRUsuarioNetvalle();
+        cRUsuarioNetvalle.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+    }
     #endregion
     #region Tabla : RCampania
     public ERCampania Obtener_RCampania_O_Sede(string sedeCampania)
@@ -243,5 +254,7 @@ public class SWADNETReciclado : ISWADNETReciclado
         lsteRContenedor = cRContenedor.Obtener_RContenedor_O_Codigo(codigoUsuario);
         return lsteRContenedor;
     }
+
+ 
     #endregion
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="aba49702-02c1-4dcd-87ce-dba3db00f652" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61264/SWADNETReciclado.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SWADNETReciclado.wsdl" MetadataType="Wsdl" ID="9fd6a01d-9e9c-4a8f-b35b-860089b86e87" SourceId="1" SourceUrl="http://localhost:61264/SWADNETReciclado.svc?wsdl" />
+    <MetadataFile FileName="SWADNETReciclado.disco" MetadataType="Disco" ID="27d118a9-3ff6-4d31-a0c8-138e72bfb967" SourceId="1" SourceUrl="http://localhost:61264/SWADNETReciclado.svc?disco" />
+    <MetadataFile FileName="SWADNETReciclado.xsd" MetadataType="Schema" ID="4bec6401-b79d-4257-bf98-c0243e620ee4" SourceId="1" SourceUrl="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd2" />
+    <MetadataFile FileName="SWADNETReciclado2.xsd" MetadataType="Schema" ID="03ef2441-5a4a-457e-9295-bfcc48191c15" SourceId="1" SourceUrl="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd1" />
+    <MetadataFile FileName="SWADNETReciclado3.xsd" MetadataType="Schema" ID="164da6d9-2588-435f-b542-de1fd0a26ef6" SourceId="1" SourceUrl="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

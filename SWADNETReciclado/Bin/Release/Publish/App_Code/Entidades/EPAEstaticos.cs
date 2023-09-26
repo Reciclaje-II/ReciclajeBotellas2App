@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
@@ -26,7 +27,8 @@ public class EPAEstaticos
     static public DateTime FechaRegistro = DateTime.Now;
     [DataMember]
     static public double DonacionVoto = 0;
-
+    [DataMember]
+    static public double CreditosUsuario = 0;
     public EPAEstaticos()
     {
 

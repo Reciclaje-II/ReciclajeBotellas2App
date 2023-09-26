@@ -4,7 +4,9 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web;
 using System.Web.UI.WebControls;
-using SWADNETRecicladoReference;
+using System.Xml;
+using SWADNETReciclado;
+using SWReciclaje;
 
 /// <summary>
 /// Descripción breve de CReciclado
@@ -53,7 +55,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             //if (feaultEx == null)
             //{
-                erCampania = asNetReciclado.Obtener_RCampania_O_Sede(sedeCampania);
+            erCampania = asNetReciclado.Obtener_RCampania_O_Sede(sedeCampania);
             //}
             //else
             //{
@@ -308,7 +310,7 @@ public class CReciclado
         try
         {
             erOganizacion = asNetReciclado.Obtener_ROrganizacion_O_Nombre(nombre);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -337,7 +339,7 @@ public class CReciclado
         try
         {
             lstErOrganizacion = asNetReciclado.Obtener_ROrganizaciones_O();
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -362,7 +364,7 @@ public class CReciclado
     }
     public void Insertar_ROrganizacion_I(string nombreOrganizacion, string descripcionOrganizacion)
     {
-        EROrganizacion eROrganizacion = new EROrganizacion();       
+        EROrganizacion eROrganizacion = new EROrganizacion();
         try
         {
             eROrganizacion.NombreOrganizacion = nombreOrganizacion;
@@ -452,7 +454,7 @@ public class CReciclado
         try
         {
             lstErImagen = asNetReciclado.Obtener_RImagen_O_Organizacion(organizacionImagen, tipoImagen);
-           
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -479,7 +481,7 @@ public class CReciclado
     #region RVoto
     public void Insertar_RVoto_I(string codigoUsuario, string nombreCampania, string nombreOrganizacion, DateTime fechaRegistroVoto, string donacionVoto, string estadoVoto)
     {
-        ERVoto eRVoto = new ERVoto();        
+        ERVoto eRVoto = new ERVoto();
         try
         {
             eRVoto.CodigoUsuario = codigoUsuario;
@@ -549,7 +551,7 @@ public class CReciclado
         try
         {
             erVoto = asNetReciclado.Obtener_RVoto_O_Codigo_Campania(codigoUsuario, nombreCampania);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -578,7 +580,7 @@ public class CReciclado
         try
         {
             votos = asNetReciclado.Obtener_RVotos_O_Campania(nombeCampaniaVoto);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -607,7 +609,7 @@ public class CReciclado
         try
         {
             votos = asNetReciclado.Obtener_RVotos_O_Campania_Organizacion(campaniaVoto, nombreOrganizacionVoto);
-           
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -636,7 +638,7 @@ public class CReciclado
         try
         {
             total = asNetReciclado.Obtener_RVoto_O_Donacion_Total(nombreCampaniaVoto);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -665,7 +667,7 @@ public class CReciclado
         try
         {
             erVoto = asNetReciclado.Obtener_RVoto_O_Donacion_Maxima(nombreCampania);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -694,7 +696,7 @@ public class CReciclado
         try
         {
             organizacion = asNetReciclado.Obtener_RVoto_O_Organizacion(nombreCampania);
-           
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -725,7 +727,7 @@ public class CReciclado
         try
         {
             erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo(sedeUsuarioNetValle, codigoUsuarioNetValle);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -755,7 +757,6 @@ public class CReciclado
         try
         {
             erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(codigoUsuarioNetValle);
-            
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -778,13 +779,13 @@ public class CReciclado
         }
         return erUsuarioNetvalle;
     }
-    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetVallee)
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta(string tarjetaUsuarioNetValle)
     {
         ERUsuarioNetvalle erUsuarioNetvalle = new ERUsuarioNetvalle();
         try
         {
-            erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetVallee);
-            
+            erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetValle);
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -796,7 +797,7 @@ public class CReciclado
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetVallee);
+                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetValle);
             }
             else
             {
@@ -807,6 +808,102 @@ public class CReciclado
         }
         return erUsuarioNetvalle;
     }
+
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle(string tarjetaUsuarioNetValle)
+    {
+        ERUsuarioNetvalle erUsuarioNetvalle = new ERUsuarioNetvalle();
+        try
+        {
+            erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetValle);
+            if (erUsuarioNetvalle.CodigoUsuarioNetvalle == string.Empty || erUsuarioNetvalle.CodigoUsuarioNetvalle == null)
+            {
+                erUsuarioNetvalle = RUsuarioNetvalle_RUsuaro_I(tarjetaUsuarioNetValle);
+                if (erUsuarioNetvalle.CodigoUsuarioNetvalle != string.Empty || erUsuarioNetvalle.CodigoUsuarioNetvalle != null)
+                {
+                    Insertar_RUsuarioNetvalle_y_RUsuario("Usuario", erUsuarioNetvalle.CodigoUsuarioNetvalle,
+                        erUsuarioNetvalle.NombresUsuarioNetvalle, erUsuarioNetvalle.ApellidosUsuarioNetvalle,
+                        erUsuarioNetvalle.CargoUsuarioNetvalle, erUsuarioNetvalle.TarjetaUsuarioNetvalle, erUsuarioNetvalle.SedeUsuarioNetvalle);
+                }
+            }
+
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetValle);
+                if (erUsuarioNetvalle.CodigoUsuarioNetvalle == string.Empty || erUsuarioNetvalle.CodigoUsuarioNetvalle == null)
+                {
+                    erUsuarioNetvalle = RUsuarioNetvalle_RUsuaro_I(tarjetaUsuarioNetValle);
+                    if (erUsuarioNetvalle.CodigoUsuarioNetvalle != string.Empty || erUsuarioNetvalle.CodigoUsuarioNetvalle != null)
+                    {
+                        Insertar_RUsuarioNetvalle_y_RUsuario("Usuario", erUsuarioNetvalle.CodigoUsuarioNetvalle,
+                            erUsuarioNetvalle.NombresUsuarioNetvalle, erUsuarioNetvalle.ApellidosUsuarioNetvalle,
+                            erUsuarioNetvalle.CargoUsuarioNetvalle, erUsuarioNetvalle.TarjetaUsuarioNetvalle, erUsuarioNetvalle.SedeUsuarioNetvalle);
+                    }
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+
+        }
+        return erUsuarioNetvalle;
+    }
+
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario,
+        string codigoUsuarioNetvalle,
+        string nombresUsuarioNetvalle,
+        string apellidosUsuarioNetvalle,
+        string cargoUsuarioNetvalle,
+        string tarjetaUsuarioNetvalle,
+        string sedeUsuarioNetvalle)
+    {
+        try
+        {
+            asNetReciclado.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Insertar_RUsuarioNetvalle_y_RUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                asNetReciclado.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+                  codigoUsuarioNetvalle,
+                  nombresUsuarioNetvalle,
+                  apellidosUsuarioNetvalle,
+                  cargoUsuarioNetvalle,
+                  tarjetaUsuarioNetvalle,
+                  sedeUsuarioNetvalle);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Insertar_RUsuarioNetvalle_y_RUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+
+        }
+    }
     #endregion
     #region RUsuario
     public ERUsuario Obtener_RUsuario_O_Codigo(string codigoUsuario)
@@ -815,7 +912,7 @@ public class CReciclado
         try
         {
             erUsuario = asNetReciclado.Obtener_RUsuario_O_Codigo(codigoUsuario);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -844,7 +941,7 @@ public class CReciclado
         try
         {
             lstErUsuario = asNetReciclado.Obtener_RUsuarios_O_Top_Creditos(sedeUsuarioNetValle);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -994,7 +1091,7 @@ public class CReciclado
         try
         {
             lstErContenedor = asNetReciclado.Obtener_RContenedor_O_Codigo(codigoUsuario);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -1033,7 +1130,7 @@ public class CReciclado
             {
                 eUsuarioCompleja = new EUsuarioCompleja();
                 erUsuarioNetvalle = new ERUsuarioNetvalle();
-                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(erUsuario.CodigoUsuario);                
+                erUsuarioNetvalle = asNetReciclado.Obtener_RUsuarioNetvalle_O_Codigo(erUsuario.CodigoUsuario);
                 eUsuarioCompleja.NombreCompleto = erUsuarioNetvalle.NombresUsuarioNetvalle + " " + erUsuarioNetvalle.ApellidosUsuarioNetvalle;
                 eUsuarioCompleja.Creditos = int.Parse(erUsuario.CreditosUsuario);
                 lstEUsuarioCompleja.Add(eUsuarioCompleja);
@@ -1086,7 +1183,7 @@ public class CReciclado
             eCampaniaFinalizadaCompleja.DonacionCampania = int.Parse(eRVoto.DonacionVoto);
             eCampaniaFinalizadaCompleja.OrganizacionCampania = asNetReciclado.Obtener_RVoto_O_Organizacion(nombreCampania);
             eCampaniaFinalizadaCompleja.RecaudacionCampania = asNetReciclado.Obtener_RVoto_O_Donacion_Total(nombreCampania);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -1114,6 +1211,113 @@ public class CReciclado
         }
         return eCampaniaFinalizadaCompleja;
     }
+    #endregion
+
+    #region LNReciclaje
+    public ERUsuarioNetvalle RUsuarioNetvalle_RUsuaro_I(string tarjeta)
+    {
+        SWReciclajeClient client = new SWReciclajeClient();
+        ERUsuarioNetvalle usuarioNetvalle = new ERUsuarioNetvalle();
+        //00055840406248
+        string usuarioEncrip = client.Encriptar("Reciclaje1");
+        string claveEncriptada = client.Encriptar("Reciclaje123");
+        string tarjetaEncriptada = client.Encriptar(tarjeta);
+
+        object result = client.ObtenerInformacionEstudiante(usuarioEncrip, claveEncriptada, tarjetaEncriptada);
+
+        result = client.Desencriptar(result.ToString());
+
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(result.ToString());
+
+        XmlNode root = xmlDoc.DocumentElement;
+
+        XmlNode XMLCodigo = root.SelectSingleNode("Codigo");
+        XmlNode XMLMensaje = root.SelectSingleNode("Mensaje");
+        if (XMLMensaje != null && XMLCodigo != null)
+        {
+            usuarioNetvalle.NombresUsuarioNetvalle = XMLCodigo.InnerText.ToString() + "," + XMLMensaje.InnerText.ToString();
+            return usuarioNetvalle;
+        }
+        else
+        {
+            XmlNode XMLcarrera = root.SelectSingleNode("Carrera");
+            XmlNode XMLcodigoUsuario = root.SelectSingleNode("CodigoUsuario");
+            XmlNode XMLcodigoSedeAcademica = root.SelectSingleNode("CodigoSedeAcademica");
+            XmlNode XMLnombreCompleto = root.SelectSingleNode("NombreCompleto");
+            XmlNode XMLId_TipoUsuario = root.SelectSingleNode("Id_TipoUsuario");
+
+
+            if (XMLId_TipoUsuario.InnerText.ToString() == "ES" && XMLcarrera.InnerText.ToString()!= string.Empty)
+            {
+                string carrera = XMLcarrera.InnerText;
+                string codigoUsuario = XMLcodigoUsuario.InnerText;
+                string codigoSedeAcademica = XMLcodigoSedeAcademica.InnerText;
+                string nombreCompleto = XMLnombreCompleto.InnerText;
+                string[] nombreCompletoEstudiante = nombreCompleto.Split(' ');
+                if (codigoSedeAcademica == "C")
+                {
+                    codigoSedeAcademica = "Cochabamba";
+                }
+
+                usuarioNetvalle.CodigoUsuarioNetvalle = codigoUsuario;
+                usuarioNetvalle.SedeUsuarioNetvalle = codigoSedeAcademica;
+                usuarioNetvalle.TarjetaUsuarioNetvalle = tarjeta;
+                usuarioNetvalle.CargoUsuarioNetvalle = "Estudiante";
+                
+                usuarioNetvalle.EstadoUsuarioNetvalle = EPAEstaticos.EstadoActiva;
+                usuarioNetvalle.FechaModificacionUsuarioNetvalle = EPAEstaticos.FechaModificacion;
+                usuarioNetvalle.FechaRegistroUsuarioNetvalle = EPAEstaticos.FechaRegistro;
+                if (nombreCompletoEstudiante.Length > 3)
+                {
+                    usuarioNetvalle.NombresUsuarioNetvalle = nombreCompletoEstudiante[2] + " " + nombreCompletoEstudiante[3];
+                    usuarioNetvalle.ApellidosUsuarioNetvalle = nombreCompletoEstudiante[0] + " " + nombreCompletoEstudiante[1];
+                }
+                usuarioNetvalle.NombresUsuarioNetvalle = nombreCompletoEstudiante[2];
+                usuarioNetvalle.ApellidosUsuarioNetvalle = nombreCompletoEstudiante[0] + " " + nombreCompletoEstudiante[1];
+                return usuarioNetvalle;
+            }
+            else
+            {
+                if(XMLId_TipoUsuario.InnerText.ToString() == "AD" && XMLcarrera.InnerText.ToString() == string.Empty)
+                {
+                    string carrera = XMLcarrera.InnerText;
+                    string codigoUsuario = XMLcodigoUsuario.InnerText;
+                    string codigoSedeAcademica = XMLcodigoSedeAcademica.InnerText;
+                    string nombreCompleto = XMLnombreCompleto.InnerText;
+                    string[] nombreCompletoEstudiante = nombreCompleto.Split(' ');
+                    {
+                        codigoSedeAcademica = "Cochabamba";
+                    }
+
+                    usuarioNetvalle.CodigoUsuarioNetvalle = codigoUsuario;
+                    usuarioNetvalle.SedeUsuarioNetvalle = codigoSedeAcademica;
+                    usuarioNetvalle.TarjetaUsuarioNetvalle = tarjeta;
+                    usuarioNetvalle.CargoUsuarioNetvalle = "Administrador";
+
+                    usuarioNetvalle.EstadoUsuarioNetvalle = EPAEstaticos.EstadoActiva;
+                    usuarioNetvalle.FechaModificacionUsuarioNetvalle = EPAEstaticos.FechaModificacion;
+                    usuarioNetvalle.FechaRegistroUsuarioNetvalle = EPAEstaticos.FechaRegistro;
+                    if (nombreCompletoEstudiante.Length > 3)
+                    {
+                        usuarioNetvalle.NombresUsuarioNetvalle = nombreCompletoEstudiante[2] + " " + nombreCompletoEstudiante[3];
+                        usuarioNetvalle.ApellidosUsuarioNetvalle = nombreCompletoEstudiante[0] + " " + nombreCompletoEstudiante[1];
+                    }
+                    usuarioNetvalle.NombresUsuarioNetvalle = nombreCompletoEstudiante[2];
+                    usuarioNetvalle.ApellidosUsuarioNetvalle = nombreCompletoEstudiante[0] + " " + nombreCompletoEstudiante[1];
+                    return usuarioNetvalle;
+                }
+                usuarioNetvalle.NombresUsuarioNetvalle = "Cuenta no habilitada";
+                return usuarioNetvalle;
+            }
+        }
+        return usuarioNetvalle;
+
+
+
+    }
+
+
     #endregion
     #endregion
 }

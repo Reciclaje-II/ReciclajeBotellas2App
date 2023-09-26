@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="SWADNETReciclado" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:61264/SWADNETReciclado.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RVoto_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RVoto_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RVoto_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RVoto_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RVoto_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RVoto_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RVoto_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RVoto_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Codigo_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Codigo_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Codigo_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Codigo_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVotos_O_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVotos_O_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVotos_O_Campania_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVotos_O_Campania_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVotos_O_Campania_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Donacion_Total_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_Total" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Donacion_Total_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_TotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Donacion_Maxima_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_Maxima" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Donacion_Maxima_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Donacion_MaximaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RVoto_O_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RVoto_O_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_Tarjeta" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarioNetvalle_O_TarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RUsuarioNetvalle_y_RUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampania_O_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampania_O_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampania_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampania_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampania_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RCampania_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampania_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RCampania_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampania_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_Estado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_Estado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_EstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_Estado_Cancelado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado_Cancelado" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RCampania_A_Estado_Cancelado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RCampania_A_Estado_CanceladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RCampaniaOrganizacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampaniaOrganizacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RCampaniaOrganizacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RCampaniaOrganizacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampaniaOrganizacion_O_Campania_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampaniaOrganizacion_O_Campania" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RCampaniaOrganizacion_O_Campania_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RCampaniaOrganizacion_O_CampaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_ROrganizacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_ROrganizacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_ROrganizacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_ROrganizacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_ROrganizacion_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_ROrganizacion_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_ROrganizacion_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_ROrganizacion_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_ROrganizacion_O_Nombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizacion_O_Nombre" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_ROrganizacion_O_Nombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizacion_O_NombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_ROrganizaciones_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizaciones_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_ROrganizaciones_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_ROrganizaciones_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Eliminar_ROrganizacion_E_Nombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_ROrganizacion_E_Nombre" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Eliminar_ROrganizacion_E_Nombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_ROrganizacion_E_NombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RImagen_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RImagen_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RImagen_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RImagen_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RImagen_O_Organizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RImagen_O_Organizacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RImagen_O_Organizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RImagen_O_OrganizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuario_O_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuario_O_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuario_O_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuario_O_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarios_O_Top_Creditos_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Top_Creditos" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarios_O_Top_Creditos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Top_CreditosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarios_O_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RUsuarios_O_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RUsuarios_O_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Sede_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_Sede" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Sede_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_SedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_RUsuario_A_Creditos_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RContenedor_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RContenedor_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Insertar_RContenedor_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_RContenedor_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RContenedor_O_Codigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RContenedor_O_Codigo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETReciclado_Obtener_RContenedor_O_Codigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_RContenedor_O_CodigoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISWADNETReciclado">
+    <wsdl:operation name="Insertar_RVoto_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RVoto_I" message="tns:ISWADNETReciclado_Insertar_RVoto_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RVoto_IResponse" message="tns:ISWADNETReciclado_Insertar_RVoto_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RVoto_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RVoto_A" message="tns:ISWADNETReciclado_Actualizar_RVoto_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RVoto_AResponse" message="tns:ISWADNETReciclado_Actualizar_RVoto_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Codigo_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Codigo_Campania" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Codigo_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Codigo_CampaniaResponse" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Codigo_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_Campania" message="tns:ISWADNETReciclado_Obtener_RVotos_O_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_CampaniaResponse" message="tns:ISWADNETReciclado_Obtener_RVotos_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_Campania_Organizacion" message="tns:ISWADNETReciclado_Obtener_RVotos_O_Campania_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_Campania_OrganizacionResponse" message="tns:ISWADNETReciclado_Obtener_RVotos_O_Campania_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Total">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_Total" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Donacion_Total_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_TotalResponse" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Donacion_Total_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Maxima">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_Maxima" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Donacion_Maxima_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_MaximaResponse" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Donacion_Maxima_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Organizacion" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_OrganizacionResponse" message="tns:ISWADNETReciclado_Obtener_RVoto_O_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_CodigoResponse" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Codigo" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_CodigoResponse" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_TarjetaResponse" message="tns:ISWADNETReciclado_Obtener_RUsuarioNetvalle_O_Tarjeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" message="tns:ISWADNETReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RUsuarioNetvalle_y_RUsuarioResponse" message="tns:ISWADNETReciclado_Insertar_RUsuarioNetvalle_y_RUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_O_Sede" message="tns:ISWADNETReciclado_Obtener_RCampania_O_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_O_SedeResponse" message="tns:ISWADNETReciclado_Obtener_RCampania_O_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_O" message="tns:ISWADNETReciclado_Obtener_RCampania_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_OResponse" message="tns:ISWADNETReciclado_Obtener_RCampania_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampania_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RCampania_I" message="tns:ISWADNETReciclado_Insertar_RCampania_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RCampania_IResponse" message="tns:ISWADNETReciclado_Insertar_RCampania_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_AResponse" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_Estado" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_Estado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_EstadoResponse" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_Estado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado_Cancelado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_Estado_Cancelado" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_Estado_Cancelado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_Estado_CanceladoResponse" message="tns:ISWADNETReciclado_Actualizar_RCampania_A_Estado_Cancelado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampaniaOrganizacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RCampaniaOrganizacion_I" message="tns:ISWADNETReciclado_Insertar_RCampaniaOrganizacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RCampaniaOrganizacion_IResponse" message="tns:ISWADNETReciclado_Insertar_RCampaniaOrganizacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampaniaOrganizacion_O_Campania">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampaniaOrganizacion_O_Campania" message="tns:ISWADNETReciclado_Obtener_RCampaniaOrganizacion_O_Campania_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RCampaniaOrganizacion_O_CampaniaResponse" message="tns:ISWADNETReciclado_Obtener_RCampaniaOrganizacion_O_Campania_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_ROrganizacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_ROrganizacion_I" message="tns:ISWADNETReciclado_Insertar_ROrganizacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_ROrganizacion_IResponse" message="tns:ISWADNETReciclado_Insertar_ROrganizacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_ROrganizacion_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_ROrganizacion_A" message="tns:ISWADNETReciclado_Actualizar_ROrganizacion_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_ROrganizacion_AResponse" message="tns:ISWADNETReciclado_Actualizar_ROrganizacion_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizacion_O_Nombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizacion_O_Nombre" message="tns:ISWADNETReciclado_Obtener_ROrganizacion_O_Nombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizacion_O_NombreResponse" message="tns:ISWADNETReciclado_Obtener_ROrganizacion_O_Nombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizaciones_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizaciones_O" message="tns:ISWADNETReciclado_Obtener_ROrganizaciones_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizaciones_OResponse" message="tns:ISWADNETReciclado_Obtener_ROrganizaciones_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_ROrganizacion_E_Nombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Eliminar_ROrganizacion_E_Nombre" message="tns:ISWADNETReciclado_Eliminar_ROrganizacion_E_Nombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Eliminar_ROrganizacion_E_NombreResponse" message="tns:ISWADNETReciclado_Eliminar_ROrganizacion_E_Nombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RImagen_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RImagen_I" message="tns:ISWADNETReciclado_Insertar_RImagen_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RImagen_IResponse" message="tns:ISWADNETReciclado_Insertar_RImagen_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RImagen_O_Organizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RImagen_O_Organizacion" message="tns:ISWADNETReciclado_Obtener_RImagen_O_Organizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RImagen_O_OrganizacionResponse" message="tns:ISWADNETReciclado_Obtener_RImagen_O_Organizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuario_O_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuario_O_Codigo" message="tns:ISWADNETReciclado_Obtener_RUsuario_O_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuario_O_CodigoResponse" message="tns:ISWADNETReciclado_Obtener_RUsuario_O_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Top_Creditos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_Top_Creditos" message="tns:ISWADNETReciclado_Obtener_RUsuarios_O_Top_Creditos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_Top_CreditosResponse" message="tns:ISWADNETReciclado_Obtener_RUsuarios_O_Top_Creditos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_Sede" message="tns:ISWADNETReciclado_Obtener_RUsuarios_O_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_SedeResponse" message="tns:ISWADNETReciclado_Obtener_RUsuarios_O_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Sede">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_Sede" message="tns:ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Sede_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_SedeResponse" message="tns:ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Sede_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_Codigo" message="tns:ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_CodigoResponse" message="tns:ISWADNETReciclado_Actualizar_RUsuario_A_Creditos_Codigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RContenedor_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RContenedor_I" message="tns:ISWADNETReciclado_Insertar_RContenedor_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Insertar_RContenedor_IResponse" message="tns:ISWADNETReciclado_Insertar_RContenedor_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RContenedor_O_Codigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RContenedor_O_Codigo" message="tns:ISWADNETReciclado_Obtener_RContenedor_O_Codigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETReciclado/Obtener_RContenedor_O_CodigoResponse" message="tns:ISWADNETReciclado_Obtener_RContenedor_O_Codigo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISWADNETReciclado" type="tns:ISWADNETReciclado">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertar_RVoto_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RVoto_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RVoto_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RVoto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Codigo_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Codigo_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVotos_O_Campania_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVotos_O_Campania_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Total">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_Total" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Donacion_Maxima">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Donacion_Maxima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RVoto_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RVoto_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Top_Sede_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarioNetvalle_O_Tarjeta">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarioNetvalle_O_Tarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RUsuarioNetvalle_y_RUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RUsuarioNetvalle_y_RUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampania_O">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RCampania_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampania_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RCampania_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RCampania_A_Estado_Cancelado">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RCampania_A_Estado_Cancelado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RCampaniaOrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RCampaniaOrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RCampaniaOrganizacion_O_Campania">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RCampaniaOrganizacion_O_Campania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_ROrganizacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_ROrganizacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_ROrganizacion_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_ROrganizacion_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizacion_O_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizacion_O_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_ROrganizaciones_O">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_ROrganizaciones_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_ROrganizacion_E_Nombre">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Eliminar_ROrganizacion_E_Nombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RImagen_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RImagen_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RImagen_O_Organizacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RImagen_O_Organizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuario_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuario_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Top_Creditos">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_Top_Creditos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RUsuarios_O_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RUsuarios_O_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Sede">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_Sede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_RUsuario_A_Creditos_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Actualizar_RUsuario_A_Creditos_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_RContenedor_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Insertar_RContenedor_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_RContenedor_O_Codigo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETReciclado/Obtener_RContenedor_O_Codigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SWADNETReciclado">
+    <wsdl:port name="BasicHttpBinding_ISWADNETReciclado" binding="tns:BasicHttpBinding_ISWADNETReciclado">
+      <soap:address location="http://localhost:61264/SWADNETReciclado.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

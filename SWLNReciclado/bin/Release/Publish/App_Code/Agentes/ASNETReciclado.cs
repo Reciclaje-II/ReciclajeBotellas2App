@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.ServiceModel;
 using System.Web;
-using SWADNETRecicladoReference;
+using SWADNETReciclado;
 
 /// <summary>
 /// Descripción breve de ASNETReciclado
@@ -743,6 +743,52 @@ public class ASNETReciclado
 
         }
         return erUsuarioNetvalle;
+    }
+
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario,
+        string codigoUsuarioNetvalle,
+        string nombresUsuarioNetvalle,
+        string apellidosUsuarioNetvalle,
+        string cargoUsuarioNetvalle,
+        string tarjetaUsuarioNetvalle,
+        string sedeUsuarioNetvalle)
+    {
+        try
+        {
+            swADNETReciclado.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Insertar_RUsuarioNetvalle_y_RUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                swADNETReciclado.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Insertar_RUsuarioNetvalle_y_RUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+
+        }
     }
     #endregion
     #region RUsuario

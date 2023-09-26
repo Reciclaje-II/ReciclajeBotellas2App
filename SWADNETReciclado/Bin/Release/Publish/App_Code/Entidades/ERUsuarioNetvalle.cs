@@ -28,7 +28,7 @@ public class ERUsuarioNetvalle
     [DataMember]
     public DateTime FechaModificacionUsuarioNetvalle { get; set; }
     [DataMember]
-    public char EstadoUsuarioNetvalle { get; set; }
+    public string EstadoUsuarioNetvalle { get; set; }
     #endregion
     public ERUsuarioNetvalle()
     {
@@ -40,6 +40,6 @@ public class ERUsuarioNetvalle
         SedeUsuarioNetvalle = string.Empty;
         FechaRegistroUsuarioNetvalle = DateTime.MinValue;
         FechaModificacionUsuarioNetvalle = DateTime.MinValue;
-        EstadoUsuarioNetvalle = char.MinValue;
+        EstadoUsuarioNetvalle = string.Empty;
     }
 }

@@ -109,4 +109,47 @@ public class ADRUsuarioNetvalle
         return dtoRUsuarioNetvalle;
     }
     #endregion
+
+    #region Insertar_RUsuarioNetvalle_y_RUsuario
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(
+        string roleUsuario,
+        string codigoUsuarioNetvalle ,
+        string nombresUsuarioNetvalle ,
+        string apellidosUsuarioNetvalle ,
+        string cargoUsuarioNetvalle ,
+        string tarjetaUsuarioNetvalle ,
+        string sedeUsuarioNetvalle )
+    {
+        DTORUsuarioNetvalle dtoRUsuarioNetvalle = new DTORUsuarioNetvalle();
+        try
+        {
+            Database BDSWADNETReciclado = SBaseDatos.BDSWADNETReciclado;
+            DbCommand dbCommand = BDSWADNETReciclado.GetStoredProcCommand("RUsuarioNetvalle_RUsuaro_I");
+            BDSWADNETReciclado.AddInParameter(dbCommand, "roleUsuario", DbType.String, roleUsuario);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "codigoUsuarioNetvalle", DbType.String, codigoUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "nombresUsuarioNetvalle", DbType.String, nombresUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "apellidosUsuarioNetvalle", DbType.String, apellidosUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "cargoUsuarioNetvalle", DbType.String, cargoUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "tarjetaUsuarioNetvalle", DbType.String, tarjetaUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "sedeUsuarioNetvalle", DbType.String, sedeUsuarioNetvalle);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaModificacionUsuarioNetvalle", DbType.DateTime, EPAEstaticos.FechaModificacion);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "fechaRegistroUsuarioNetvalle", DbType.DateTime, EPAEstaticos.FechaRegistro);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "estadoUsuarioNetvalle", DbType.String, EPAEstaticos.EstadoActiva);
+            BDSWADNETReciclado.AddInParameter(dbCommand, "creditosUsuario", DbType.String, EPAEstaticos.CreditosUsuario);
+            BDSWADNETReciclado.LoadDataSet(dbCommand, dtoRUsuarioNetvalle, "RUsuarioNetvalle");
+        }
+
+        //catch (SqlException SQLEx)
+        //{
+        //    EDefectoAD eDefectoAD = ContruirErrorServicio(TTipoError.BaseDatos, "Insertar_RUsuarioNetvalle_y_RUsuario", SQLEx.ToString(), SQLEx.Message);
+        //    throw new FaultException<EDefectoAD>(eDefectoAD);
+        //}
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+
+    }
+
+    #endregion
 }

@@ -63,5 +63,24 @@ public class CRUsuarioNetvalle
         }
         return eRUsuarioNetvalle;
     }
+
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario,
+        string codigoUsuarioNetvalle,
+        string nombresUsuarioNetvalle,
+        string apellidosUsuarioNetvalle,
+        string cargoUsuarioNetvalle,
+        string tarjetaUsuarioNetvalle,
+        string sedeUsuarioNetvalle)
+    {
+        ERUsuarioNetvalle eRUsuarioNetvalle = new ERUsuarioNetvalle();
+        adRUsuarioNetvalle.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+
+    }
     #endregion
 }

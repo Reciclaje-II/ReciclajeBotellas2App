@@ -1,4 +1,4 @@
-﻿using SWADNETRecicladoReference;
+﻿using SWADNETReciclado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -197,6 +197,25 @@ public class SWLNReciclado : ISWLNReciclado
         erUsuarioNetvalle = cReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta(tarjetaUsuarioNetvalle);
         return erUsuarioNetvalle;
     }
+    public void Insertar_RUsuarioNetvalle_y_RUsuario(string roleUsuario, string codigoUsuarioNetvalle, string nombresUsuarioNetvalle, string apellidosUsuarioNetvalle, string cargoUsuarioNetvalle, string tarjetaUsuarioNetvalle, string sedeUsuarioNetvalle)
+    {
+        CReciclado cReciclado = new CReciclado();
+        cReciclado.Insertar_RUsuarioNetvalle_y_RUsuario(roleUsuario,
+        codigoUsuarioNetvalle,
+        nombresUsuarioNetvalle,
+        apellidosUsuarioNetvalle,
+        cargoUsuarioNetvalle,
+        tarjetaUsuarioNetvalle,
+        sedeUsuarioNetvalle);
+    }
+
+    public ERUsuarioNetvalle Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle(string tarjetaUsuarioNetValle)
+    {
+        CReciclado cReciclado = new CReciclado();
+        ERUsuarioNetvalle erUsuarioNetvalle = new ERUsuarioNetvalle();
+        erUsuarioNetvalle = cReciclado.Obtener_RUsuarioNetvalle_O_Tarjeta_NetValle(tarjetaUsuarioNetValle);
+        return erUsuarioNetvalle;
+    }
     #endregion
     #region RUsuario
     public ERUsuario Obtener_RUsuario_O_Codigo(string Codigo)
@@ -290,4 +309,12 @@ public class SWLNReciclado : ISWLNReciclado
         result = null;
         return result;
     }
+
+    public ERUsuarioNetvalle RUsuarioNetvalle_RUsuaro_I(string tarjeta)
+    {
+        CReciclado cReciclado = new CReciclado();
+        return cReciclado.RUsuarioNetvalle_RUsuaro_I(tarjeta);
+    }
+
+   
 }
